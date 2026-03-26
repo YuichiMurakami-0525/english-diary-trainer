@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>English Diary Trainer</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f172a; color: #e2e8f0; min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+}
+.container { max-width: 480px; margin: 0 auto; padding: 16px; }
+
+/* Header */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; margin-bottom: 16px; border-bottom: 1px solid #1e293b;
+}
+.header h1 { font-size: 18px; color: #38bdf8; }
+.date-badge {
+  background: #1e293b; color: #94a3b8; padding: 4px 12px;
+  border-radius: 20px; font-size: 13px;
+}
+
+/* Tab Navigation */
+.tabs {
+  display: flex; gap: 4px; margin-bottom: 20px;
+  background: #1e293b; border-radius: 12px; padding: 4px;
+}
+.tab {
+  flex: 1; padding: 10px 8px; text-align: center; border-radius: 10px;
+  font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  border: none; background: transparent; color: #64748b;
+}
+.tab.active { background: #38bdf8; color: #0f172a; }
+.tab:hover:not(.active) { color: #e2e8f0; }
+
+/* Section */
+.section { display: none; }
+.section.active { display: block; }
+
+/* Card */
+.card {
+  background: #1e293b; border-radius: 16px; padding: 20px;
+  margin-bottom: 16px; border: 1px solid #334155;
+}
+.card-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+  color: #64748b; margin-bottom: 8px;
+}
+.card-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; line-height: 1.5; }
+
+/* Question */
+.question-num {
+  display: inline-block; background: #38bdf8; color: #0f172a;
+  width: 28px; height: 28px; border-radius: 50%; text-align: center;
+  line-height: 28px; font-size: 14px; font-weight: 700; margin-bottom: 12px;
+}
+.question-text {
+  font-size: 16px; line-height: 1.6; margin-bottom: 16px; color: #f1f5f9;
+}
+
+/* Choices */
+.choices { display: flex; flex-direction: column; gap: 10px; }
+.choice {
+  display: flex; align-items: center; padding: 14px 16px;
+  background: #0f172a; border: 2px solid #334155; border-radius: 12px;
+  cursor: pointer; transition: all 0.2s; font-size: 15px;
+}
+.choice:hover { border-color: #38bdf8; }
+.choice.selected { border-color: #38bdf8; background: #0c4a6e; }
+.choice.correct { border-color: #22c55e; background: #14532d; }
+.choice.wrong { border-color: #ef4444; background: #7f1d1d; }
+.choice-label {
+  width: 28px; height: 28px; border-radius: 50%; background: #334155;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; margin-right: 12px; flex-shrink: 0;
+}
+
+/* Explanation */
+.explanation {
+  margin-top: 16px; padding: 14px; background: #0f172a;
+  border-radius: 12px; border-left: 3px solid #38bdf8;
+  font-size: 14px; line-height: 1.6; display: none;
+}
+.explanation.show { display: block; }
+
+/* Buttons */
+.btn {
+  width: 100%; padding: 14px; border: none; border-radius: 12px;
+  font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.btn-primary { background: #38bdf8; color: #0f172a; }
+.btn-primary:hover { background: #7dd3fc; }
+.btn-primary:disabled { background: #334155; color: #64748b; cursor: not-allowed; }
+.btn-secondary { background: #334155; color: #e2e8f0; margin-top: 10px; }
+
+/* Listening */
+.listen-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 16px; background: #7c3aed; color: white;
+  border: none; border-radius: 12px; font-size: 16px; font-weight: 600;
+  cursor: pointer; margin-bottom: 16px;
+}
+.listen-btn:hover { background: #8b5cf6; }
+.listen-btn .icon { font-size: 24px; }
+
+/* Speaking */
+.speak-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 20px; background: #dc2626; color: white;
+  border: none; border-radius: 16px; font-size: 18px; font-weight: 700;
+  cursor: pointer; margin-bottom: 16px; transition: all 0.2s;
+}
+.speak-btn:hover { background: #ef4444; }
+.speak-btn.recording { background: #b91c1c; animation: pulse 1.5s infinite; }
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(220,38,38,0); }
+}
+.target-sentence {
+  background: #0f172a; border-radius: 12px; padding: 16px;
+  margin-bottom: 16px; font-size: 17px; line-height: 1.7;
+  border: 1px solid #334155; text-align: center;
+}
+.your-speech {
+  background: #0f172a; border-radius: 12px; padding: 16px;
+  margin-bottom: 16px; font-size: 15px; line-height: 1.6;
+  border: 2px solid #334155; min-height: 60px;
+}
+.your-speech.listening { border-color: #dc2626; }
+.your-speech.good { border-color: #22c55e; }
+.your-speech.needs-work { border-color: #f59e0b; }
+.word-match { display: inline; padding: 2px 4px; border-radius: 4px; margin: 1px; }
+.word-match.correct { background: #14532d; color: #22c55e; }
+.word-match.wrong { background: #7f1d1d; color: #ef4444; text-decoration: line-through; }
+.word-match.missing { background: #78350f; color: #fbbf24; }
+.accuracy-bar {
+  width: 100%; height: 8px; background: #334155; border-radius: 4px;
+  margin: 12px 0; overflow: hidden;
+}
+.accuracy-fill {
+  height: 100%; border-radius: 4px; transition: width 0.5s;
+}
+.speak-hint {
+  font-size: 13px; color: #64748b; text-align: center; margin-bottom: 12px;
+}
+.model-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 12px; background: #334155; color: #e2e8f0;
+  border: none; border-radius: 10px; font-size: 14px; cursor: pointer;
+  margin-bottom: 12px;
+}
+.model-btn:hover { background: #475569; }
+
+.speed-control {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  font-size: 14px; color: #94a3b8;
+}
+.speed-control input { flex: 1; accent-color: #7c3aed; }
+
+/* Reading passage */
+.passage {
+  background: #0f172a; border-radius: 12px; padding: 16px;
+  margin-bottom: 20px; font-size: 15px; line-height: 1.8;
+  border: 1px solid #334155;
+}
+.passage .highlight { color: #fbbf24; font-weight: 600; }
+
+/* Progress */
+.progress-bar {
+  width: 100%; height: 6px; background: #334155; border-radius: 3px;
+  margin-bottom: 20px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: linear-gradient(90deg, #38bdf8, #22c55e);
+  border-radius: 3px; transition: width 0.3s;
+}
+
+/* Score */
+.score-card {
+  text-align: center; padding: 30px; background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 16px; border: 1px solid #334155;
+}
+.score-num { font-size: 48px; font-weight: 800; color: #38bdf8; }
+.score-label { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+
+/* Fill blank */
+.fill-input {
+  background: #0f172a; border: 2px solid #334155; border-radius: 8px;
+  padding: 10px 14px; color: #e2e8f0; font-size: 16px; width: 160px;
+  outline: none;
+}
+.fill-input:focus { border-color: #38bdf8; }
+.fill-input.correct { border-color: #22c55e; }
+.fill-input.wrong { border-color: #ef4444; }
+
+/* Diary original */
+.diary-original {
+  background: #0f172a; border-radius: 12px; padding: 14px;
+  margin-bottom: 16px; font-size: 13px; color: #64748b;
+  border: 1px dashed #334155; line-height: 1.6;
+}
+.diary-original .label { color: #38bdf8; font-weight: 600; margin-bottom: 6px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>English Diary Trainer</h1>
+  <div class="date-badge">Mar 25, 2026</div>
+</div>
+
+<div class="diary-original">
+  <div class="label">TODAY'S DIARY</div>
+  Got up at 0600. Do administrative work with Claude code at home. At 0800 leave home then go to Omiya. It took 1.5 hour to kill time at Omiya because the train was not timely. Then arrive at Nikko and take a bus to Rits carlton Nikko. Check in the hotel. Then go around the hotel. Go to water fall then have light meal. It was little rain and go back to hotel. Have onsen at the hotel and have dinner at the hotel bar. Then go back to hotel room and sleep.
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('vocab')">Vocab</div>
+  <div class="tab" onclick="switchTab('listening')">Listen</div>
+  <div class="tab" onclick="switchTab('reading')">Read</div>
+  <div class="tab" onclick="switchTab('speaking')">Speak</div>
+</div>
+
+<!-- ==================== VOCABULARY ==================== -->
+<div id="vocab" class="section active"></div>
+
+<!-- ==================== LISTENING ==================== -->
+<div id="listening" class="section"></div>
+
+<!-- ==================== READING ==================== -->
+<div id="reading" class="section"></div>
+
+<!-- ==================== SPEAKING ==================== -->
+<div id="speaking" class="section"></div>
+
+</div>
+
+<script>
+// ==================== DATA ====================
+const diaryOriginal = "Got up at 0600. Do administrative work with Claude code at home. At 0800 leave home then go to Omiya. It took 1.5 hour to kill time at Omiya because the train was not timely. Then arrive at Nikko and take a bus to Rits carlton Nikko. Check in the hotel. Then go around the hotel. Go to water fall then have light meal. It was little rain and go back to hotel. Have onsen at the hotel and have dinner at the hotel bar. Then go back to hotel room and sleep.";
+
+const diaryCorrected = "I got up at 6:00 AM and did some administrative work with Claude Code at home. At 8:00, I left home and headed to Omiya. I had to kill 1.5 hours at Omiya because the train was delayed. Then I arrived at Nikko and took a bus to the Ritz-Carlton Nikko. I checked into the hotel and explored the area. I went to a waterfall and had a light meal. It started to rain a little, so I went back to the hotel. I enjoyed an onsen bath at the hotel and had dinner at the hotel bar. Then I returned to my room and went to sleep.";
+
+const vocabQuestions = [
+  {
+    q: "\"Do administrative work\" — 日記は過去の話。正しい過去形は？",
+    sentence: "I got up at 6:00 AM and _____ some administrative work at home.",
+    choices: ["do", "does", "did", "doing"],
+    answer: 2,
+    explain: "「do」の過去形は「did」。日記は過去の出来事を書くので過去形が必要です。do-did-done は不規則変化動詞の基本です。"
+  },
+  {
+    q: "\"leave home then go to\" — より自然な過去形の表現は？",
+    sentence: "At 8:00, I _____ home and headed to Omiya.",
+    choices: ["leave", "leaved", "left", "leaving"],
+    answer: 2,
+    explain: "「leave」の過去形は「left」（不規則変化）。「headed to」は「～に向かった」で go to より具体的な表現。TOEIC頻出の句動詞です。"
+  },
+  {
+    q: "\"the train was not timely\" — 電車が遅れたことを表す自然な表現は？",
+    sentence: "I had to wait because the train was _____.",
+    choices: ["not timely", "late timing", "delayed", "not on the time"],
+    answer: 2,
+    explain: "「delayed」は「遅延した」という意味。「not timely」は不自然で、TOEIC でも delay/delayed は交通・ビジネスの文脈で頻出です。"
+  },
+  {
+    q: "\"kill time\" の意味として正しいのは？",
+    sentence: "I had to kill 1.5 hours at Omiya.",
+    choices: ["時間を無駄にする", "暇をつぶす", "時間を短縮する", "急いで過ごす"],
+    answer: 1,
+    explain: "「kill time」は「暇をつぶす」という意味のイディオム。待ち時間などに何かをして過ごすニュアンスです。日常会話でよく使われます。"
+  },
+  {
+    q: "\"Rits carlton\" の正しいスペルは？",
+    sentence: "I took a bus to the _____ Nikko.",
+    choices: ["Rits Carlton", "Ritz Calton", "Ritz-Carlton", "Ritts Carlton"],
+    answer: 2,
+    explain: "「Ritz-Carlton」が正式な表記です。ハイフンでつなぐ固有名詞。ホテル名・ブランド名は正確に書くことが大切です。"
+  },
+  {
+    q: "\"Go to water fall\" — 「滝」の正しいスペルと過去形は？",
+    sentence: "I _____ to a waterfall and had a light meal.",
+    choices: ["go to water fall", "went to a water fall", "went to a waterfall", "going to waterfall"],
+    answer: 2,
+    explain: "「waterfall」は1語です（water fall ではない）。「go」の過去形は「went」。冠詞「a」も必要です。"
+  },
+  {
+    q: "\"It was little rain\" を自然な英語にすると？",
+    sentence: "It _____ to rain a little, so I went back to the hotel.",
+    choices: ["was", "had", "started", "became"],
+    answer: 2,
+    explain: "「It started to rain」が自然な表現。「It was little rain」は文法的に不正確で、天候を表す構文「It started to + 動詞」を使います。"
+  },
+  {
+    q: "\"Have onsen\" をより自然な英語にすると？",
+    sentence: "I _____ an onsen bath at the hotel.",
+    choices: ["had", "took", "enjoyed", "did"],
+    answer: 2,
+    explain: "「enjoyed an onsen bath」は温泉を楽しんだという表現で最も自然。「had a bath」でもOKですが、enjoyed はポジティブなニュアンスを加えます。"
+  }
+];
+
+const listeningQuestions = [
+  {
+    text: "I got up at 6:00 AM and did some administrative work with Claude Code at home.",
+    q: "What did the speaker do first in the morning?",
+    choices: ["Went to Omiya", "Did administrative work at home", "Took a bus to Nikko", "Had breakfast at a hotel"],
+    answer: 1
+  },
+  {
+    text: "At 8:00, I left home and headed to Omiya. I had to kill 1.5 hours at Omiya because the train was delayed.",
+    q: "Why did the speaker wait at Omiya?",
+    choices: ["He arrived too early", "The train was delayed", "He was meeting someone", "The station was closed"],
+    answer: 1
+  },
+  {
+    text: "Then I arrived at Nikko and took a bus to the Ritz-Carlton Nikko. I checked into the hotel and explored the area.",
+    q: "How did the speaker get from Nikko station to the hotel?",
+    choices: ["By taxi", "On foot", "By bus", "By rental car"],
+    answer: 2
+  },
+  {
+    text: "I went to a waterfall and had a light meal. It started to rain a little, so I went back to the hotel.",
+    q: "Why did the speaker go back to the hotel?",
+    choices: ["He was tired", "It started to rain", "The waterfall was closed", "It was getting dark"],
+    answer: 1
+  },
+  {
+    text: "I enjoyed an onsen bath at the hotel and had dinner at the hotel bar. Then I returned to my room and went to sleep.",
+    q: "Where did the speaker have dinner?",
+    choices: ["At a nearby restaurant", "In his room", "At the hotel bar", "At the waterfall area"],
+    answer: 2
+  }
+];
+
+const readingPassage = `<span class="highlight">Travel Report: Nikko Trip - March 25, 2026</span>
+
+Yuichi began his day at 6:00 AM by completing some <span class="highlight">administrative</span> tasks at home using Claude Code. He then <span class="highlight">departed</span> for Omiya at 8:00 AM, planning to transfer to a train bound for Nikko.
+
+Unfortunately, the train was <span class="highlight">delayed</span>, and he had to spend 1.5 hours waiting at Omiya Station. Despite the inconvenience, he eventually arrived at Nikko and took a bus to the <span class="highlight">Ritz-Carlton</span> Nikko, a luxury hotel in the area.
+
+After checking into the hotel, Yuichi <span class="highlight">explored</span> the surrounding area. He visited a scenic waterfall and had a light meal nearby. However, it started to rain, so he decided to return to the hotel. In the evening, he relaxed by enjoying an onsen bath and then had dinner at the hotel bar before <span class="highlight">retiring</span> to his room for the night.`;
+
+const readingQuestions = [
+  {
+    q: "What is the main purpose of this passage?",
+    choices: [
+      "To review a hotel's services",
+      "To describe a day trip to Nikko",
+      "To explain train schedules in Japan",
+      "To recommend restaurants near waterfalls"
+    ],
+    answer: 1
+  },
+  {
+    q: "The word \"delayed\" in the passage is closest in meaning to:",
+    choices: ["canceled", "running behind schedule", "fully booked", "rerouted"],
+    answer: 1
+  },
+  {
+    q: "What can be inferred about Yuichi's trip?",
+    choices: [
+      "He traveled with a large group",
+      "Everything went exactly as planned",
+      "The weather affected his sightseeing plans",
+      "He stayed at the hotel for a week"
+    ],
+    answer: 2
+  },
+  {
+    q: "The word \"retiring\" in the final paragraph is closest in meaning to:",
+    choices: ["quitting a job", "going back to", "celebrating", "exercising"],
+    answer: 1
+  },
+  {
+    q: "Which of the following is NOT mentioned in the passage?",
+    choices: [
+      "Visiting a waterfall",
+      "Using an onsen",
+      "Hiking in the mountains",
+      "Having dinner at the hotel bar"
+    ],
+    answer: 2
+  }
+];
+
+const speakingExercises = [
+  {
+    target: "I got up at 6:00 AM and did some administrative work at home.",
+    hint: "6時に起きて家で事務作業をした",
+    focus: "過去形: got up, did / administrative の発音"
+  },
+  {
+    target: "At 8:00, I left home and headed to Omiya.",
+    hint: "8時に家を出て大宮に向かった",
+    focus: "過去形: left, headed / headed to = ～に向かった"
+  },
+  {
+    target: "I had to kill 1.5 hours at Omiya because the train was delayed.",
+    hint: "電車が遅れたので大宮で1.5時間暇をつぶした",
+    focus: "イディオム: kill time / delayed の使い方"
+  },
+  {
+    target: "I arrived at Nikko and took a bus to the Ritz-Carlton Nikko.",
+    hint: "日光に着いてリッツ・カールトンまでバスに乗った",
+    focus: "過去形: arrived, took / 固有名詞の発音"
+  },
+  {
+    target: "I went to a waterfall and had a light meal.",
+    hint: "滝に行って軽食を食べた",
+    focus: "waterfall は1語 / a light meal の冠詞"
+  },
+  {
+    target: "It started to rain a little, so I went back to the hotel.",
+    hint: "少し雨が降り始めたのでホテルに戻った",
+    focus: "天候表現: It started to rain / 接続詞: so"
+  },
+  {
+    target: "I enjoyed an onsen bath at the hotel and had dinner at the hotel bar.",
+    hint: "ホテルで温泉を楽しみ、ホテルのバーで夕食をとった",
+    focus: "enjoyed + 名詞 / onsen bath の表現"
+  }
+];
+
+// ==================== STATE ====================
+let vocabIdx = 0, listenIdx = 0, readIdx = 0, speakIdx = 0;
+let vocabScore = 0, listenScore = 0, readScore = 0, speakScore = 0;
+let vocabAnswered = false, listenAnswered = false, readAnswered = false;
+let speechRate = 0.85;
+let isRecording = false;
+let recognition = null;
+
+// ==================== RENDER ====================
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById(tab).classList.add('active');
+}
+
+function renderVocab() {
+  const el = document.getElementById('vocab');
+  if (vocabIdx >= vocabQuestions.length) {
+    el.innerHTML = renderScore('Vocabulary', vocabScore, vocabQuestions.length, 'vocab');
+    return;
+  }
+  const v = vocabQuestions[vocabIdx];
+  vocabAnswered = false;
+  el.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${(vocabIdx/vocabQuestions.length)*100}%"></div></div>
+    <div class="card">
+      <div class="question-num">${vocabIdx+1}</div>
+      <div class="question-text">${v.q}</div>
+      <div style="background:#0f172a;padding:12px;border-radius:8px;margin-bottom:16px;font-size:15px;line-height:1.6;color:#94a3b8">
+        ${v.sentence}
+      </div>
+      <div class="choices">
+        ${v.choices.map((c,i)=>`
+          <div class="choice" onclick="answerVocab(${i})">
+            <div class="choice-label">${'ABCD'[i]}</div>${c}
+          </div>`).join('')}
+      </div>
+      <div id="vocab-explain" class="explanation">${v.explain}</div>
+    </div>
+    <button class="btn btn-primary" id="vocab-next" disabled onclick="nextVocab()">Next</button>
+  `;
+}
+
+function answerVocab(idx) {
+  if (vocabAnswered) return;
+  vocabAnswered = true;
+  const v = vocabQuestions[vocabIdx];
+  const choices = document.querySelectorAll('#vocab .choice');
+  choices[idx].classList.add(idx === v.answer ? 'correct' : 'wrong');
+  if (idx !== v.answer) choices[v.answer].classList.add('correct');
+  if (idx === v.answer) vocabScore++;
+  document.getElementById('vocab-explain').classList.add('show');
+  document.getElementById('vocab-next').disabled = false;
+}
+
+function nextVocab() { vocabIdx++; renderVocab(); }
+
+function renderListening() {
+  const el = document.getElementById('listening');
+  if (listenIdx >= listeningQuestions.length) {
+    el.innerHTML = renderScore('Listening', listenScore, listeningQuestions.length, 'listen');
+    return;
+  }
+  const l = listeningQuestions[listenIdx];
+  listenAnswered = false;
+  el.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${(listenIdx/listeningQuestions.length)*100}%"></div></div>
+    <div class="card">
+      <div class="question-num">${listenIdx+1}</div>
+      <button class="listen-btn" onclick="speak('${l.text.replace(/'/g,"\\'")}')">
+        <span class="icon">&#128264;</span> Listen
+      </button>
+      <div class="speed-control">
+        <span>Slow</span>
+        <input type="range" min="0.5" max="1.2" step="0.05" value="${speechRate}"
+          oninput="speechRate=parseFloat(this.value);document.getElementById('speed-val').textContent=this.value+'x'">
+        <span>Fast</span>
+        <span id="speed-val" style="min-width:40px;text-align:right">${speechRate}x</span>
+      </div>
+      <div class="question-text">${l.q}</div>
+      <div class="choices">
+        ${l.choices.map((c,i)=>`
+          <div class="choice" onclick="answerListen(${i})">
+            <div class="choice-label">${'ABCD'[i]}</div>${c}
+          </div>`).join('')}
+      </div>
+    </div>
+    <button class="btn btn-primary" id="listen-next" disabled onclick="nextListen()">Next</button>
+  `;
+}
+
+function speak(text) {
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = speechRate; u.pitch = 1;
+  const voices = speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Female'))
+    || voices.find(v => v.lang.startsWith('en-US'))
+    || voices.find(v => v.lang.startsWith('en'));
+  if (enVoice) u.voice = enVoice;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function answerListen(idx) {
+  if (listenAnswered) return;
+  listenAnswered = true;
+  const l = listeningQuestions[listenIdx];
+  const choices = document.querySelectorAll('#listening .choice');
+  choices[idx].classList.add(idx === l.answer ? 'correct' : 'wrong');
+  if (idx !== l.answer) choices[l.answer].classList.add('correct');
+  if (idx === l.answer) listenScore++;
+  document.getElementById('listen-next').disabled = false;
+}
+
+function nextListen() { listenIdx++; renderListening(); }
+
+function renderReading() {
+  const el = document.getElementById('reading');
+  if (readIdx >= readingQuestions.length) {
+    el.innerHTML = renderScore('Reading', readScore, readingQuestions.length, 'read');
+    return;
+  }
+  readAnswered = false;
+  el.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${(readIdx/readingQuestions.length)*100}%"></div></div>
+    ${readIdx === 0 ? `<div class="passage">${readingPassage}</div>` : ''}
+    <div class="card">
+      <div class="question-num">${readIdx+1}</div>
+      <div class="question-text">${readingQuestions[readIdx].q}</div>
+      <div class="choices">
+        ${readingQuestions[readIdx].choices.map((c,i)=>`
+          <div class="choice" onclick="answerRead(${i})">
+            <div class="choice-label">${'ABCD'[i]}</div>${c}
+          </div>`).join('')}
+      </div>
+    </div>
+    <button class="btn btn-primary" id="read-next" disabled onclick="nextRead()">Next</button>
+    ${readIdx > 0 ? '<button class="btn btn-secondary" onclick="togglePassage()">Show Passage</button><div id="passage-toggle" style="display:none;margin-top:12px" class="passage">'+readingPassage+'</div>' : ''}
+  `;
+}
+
+function togglePassage() {
+  const p = document.getElementById('passage-toggle');
+  p.style.display = p.style.display === 'none' ? 'block' : 'none';
+}
+
+function answerRead(idx) {
+  if (readAnswered) return;
+  readAnswered = true;
+  const r = readingQuestions[readIdx];
+  const choices = document.querySelectorAll('#reading .choice');
+  choices[idx].classList.add(idx === r.answer ? 'correct' : 'wrong');
+  if (idx !== r.answer) choices[r.answer].classList.add('correct');
+  if (idx === r.answer) readScore++;
+  document.getElementById('read-next').disabled = false;
+}
+
+function nextRead() { readIdx++; renderReading(); }
+
+// ==================== SPEAKING ====================
+function renderSpeaking() {
+  const el = document.getElementById('speaking');
+  if (speakIdx >= speakingExercises.length) {
+    el.innerHTML = renderScore('Speaking', speakScore, speakingExercises.length, 'speak');
+    return;
+  }
+  const s = speakingExercises[speakIdx];
+  el.innerHTML = `
+    <div class="progress-bar"><div class="progress-fill" style="width:${(speakIdx/speakingExercises.length)*100}%"></div></div>
+    <div class="card">
+      <div class="question-num">${speakIdx+1}</div>
+      <div class="speak-hint">${s.hint}</div>
+      <div class="target-sentence" id="speak-target">${s.target}</div>
+      <button class="model-btn" onclick="speak('${s.target.replace(/'/g,"\\'")}')">
+        &#128264; お手本を聞く
+      </button>
+      <div style="background:#0f172a;padding:10px;border-radius:8px;margin-bottom:12px;font-size:13px;color:#fbbf24;text-align:center">
+        &#127919; ${s.focus}
+      </div>
+      <button class="speak-btn" id="speak-record-btn" onclick="toggleRecording()">
+        &#127908; タップして話す
+      </button>
+      <div class="your-speech" id="speak-result">
+        <span style="color:#64748b">ここに認識結果が表示されます...</span>
+      </div>
+      <div id="speak-feedback" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <span style="font-size:13px;color:#94a3b8">一致率</span>
+          <span id="speak-pct" style="font-size:14px;font-weight:700"></span>
+        </div>
+        <div class="accuracy-bar"><div class="accuracy-fill" id="speak-acc-bar"></div></div>
+        <div id="speak-word-detail" style="margin-top:12px;font-size:14px;line-height:2"></div>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="speak-next" disabled onclick="nextSpeak()">Next</button>
+    <button class="btn btn-secondary" onclick="retrySpeak()">もう一度話す</button>
+  `;
+}
+
+function toggleRecording() {
+  if (isRecording) { stopRecording(); return; }
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    document.getElementById('speak-result').innerHTML = '<span style="color:#ef4444">お使いのブラウザは音声認識に対応していません。Chrome をお使いください。</span>';
+    return;
+  }
+  recognition = new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.continuous = false;
+  recognition.interimResults = true;
+  recognition.maxAlternatives = 1;
+
+  const btn = document.getElementById('speak-record-btn');
+  const resultEl = document.getElementById('speak-result');
+  btn.classList.add('recording');
+  btn.innerHTML = '&#128308; 聞いています... タップで停止';
+  resultEl.classList.add('listening');
+  resultEl.innerHTML = '<span style="color:#94a3b8">話してください...</span>';
+  isRecording = true;
+
+  recognition.onresult = (e) => {
+    const transcript = Array.from(e.results).map(r => r[0].transcript).join('');
+    resultEl.innerHTML = transcript || '<span style="color:#94a3b8">...</span>';
+    if (e.results[0].isFinal) {
+      stopRecording();
+      evaluateSpeech(transcript);
+    }
+  };
+  recognition.onerror = (e) => {
+    stopRecording();
+    if (e.error === 'no-speech') {
+      resultEl.innerHTML = '<span style="color:#f59e0b">音声が検出されませんでした。もう一度お試しください。</span>';
+    } else {
+      resultEl.innerHTML = `<span style="color:#ef4444">エラー: ${e.error}</span>`;
+    }
+  };
+  recognition.onend = () => { if (isRecording) stopRecording(); };
+  recognition.start();
+}
+
+function stopRecording() {
+  isRecording = false;
+  if (recognition) { try { recognition.stop(); } catch(e) {} }
+  const btn = document.getElementById('speak-record-btn');
+  if (btn) {
+    btn.classList.remove('recording');
+    btn.innerHTML = '&#127908; タップして話す';
+  }
+  const resultEl = document.getElementById('speak-result');
+  if (resultEl) resultEl.classList.remove('listening');
+}
+
+function evaluateSpeech(transcript) {
+  const s = speakingExercises[speakIdx];
+  const targetWords = s.target.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  const spokenWords = transcript.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+
+  let matchCount = 0;
+  const wordResults = [];
+
+  targetWords.forEach((tw, i) => {
+    const found = spokenWords.some(sw => sw === tw || levenshtein(sw, tw) <= 1);
+    if (found) matchCount++;
+    wordResults.push({ word: s.target.replace(/[.,!?;:'"]/g,' ').split(/\s+/)[i] || tw, correct: found });
+  });
+
+  const accuracy = Math.round((matchCount / targetWords.length) * 100);
+  const resultEl = document.getElementById('speak-result');
+  resultEl.classList.remove('listening');
+  resultEl.classList.add(accuracy >= 70 ? 'good' : 'needs-work');
+  resultEl.innerHTML = `"${transcript}"`;
+
+  const feedbackEl = document.getElementById('speak-feedback');
+  feedbackEl.style.display = 'block';
+
+  const pctEl = document.getElementById('speak-pct');
+  pctEl.textContent = accuracy + '%';
+  pctEl.style.color = accuracy >= 80 ? '#22c55e' : accuracy >= 60 ? '#fbbf24' : '#ef4444';
+
+  const barEl = document.getElementById('speak-acc-bar');
+  barEl.style.width = accuracy + '%';
+  barEl.style.background = accuracy >= 80 ? '#22c55e' : accuracy >= 60 ? '#fbbf24' : '#ef4444';
+
+  const detailEl = document.getElementById('speak-word-detail');
+  detailEl.innerHTML = wordResults.map(w =>
+    `<span class="word-match ${w.correct ? 'correct' : 'missing'}">${w.word}</span>`
+  ).join(' ');
+
+  if (accuracy >= 60) speakScore++;
+  document.getElementById('speak-next').disabled = false;
+}
+
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({length: m+1}, (_, i) => Array.from({length: n+1}, (_, j) => i || j));
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+  return dp[m][n];
+}
+
+function retrySpeak() {
+  const resultEl = document.getElementById('speak-result');
+  resultEl.className = 'your-speech';
+  resultEl.innerHTML = '<span style="color:#64748b">ここに認識結果が表示されます...</span>';
+  const feedbackEl = document.getElementById('speak-feedback');
+  if (feedbackEl) feedbackEl.style.display = 'none';
+  document.getElementById('speak-next').disabled = true;
+}
+
+function nextSpeak() { speakIdx++; renderSpeaking(); }
+
+function renderScore(title, score, total, type) {
+  const pct = Math.round(score/total*100);
+  const msg = pct >= 80 ? 'Excellent!' : pct >= 60 ? 'Good job!' : 'Keep practicing!';
+  return `
+    <div class="score-card">
+      <div style="font-size:14px;color:#94a3b8;margin-bottom:8px">${title} Complete</div>
+      <div class="score-num">${score}/${total}</div>
+      <div class="score-label">${pct}% - ${msg}</div>
+      <button class="btn btn-primary" style="margin-top:20px;width:auto;padding:12px 32px;display:inline-block"
+        onclick="reset('${type}')">Retry</button>
+    </div>`;
+}
+
+function reset(type) {
+  if (type === 'vocab') { vocabIdx=0; vocabScore=0; renderVocab(); }
+  if (type === 'listen') { listenIdx=0; listenScore=0; renderListening(); }
+  if (type === 'read') { readIdx=0; readScore=0; renderReading(); }
+  if (type === 'speak') { speakIdx=0; speakScore=0; renderSpeaking(); }
+}
+
+// Init
+speechSynthesis.getVoices();
+renderVocab();
+renderListening();
+renderReading();
+renderSpeaking();
+</script>
+</body>
+</html>
