@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 03, 2026</div>
+  <div class="date-badge">Sep 04, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0630 and went to new office on foot. At 0900 meeting with Fukushima-san but there is no Wifi in new office, so we decided to have meeting once more after Wifi connection.
+  I got up at 0600 and went to old office on foot. I thorough away oversized garbage and
 </div>
 
 <div class="tabs">
@@ -242,264 +242,265 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0630 and went to new office on foot. At 0900 meeting with Fukushima-san but there is no Wifi in new office, so we decided to have meeting once more after Wifi connection.";;
+const diaryOriginal = "I got up at 0600 and went to old office on foot. I thorough away oversized garbage and";;;
 
-const diaryCorrected = "I got up at 6:30 a.m. and went to the new office on foot. I had a meeting with Mr. Fukushima scheduled at 9:00 a.m. However, there was no Wi-Fi connection available in the new office. Because of this issue, we could not access our shared documents online. Therefore, we decided to postpone the session for a while. We agreed to hold the meeting again after the Wi-Fi connection is established. I hope the Internet connection will be fixed soon.";;
+const diaryCorrected = "I got up at 6:00 a.m. and went to my old office on foot. The morning walk was very refreshing and took about thirty minutes. My main goal for the day was to tidy up the remaining items. I threw away several pieces of oversized garbage from the storage area. Sorting through the old files and trash took more time than expected. After completing the cleanup, I handed over the keys to the landlord. I felt relieved to finish all the tasks before the weekend.";;;
 
 const vocabQuestions = [
   {
-    "q": "「新しいオフィスへ行く」と特定のオフィスを指す場合、冠詞の使い方が不適切です。正しいものを選んでください。",
-    "sentence": "I got up early and went to _____ new office on foot.",
+    "q": "日記にある「thorough away」はスペル・動詞の誤りです。「（ゴミを）捨てた」を表す throw away の過去形として正しいものはどれですか？",
+    "sentence": "I _____ away all the unnecessary documents yesterday.",
     "choices": [
-      "the",
-      "a",
+      "threw",
+      "thorough",
+      "through",
+      "thrown"
+    ],
+    "answer": 0,
+    "explain": "「〜を捨てる」は throw away です。過去形は threw になります。thorough は「徹底的な（形容詞）」、through は「〜を通して（前置詞）」で誤りです。"
+  },
+  {
+    "q": "日記の「went to old office」は冠詞や所有格が抜けています。「私の以前のオフィス」を表す適切な表現はどれですか？",
+    "sentence": "Before moving to the new branch, I went to _____ old office.",
+    "choices": [
+      "my",
       "an",
-      "（冠詞なし）"
+      "the my",
+      "mine"
     ],
     "answer": 0,
-    "explain": "相手も知っている特定のオフィスを指すため、定冠詞 the をつけるのが適切です。"
+    "explain": "特定可能な単数可算名詞 (office) の前には冠詞や所有格が必要です。「私の以前のオフィス」を意味する所有格 my が最適です。"
   },
   {
-    "q": "「午前6時30分に」と特定の時刻を表す際の適切な前置詞を選んでください。",
-    "sentence": "I woke up _____ 6:30 a.m. this morning.",
-    "choices": [
-      "at",
-      "on",
-      "in",
-      "to"
-    ],
-    "answer": 0,
-    "explain": "時刻（時刻の一点）を表す前置詞は at を使用します。"
-  },
-  {
-    "q": "日記全体が過去の出来事であるため、be動詞の時制を過去形にする必要があります。適切なものを選んでください。",
-    "sentence": "When we arrived, there _____ no Wi-Fi in the building.",
-    "choices": [
-      "was",
-      "is",
-      "are",
-      "were"
-    ],
-    "answer": 0,
-    "explain": "主語が不可算名詞の Wi-Fi（単数扱い）であり、過去の状況を表すため was が適切です。"
-  },
-  {
-    "q": "「会議をする」を表す可算名詞 meeting の前の正しい冠詞を選んでください。",
-    "sentence": "I was scheduled to have _____ meeting with my client.",
-    "choices": [
-      "a",
-      "an",
-      "the",
-      "（冠詞なし）"
-    ],
-    "answer": 0,
-    "explain": "meeting は可算名詞（数えられる名詞）なので、不特定の1つの会議を表す場合は不定冠詞 a が必要です。"
-  },
-  {
-    "q": "英語のビジネス表現で、名前（苗字）に敬称をつけて呼ぶ際の正しい形を選んでください。",
-    "sentence": "I had a quick discussion with _____ Fukushima.",
-    "choices": [
-      "Mr.",
-      "San",
-      "Sir",
-      "Master"
-    ],
-    "answer": 0,
-    "explain": "英語圏のビジネス文脈では、日本語の「〜さん」に該当する敬称として Mr. や Ms. を苗字の前に置きます。"
-  },
-  {
-    "q": "「Wi-Fi接続が確立された（設定された）」という意味に合う過去分詞を選んでください。",
-    "sentence": "We will resume the conference after the network connection is _____.",
-    "choices": [
-      "established",
-      "establishing",
-      "establish",
-      "establishes"
-    ],
-    "answer": 0,
-    "explain": "回線や接続を「確立・設定する」には establish を使い、受動態 (is established) にすることで「確立される」となります。"
-  },
-  {
-    "q": "「徒歩で」を表す正しい前置詞の組み合わせを選んでください。",
-    "sentence": "Since the weather was clear, I decided to go to the site _____ foot.",
+    "q": "日記の「on foot」は正しい表現です。「徒歩で」を表す正しい前置詞はどれですか？",
+    "sentence": "Since the station was nearby, he decided to go there _____ foot.",
     "choices": [
       "on",
       "by",
       "with",
-      "in"
+      "at"
     ],
     "answer": 0,
-    "explain": "「徒歩で」は慣用表現で on foot と言います。by foot ではなく on foot を使う点に注意しましょう。"
+    "explain": "「徒歩で」は慣用表現で on foot と言います。乗り物の場合は by bus や by train ですが、foot の場合は前置詞 on を用います。"
   },
   {
-    "q": "「会議を延期する」という意味に最も適した動詞を選んでください。",
-    "sentence": "Due to technical difficulties, we decided to _____ the scheduled meeting.",
+    "q": "日記の「at 0600」は「at 6:00 a.m.」などの表記が自然です。特定時刻を表す前置詞はどれですか？",
+    "sentence": "The meeting is scheduled to start _____ 6:00 a.m.",
     "choices": [
-      "postpone",
-      "cancel",
-      "attend",
-      "finish"
+      "at",
+      "in",
+      "on",
+      "to"
     ],
     "answer": 0,
-    "explain": "「延期する」は postpone です。cancel（中止する）とは意味が異なるため区別しましょう。"
+    "explain": "時刻（6:00 a.m. など）の前には前置詞 at を使用します。"
+  },
+  {
+    "q": "日記の「oversized garbage」は「粗大ゴミ」を意味します。「〜を処分する」を意味する熟語 dispose _____ に入る前置詞はどれですか？",
+    "sentence": "The company needs to dispose _____ outdated equipment.",
+    "choices": [
+      "of",
+      "out",
+      "away",
+      "off"
+    ],
+    "answer": 0,
+    "explain": "「〜を処分する、捨てる」は dispose of という熟語で表現します。"
+  },
+  {
+    "q": "「粗大ゴミ」を表す表現として、「規格外に大きい」を意味する最も適切な形容詞はどれですか？",
+    "sentence": "You need to pay an extra fee to dispose of _____ garbage.",
+    "choices": [
+      "oversized",
+      "overweight",
+      "overfilled",
+      "overdone"
+    ],
+    "answer": 0,
+    "explain": "「大型の、規格外に大きい」は oversized を使います。粗大ゴミは oversized garbage や bulky waste と表現します。"
+  },
+  {
+    "q": "「起床した」を表す get up の過去形として正しいものはどれですか？",
+    "sentence": "She _____ up early this morning to prepare for the presentation.",
+    "choices": [
+      "got",
+      "getted",
+      "gotten",
+      "gottened"
+    ],
+    "answer": 0,
+    "explain": "get の過去形は got です。「今朝早く起きた」という過去の出来事なので got up になります。"
+  },
+  {
+    "q": "「（オフィスの）清掃、後片付け」を意味する名詞として最も適切なものはどれですか？",
+    "sentence": "It took us two hours to complete the office _____.",
+    "choices": [
+      "cleanup",
+      "cleaner",
+      "cleanly",
+      "clearness"
+    ],
+    "answer": 0,
+    "explain": "cleanup は「清掃、後片付け」という意味の名詞です。cleaner は「掃除機・掃除人」、cleanly は「清潔に（副詞）」です。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 6:30 a.m. and went to the new office on foot.",
-    "q": "How did the speaker commute to the new office?",
+    "text": "I got up at 6:00 a.m. and went to my old office on foot.",
+    "q": "How did the speaker travel to the old office?",
     "choices": [
       "On foot",
       "By train",
       "By bus",
-      "By car"
+      "By bicycle"
     ],
     "answer": 0
   },
   {
-    "text": "I had a meeting with Mr. Fukushima scheduled at 9:00 a.m.",
-    "q": "When was the meeting with Mr. Fukushima originally scheduled?",
+    "text": "The morning walk was very refreshing and took about thirty minutes.",
+    "q": "How long did the morning walk take?",
     "choices": [
-      "At 9:00 a.m.",
-      "At 6:30 a.m.",
-      "At 10:00 a.m.",
-      "At 1:00 p.m."
+      "About thirty minutes",
+      "About fifteen minutes",
+      "About one hour",
+      "About forty-five minutes"
     ],
     "answer": 0
   },
   {
-    "text": "However, there was no Wi-Fi connection available in the new office.",
-    "q": "What was the main problem at the new office?",
+    "text": "My main goal for the day was to tidy up the remaining items.",
+    "q": "What was the main purpose of visiting the old office?",
     "choices": [
-      "There was no Wi-Fi connection.",
-      "The office was locked.",
-      "The meeting room was too small.",
-      "Mr. Fukushima was absent."
+      "To tidy up remaining items",
+      "To meet a client",
+      "To pick up a paycheck",
+      "To paint the walls"
     ],
     "answer": 0
   },
   {
-    "text": "Because of this issue, we could not access our shared documents online.",
-    "q": "Why couldn't they access their shared documents?",
+    "text": "I threw away several pieces of oversized garbage from the storage area.",
+    "q": "What was discarded from the storage area?",
     "choices": [
-      "Because there was no Internet access.",
-      "Because the computer was broken.",
-      "Because they forgot the password.",
-      "Because the office was closed."
+      "Oversized garbage",
+      "Important documents",
+      "Office computers",
+      "New furniture"
     ],
     "answer": 0
   },
   {
-    "text": "We agreed to hold the meeting again after the Wi-Fi connection is established.",
-    "q": "What did they decide to do about the meeting?",
+    "text": "After completing the cleanup, I handed over the keys to the landlord.",
+    "q": "What did the speaker do after finishing the cleanup?",
     "choices": [
-      "Hold it again after Wi-Fi is set up.",
-      "Cancel it permanently.",
-      "Conduct it outdoors.",
-      "Have it without documents."
+      "Handed over the keys to the landlord",
+      "Called a moving company",
+      "Ordered lunch",
+      "Signed a new lease"
     ],
     "answer": 0
   }
 ];
 const readingPassage = `MEMORANDUM
-To: Department Staff
-From: IT Operations Team
-Date: September 3, 2026
-Subject: Office Relocation and Network Status Update
 
-Please be advised that the <span class="highlight">relocation</span> to our new office building was completed early this morning. Most employees arrived safely on site before 9:00 a.m. However, an unforeseen <span class="highlight">technical difficulty</span> occurred regarding the office network setup.
+To: Facility Management Team
+From: Operations Department
+Date: September 4, 2026
+Subject: Final Inspection and Disposal Report for Former Office Space
 
-Currently, there is no active <span class="highlight">Wi-Fi connection</span> available throughout the new facility. As a result, several staff members were unable to access cloud-based files or hold online video conferences. Specifically, a critical morning project meeting between project leaders had to be <span class="highlight">postponed</span> until the network becomes fully operational.
+This report confirms that the final <span class="highlight">clearance</span> of our former office location was successfully completed this morning, September 4, 2026. Staff arrived on site at 6:00 a.m. to perform a comprehensive <span class="highlight">inspection</span> and complete the remaining tasks prior to returning the premises to the property owner.
 
-Our engineering team is actively working with the Internet service provider to resolve this issue. We <span class="highlight">anticipate</span> that full network functionality will be restored by 1:00 p.m. today. We sincerely apologize for the inconvenience and request that staff work on offline tasks in the meantime. Thank you for your patience and <span class="highlight">cooperation</span>.`;
+During the operation, several items of <span class="highlight">oversized</span> waste and obsolete equipment were collected from the main storage room and properly <span class="highlight">disposed of</span> in accordance with local regulations. All confidential documents were shredded prior to this final phase to ensure data security.
+
+The entire cleaning process required approximately two hours. Following a final walkthrough to confirm that no belongings remained, the building keys were officially <span class="highlight">surrendered</span> to the landlord at 8:30 a.m. The lease agreement for the former facility is now fully terminated, and no further actions are required.`;
 
 const readingQuestions = [
   {
     "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To inform employees about a network delay at the new office",
-      "To announce a change in executive leadership",
-      "To invite staff to a company celebration",
-      "To provide guidelines on commuting options"
+      "To report the completion of the office cleanup",
+      "To request additional storage space",
+      "To negotiate a lower rent with the landlord",
+      "To announce a new company policy"
     ],
     "answer": 0
   },
   {
-    "q": "According to the passage, why was the morning project meeting postponed?",
+    "q": "What time did staff arrive at the old office?",
     "choices": [
-      "The Wi-Fi network was not functioning.",
-      "The project leaders arrived late.",
-      "The conference room was being renovated.",
-      "The documents were sent to the wrong address."
+      "At 6:00 a.m.",
+      "At 8:30 a.m.",
+      "At 9:00 a.m.",
+      "At 12:00 p.m."
     ],
     "answer": 0
   },
   {
-    "q": "When is full network functionality expected to be restored?",
+    "q": "What was done with confidential documents?",
     "choices": [
-      "By 1:00 p.m. today",
-      "By 9:00 a.m. tomorrow",
-      "By the end of the week",
-      "In 6:30 hours"
+      "They were shredded before the final phase.",
+      "They were thrown into the oversized garbage.",
+      "They were moved to the landlord's office.",
+      "They were archived online."
     ],
     "answer": 0
   },
   {
-    "q": "What are employees requested to do while waiting for the network?",
+    "q": "According to the report, what happened at 8:30 a.m.?",
     "choices": [
-      "Work on offline tasks",
-      "Leave the office building",
-      "Call the service provider",
-      "Purchase mobile internet devices"
+      "The keys were handed over to the landlord.",
+      "The cleaning crew arrived at the facility.",
+      "The garbage truck arrived.",
+      "The contract renegotiation started."
     ],
     "answer": 0
   },
   {
-    "q": "The word \"postponed\" in paragraph 2 is closest in meaning to:",
+    "q": "The word \"surrendered\" in paragraph 3 is closest in meaning to:",
     "choices": [
-      "delayed",
-      "canceled",
-      "approved",
-      "expanded"
+      "handed over",
+      "purchased",
+      "copied",
+      "misplaced"
     ],
     "answer": 0
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 6:30 a.m. and went to the new office on foot.",
-    "hint": "私は午前6時半に起き、徒歩で新しいオフィスへ行きました。",
-    "focus": "時刻につく前置詞 at と「徒歩で」を意味する on foot のセット表現。"
+    "target": "I got up at 6:00 a.m. and went to my old office on foot.",
+    "hint": "私は午前6時に起き、徒歩で以前のオフィスに向かいました。",
+    "focus": "時刻を表す at と、「徒歩で」を意味する on foot のセット表現。"
   },
   {
-    "target": "I had a meeting with Mr. Fukushima scheduled at 9:00 a.m.",
-    "hint": "午前9時に福島さんとの会議が予定されていました。",
-    "focus": "敬称 Mr. の付け方と「〜に予定されている」を表す scheduled at。"
+    "target": "The morning walk was very refreshing and took about thirty minutes.",
+    "hint": "朝の散歩はとても爽やかで、約30分かかりました。",
+    "focus": "時間の長さを表す take（過去形 took）の用法。"
   },
   {
-    "target": "However, there was no Wi-Fi connection available in the new office.",
-    "hint": "しかし、新しいオフィスには利用可能なWi-Fi接続がありませんでした。",
-    "focus": "過去の不在を表す there was no 〜 と「利用可能な」を表す available。"
+    "target": "My main goal for the day was to tidy up the remaining items.",
+    "hint": "その日の主な目的は、残った品物を片付けることでした。",
+    "focus": "tidy up（〜を片付ける・整理整頓する）という熟語。"
   },
   {
-    "target": "Because of this issue, we could not access our shared documents online.",
-    "hint": "この問題のため、オンラインで共有文書にアクセスできませんでした。",
-    "focus": "理由を表す because of + 名詞 と access（〜にアクセスする）の直後目的語。"
+    "target": "I threw away several pieces of oversized garbage from the storage area.",
+    "hint": "私は保管エリアから粗大ゴミを数点捨てました。",
+    "focus": "throw away の過去形 threw away の発音と oversized の語彙。"
   },
   {
-    "target": "Therefore, we decided to postpone the session for a while.",
-    "hint": "そのため、しばらくの間セッションを延期することにしました。",
-    "focus": "「したがって」を表す接続副詞 Therefore と decide to + 動詞の原形。"
+    "target": "Sorting through the old files and trash took more time than expected.",
+    "hint": "古いファイルやゴミの整理には、予想以上の時間がかかりました。",
+    "focus": "動名詞主語 Sorting through（〜を整理・分別すること）の構文。"
   },
   {
-    "target": "We agreed to hold the meeting again after the Wi-Fi connection is established.",
-    "hint": "Wi-Fi接続が確立された後に、再度会議を開催することで同意しました。",
-    "focus": "「〜することに同意する」の agree to do と「会議を開く」の hold the meeting。"
+    "target": "After completing the cleanup, I handed over the keys to the landlord.",
+    "hint": "清掃を完了した後、家主に鍵を引き渡しました。",
+    "focus": "hand over A to B（AをBに引き渡す）の過去形表現。"
   },
   {
-    "target": "I hope the Internet connection will be fixed soon.",
-    "hint": "ネット接続がすぐに復旧することを願っています。",
-    "focus": "希望を表す I hope + 節の構造と受動態 (will be fixed)。"
+    "target": "I felt relieved to finish all the tasks before the weekend.",
+    "hint": "週末の前にすべての作業を終えることができて安心しました。",
+    "focus": "feel relieved to do（〜してホッとする、安心する）の感情表現。"
   }
 ];
 // ==================== STATE ====================
