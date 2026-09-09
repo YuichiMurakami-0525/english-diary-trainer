@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 08, 2026</div>
+  <div class="date-badge">Sep 10, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0700 and went to office on foot.
+  I got up at 0700 then went to office by walk.
 </div>
 
 <div class="tabs">
@@ -242,112 +242,112 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0700 and went to office on foot.";;;;
+const diaryOriginal = "I got up at 0700 then went to office by walk.";;;;;
 
-const diaryCorrected = "I got up at 7:00 a.m. this morning. The weather was very clear and pleasant for early September. After having a light breakfast, I left my apartment around 7:45 a.m. I decided to go to the office on foot instead of taking the train. The walk took about twenty minutes and was great exercise. I arrived at the office feeling refreshed and ready to work. I hope to keep up this healthy commuting habit in the future.";;;;
+const diaryCorrected = "I got up at 7:00 a.m. today. After getting dressed, I ate a quick breakfast. I left my house around 7:30 a.m. Instead of taking the train, I decided to walk to the office. It was a pleasant morning walk, and it took about thirty minutes. I arrived at the office on foot at 8:00 a.m. I felt refreshed and ready to start my work day.";;;;;
 
 const vocabQuestions = [
   {
-    "q": "「office（オフィス）」の前に必要な冠詞を選んでください。",
-    "sentence": "I left home and went to _____ office on foot.",
+    "q": "「徒歩で」を意味する不自然な表現 \"by walk\" の正しい代替表現を選びなさい。",
+    "sentence": "I usually go to the office _____.",
+    "choices": [
+      "by walk",
+      "on foot",
+      "with walking",
+      "by foot"
+    ],
+    "answer": 1,
+    "explain": "「徒歩で」は英語で \"on foot\" と表現します。\"by walk\" は誤りです。また「歩いていく」と動詞を使って \"I usually walk to the office.\" と言うこともできます。"
+  },
+  {
+    "q": "「オフィスに行く」と言う際、名詞 office につく適切な冠詞を選びなさい。",
+    "sentence": "He went to _____ office at 8:00 a.m.",
     "choices": [
       "a",
       "an",
       "the",
-      "× (不要)"
+      "—"
     ],
     "answer": 2,
-    "explain": "自分の勤務先など、特定されている場所を指す場合は定冠詞「the」を付けて \"the office\" と表現します。"
+    "explain": "自分が行く特定の職場（オフィス）を指すため、定冠詞 \"the\" が必要です。\"go to the office\" で「出社する」という定番フレーズになります。"
   },
   {
-    "q": "「徒歩で」を表す正しい前置詞を選んでください。",
-    "sentence": "He usually goes to work _____ foot.",
+    "q": "「通勤のために歩いた」を表現する最も自然な動詞を選びなさい。",
+    "sentence": "Instead of taking the train, I _____ to work this morning.",
     "choices": [
-      "by",
-      "on",
-      "with",
-      "in"
+      "walked",
+      "went by walk",
+      "made a walk",
+      "did walk"
     ],
-    "answer": 1,
-    "explain": "「徒歩で」は慣用表現で \"on foot\" と言います。交通手段の \"by bus\" や \"by train\" と混同して \"by foot\" としないよう注意しましょう。"
+    "answer": 0,
+    "explain": "「〜へ歩いて行く」は動詞 walk を用いて \"walk to destination\" と表現するのが最もシンプルで自然です。"
   },
   {
-    "q": "時刻を表す際に前に置く適切な前置詞を選んでください。",
-    "sentence": "I got up _____ 7:00 a.m. this morning.",
+    "q": "時刻（7時など）を表す際につける正しい前置詞を選びなさい。",
+    "sentence": "My alarm went off _____ 7:00 a.m.",
     "choices": [
-      "in",
       "on",
+      "in",
       "at",
       "for"
     ],
     "answer": 2,
-    "explain": "ピンポイントの時刻（7:00 a.m. など）の前には前置詞「at」を使用します。"
+    "explain": "特定の時刻（7:00 a.m.など）を示す前置詞は \"at\" です。日付には on、月や年には in を用います。"
   },
   {
-    "q": "「（ベッドから）起きる」を意味する適切な動詞を選んでください。",
-    "sentence": "I _____ up early every morning to prepare for work.",
+    "q": "「（朝）起きる」の過去形として正しい形を選びなさい。",
+    "sentence": "I _____ up early this morning to avoid the rush hour.",
     "choices": [
       "get",
-      "take",
-      "go",
-      "make"
+      "got",
+      "gotten",
+      "getting"
+    ],
+    "answer": 1,
+    "explain": "日記など過去の出来事を語る際は動詞の過去形を使います。get の過去形は \"got\" です。"
+  },
+  {
+    "q": "日常英語での「午前7時」の自然な表記・表現を選びなさい。",
+    "sentence": "The meeting is scheduled to start at _____.",
+    "choices": [
+      "0700",
+      "7:00 a.m.",
+      "7 clock",
+      "7 of the morning"
+    ],
+    "answer": 1,
+    "explain": "\"0700\" は軍事時間（ミリタリータイム）の表記であり、日常やビジネスの文脈では \"7:00 a.m.\" や \"7 o'clock\" と表記・発音するのが一般的です。"
+  },
+  {
+    "q": "「〜して、それから…した」と動作の順序をつなぐ自然な接続表現を選びなさい。",
+    "sentence": "I brushed my teeth _____ left the house.",
+    "choices": [
+      "and then",
+      "after then",
+      "then after",
+      "so then"
     ],
     "answer": 0,
-    "explain": "「目が覚める」は wake up、「実際にベッドから起き上がる」は get up を使います。"
+    "explain": "「〜して、そのあと…」と連続する行動をつなぐときは \"and then\" を使うのが自然です。"
   },
   {
-    "q": "冠詞を伴わずに「出社する・仕事に行く」を表す語を選んでください。",
-    "sentence": "She gets on the train to go to _____ every morning.",
+    "q": "「オフィスへ（向かって）」という方向・目的地を表す前置詞を選びなさい。",
+    "sentence": "She walked _____ the station to catch the train.",
     "choices": [
-      "the work",
-      "work",
-      "a work",
-      "works"
-    ],
-    "answer": 1,
-    "explain": "\"go to work\" は不可算名詞として冠詞なしで「仕事に行く」を意味します。\"office\" を使う場合は \"go to the office\" となります。"
-  },
-  {
-    "q": "「（時間が）～かかる」を表す動詞の過去形を選んでください。",
-    "sentence": "The walk to the station _____ about 15 minutes.",
-    "choices": [
-      "spent",
-      "took",
-      "cost",
-      "passed"
-    ],
-    "answer": 1,
-    "explain": "時間の経過や所要時間を表す場合、IT（または主語）+ take + 時間 の形を使います。過去形は took です。"
-  },
-  {
-    "q": "「気分がすっきりした、リフレッシュした」を表す適切な分詞を選んでください。",
-    "sentence": "I arrived at work feeling _____ after my morning walk.",
-    "choices": [
-      "refresh",
-      "refreshed",
-      "refreshing",
-      "refreshes"
-    ],
-    "answer": 1,
-    "explain": "人が「～の気分にさせられた（リフレッシュした）」状態を表すため、過去分詞の refreshed を用います。"
-  },
-  {
-    "q": "「（良い習慣などを）維持する、続ける」を意味する熟語を選んでください。",
-    "sentence": "I plan to _____ up this healthy morning habit.",
-    "choices": [
-      "keep",
-      "hold",
-      "look",
-      "put"
+      "to",
+      "at",
+      "for",
+      "in"
     ],
     "answer": 0,
-    "explain": "習慣やペースを継続・維持する表現は \"keep up\" です。"
+    "explain": "到達点や目的地を示す前置詞は \"to\" です。\"walk to ~\" で「〜へ歩いて行く」となります。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 7:00 a.m. this morning.",
-    "q": "What time did the writer wake up?",
+    "text": "I got up at 7:00 a.m. today.",
+    "q": "What time did the speaker wake up?",
     "choices": [
       "At 6:00 a.m.",
       "At 6:30 a.m.",
@@ -357,147 +357,139 @@ const listeningQuestions = [
     "answer": 2
   },
   {
-    "text": "After having a light breakfast, I left my apartment around 7:45 a.m.",
-    "q": "What did the writer do before leaving the apartment?",
+    "text": "Instead of taking the train, I decided to walk to the office.",
+    "q": "How did the speaker commute to work?",
     "choices": [
-      "Ate a light breakfast",
-      "Exercised for 30 minutes",
-      "Took a long shower",
-      "Checked work emails"
+      "By taking the train",
+      "By riding a bicycle",
+      "By walking",
+      "By driving a car"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
-    "text": "I decided to go to the office on foot instead of taking the train.",
-    "q": "How did the writer travel to the office?",
+    "text": "It was a pleasant morning walk, and it took about thirty minutes.",
+    "q": "How long did the walk take?",
     "choices": [
-      "By train",
-      "By bus",
-      "By bicycle",
-      "On foot"
+      "15 minutes",
+      "20 minutes",
+      "30 minutes",
+      "45 minutes"
     ],
-    "answer": 3
+    "answer": 2
   },
   {
-    "text": "The walk took about twenty minutes and was great exercise.",
-    "q": "How long was the walk to the office?",
+    "text": "I arrived at the office on foot at 8:00 a.m.",
+    "q": "What time did the speaker reach the office?",
     "choices": [
-      "About 10 minutes",
-      "About 20 minutes",
-      "About 30 minutes",
-      "About 45 minutes"
+      "7:30 a.m.",
+      "8:00 a.m.",
+      "8:30 a.m.",
+      "9:00 a.m."
     ],
     "answer": 1
   },
   {
-    "text": "I arrived at the office feeling refreshed and ready to work.",
-    "q": "How did the writer feel upon arriving at the office?",
+    "text": "I felt refreshed and ready to start my work day.",
+    "q": "How did the speaker feel after the walk?",
     "choices": [
       "Exhausted",
-      "Stressed",
       "Refreshed",
+      "Anxious",
       "Sleepy"
     ],
-    "answer": 2
+    "answer": 1
   }
 ];
-const readingPassage = `Subject: Morning Commute Observation Report
-Date: September 8, 2026
-Prepared by: Kenji Sato, Operations Department
-
-On Tuesday, September 8, 2026, an experimental adjustment was made to the daily <span class="highlight">commute</span> routine. Instead of utilizing the local railway system, which is frequently congested during peak morning hours, I decided to travel to the corporate office <span class="highlight">on foot</span>. The <span class="highlight">departure</span> time from my residence was recorded at 7:45 a.m., following a brief breakfast.
-
-The walk took approximately twenty minutes, enabling arrival at the facility prior to 8:10 a.m. This alternative method offered several distinct advantages. First, walking provided a valuable opportunity for moderate physical exercise, promoting overall <span class="highlight">well-being</span>. Second, avoiding public transportation reduced exposure to crowded environments, leading to lower morning stress levels. As a result, productivity upon reaching the office was noticeably enhanced.
-
-In conclusion, adopting walking as a regular <span class="highlight">mode of transportation</span> is highly beneficial. Employees living within reasonable walking distance are encouraged to consider this option to support both personal health and daily work performance.`;
+const readingPassage = `MEMORANDUM<br><br>To: Human Resources Department<br>From: Health and Wellness Committee<br>Date: September 10, 2026<br>Subject: Morning Commute and Workplace Productivity Survey<br><br>This <span class="highlight">initiative</span> aims to evaluate employee commuting habits and their impact on daily work <span class="highlight">productivity</span>. On Thursday, September 10, 2026, several staff members participated in a trial morning walking routine. Instead of relying on public transit, participants <span class="highlight">commuted</span> on foot to the corporate office.<br><br>According to the preliminary feedback, employees who woke up at 7:00 a.m. and began their <span class="highlight">pedestrian</span> travel shortly after reported a notable increase in energy levels. The average walk took approximately thirty minutes, allowing participants to arrive at the office by 8:00 a.m. Most participants expressed that active commuting helped them feel <span class="highlight">refreshed</span> and mentally prepared before starting their regular tasks.<br><br>Due to these positive outcome metrics, the committee recommends encouraging walking options for staff members residing within a two-mile radius. Further guidelines regarding wellness <span class="highlight">incentives</span> will be announced next month.`;
 
 const readingQuestions = [
   {
-    "q": "What is the main purpose of the report?",
+    "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To request a change in official working hours",
-      "To evaluate an alternative method of commuting",
-      "To report a delay in local train services",
-      "To propose a new workplace fitness program"
+      "To announce changes to public transit schedules",
+      "To report the findings of a morning walking commute trial",
+      "To reprimand employees who arrived late for work",
+      "To notify staff about a relocation of the corporate office"
     ],
     "answer": 1
   },
   {
-    "q": "How did Kenji Sato commute to the office on September 8?",
+    "q": "When was the trial walking commute conducted?",
     "choices": [
-      "By taking a local train",
-      "By driving a private vehicle",
-      "By walking from his residence",
-      "By riding a company shuttle bus"
+      "On Monday, September 7",
+      "On Wednesday, September 9",
+      "On Thursday, September 10",
+      "On Friday, September 11"
     ],
     "answer": 2
   },
   {
-    "q": "According to the report, what was one benefit of walking to work?",
+    "q": "According to the passage, how long was the average commute on foot?",
     "choices": [
-      "It reduced morning stress levels.",
-      "It lowered monthly travel expenses.",
-      "It allowed extra time to answer emails.",
-      "It proved to be faster than taking the train."
-    ],
-    "answer": 0
-  },
-  {
-    "q": "What time did Kenji Sato leave his residence?",
-    "choices": [
-      "At 7:00 a.m.",
-      "At 7:45 a.m.",
-      "At 8:10 a.m.",
-      "At 8:30 a.m."
+      "15 minutes",
+      "30 minutes",
+      "45 minutes",
+      "60 minutes"
     ],
     "answer": 1
   },
   {
-    "q": "What is recommended for employees living near the office?",
+    "q": "How did the participating employees report feeling after walking to work?",
     "choices": [
-      "Taking public transit during off-peak hours",
-      "Considering walking as a regular commute option",
-      "Submitting monthly health evaluation forms",
-      "Working remotely twice a week"
+      "Tired and unmotivated",
+      "Too warm to begin work",
+      "Refreshed and mentally prepared",
+      "Stressed due to traffic delays"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "What will the Health and Wellness Committee announce next month?",
+    "choices": [
+      "A list of recommended gym memberships",
+      "Guidelines concerning wellness incentives",
+      "New parking regulations for employees",
+      "A mandatory daily exercise program"
     ],
     "answer": 1
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 7:00 a.m. this morning.",
-    "hint": "今朝は午前7時に起きました。",
-    "focus": "時刻を表す前置詞 at の使い方"
+    "target": "I got up at 7:00 a.m. today.",
+    "hint": "私は今日、午前7時に起きました。",
+    "focus": "「get up」の過去形「got up」と前置詞「at」を用いた時刻の表現。"
   },
   {
-    "target": "The weather was very clear and pleasant for early September.",
-    "hint": "9月初旬にしては天気がとても良く爽やかでした。",
-    "focus": "「～にしては」を表す for early September の表現"
+    "target": "After getting dressed, I ate a quick breakfast.",
+    "hint": "服を着替えた後、手早く朝食をとりました。",
+    "focus": "前置詞「after」の後の動名詞「getting」と「eat breakfast」の過去形。"
   },
   {
-    "target": "After having a light breakfast, I left my apartment around 7:45 a.m.",
-    "hint": "軽い朝食をとった後、午前7時45分ごろにアパートを出ました。",
-    "focus": "前置詞 after の後に動名詞 (having) を使う構造"
+    "target": "I left my house around 7:30 a.m.",
+    "hint": "午前7時半ごろに家を出ました。",
+    "focus": "「leave」の過去形「left」と、およその時間を表す「around」。"
   },
   {
-    "target": "I decided to go to the office on foot instead of taking the train.",
-    "hint": "電車に乗る代わりに、歩いてオフィスへ行くことにしました。",
-    "focus": "「～の代わりに」を表す instead of + 動名詞"
+    "target": "Instead of taking the train, I decided to walk to the office.",
+    "hint": "電車に乗る代わりに、オフィスまで歩くことにしました。",
+    "focus": "「〜する代わりに」を意味する「instead of + 動名詞」の構文。"
   },
   {
-    "target": "The walk took about twenty minutes and was great exercise.",
-    "hint": "徒歩で約20分かかり、良い運動になりました。",
-    "focus": "所要時間を表す take の過去形 took の使い方"
+    "target": "It was a pleasant morning walk, and it took about thirty minutes.",
+    "hint": "気持ちの良い朝の散歩で、30分ほどかかりました。",
+    "focus": "所要時間を表す「it took + 時間」の過去形表現。"
   },
   {
-    "target": "I arrived at the office feeling refreshed and ready to work.",
-    "hint": "すっきりした気分で、働く準備が整った状態でオフィスに到着しました。",
-    "focus": "状態を補足説明する分詞構文 (feeling refreshed)"
+    "target": "I arrived at the office on foot at 8:00 a.m.",
+    "hint": "午前8時に徒歩でオフィスに到着しました。",
+    "focus": "「徒歩で」を表すイディオム「on foot」と目的地を示す「arrive at」。"
   },
   {
-    "target": "I hope to keep up this healthy commuting habit in the future.",
-    "hint": "将来もこの健康的な通勤習慣を維持したいと思っています。",
-    "focus": "習慣の維持・継続を意味する句動詞 keep up"
+    "target": "I felt refreshed and ready to start my work day.",
+    "hint": "気分がリフレッシュし、一日の仕事を始める準備が整いました。",
+    "focus": "状態を表す「feel + 形容詞」と「be ready to do（〜する準備ができている）」。"
   }
 ];
 // ==================== STATE ====================
