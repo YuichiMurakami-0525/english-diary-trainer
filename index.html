@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 10, 2026</div>
+  <div class="date-badge">Sep 11, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0700 then went to office by walk.
+  I got up at 0600 and went to office on foot. Do chores. At 1030 I had meeting with fumi-san and Yagihashi-san about BCCC meeting. I updated my homepage. I had 90 English at 1300.
 </div>
 
 <div class="tabs">
@@ -242,50 +242,98 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0700 then went to office by walk.";;;;;
+const diaryOriginal = "I got up at 0600 and went to office on foot. Do chores. At 1030 I had meeting with fumi-san and Yagihashi-san about BCCC meeting. I updated my homepage. I had 90 English at 1300.";;;;;;
 
-const diaryCorrected = "I got up at 7:00 a.m. today. After getting dressed, I ate a quick breakfast. I left my house around 7:30 a.m. Instead of taking the train, I decided to walk to the office. It was a pleasant morning walk, and it took about thirty minutes. I arrived at the office on foot at 8:00 a.m. I felt refreshed and ready to start my work day.";;;;;
+const diaryCorrected = "I got up at 6:00 a.m. and went to the office on foot. Then, I did some chores. At 10:30 a.m., I had a meeting with Fumi-san and Yagihashi-san about the BCCC meeting. After that, I updated my homepage. Finally, I had a 90-minute English lesson at 1:00 p.m.";;;;;;
 
 const vocabQuestions = [
   {
-    "q": "「徒歩で」を意味する不自然な表現 \"by walk\" の正しい代替表現を選びなさい。",
-    "sentence": "I usually go to the office _____.",
-    "choices": [
-      "by walk",
-      "on foot",
-      "with walking",
-      "by foot"
-    ],
-    "answer": 1,
-    "explain": "「徒歩で」は英語で \"on foot\" と表現します。\"by walk\" は誤りです。また「歩いていく」と動詞を使って \"I usually walk to the office.\" と言うこともできます。"
-  },
-  {
-    "q": "「オフィスに行く」と言う際、名詞 office につく適切な冠詞を選びなさい。",
-    "sentence": "He went to _____ office at 8:00 a.m.",
+    "q": "日記の「went to office」を正しく修正する冠詞を選んでください。",
+    "sentence": "I got up at 6:00 a.m. and went to _____ office on foot.",
     "choices": [
       "a",
       "an",
       "the",
-      "—"
+      "-(不要)"
     ],
     "answer": 2,
-    "explain": "自分が行く特定の職場（オフィス）を指すため、定冠詞 \"the\" が必要です。\"go to the office\" で「出社する」という定番フレーズになります。"
+    "explain": "自分が勤務している特定の職場に行く場合は、定冠詞「the」をつけて「go to the office」とするのが自然です。"
   },
   {
-    "q": "「通勤のために歩いた」を表現する最も自然な動詞を選びなさい。",
-    "sentence": "Instead of taking the train, I _____ to work this morning.",
+    "q": "日記の「Do chores.」の動詞の時制を正しく修正した形を選んでください。",
+    "sentence": "After arriving at work, I _____ some routine chores.",
     "choices": [
-      "walked",
-      "went by walk",
-      "made a walk",
-      "did walk"
+      "do",
+      "did",
+      "have done",
+      "doing"
+    ],
+    "answer": 1,
+    "explain": "過去の出来事を記述しているため、現在形の「Do」ではなく過去形の「did」にする必要があります。"
+  },
+  {
+    "q": "日記の「had meeting」の冠詞の文法エラーを修正してください。",
+    "sentence": "At 10:30 a.m., I had _____ meeting with my colleagues.",
+    "choices": [
+      "a",
+      "an",
+      "the",
+      "-(不要)"
     ],
     "answer": 0,
-    "explain": "「〜へ歩いて行く」は動詞 walk を用いて \"walk to destination\" と表現するのが最もシンプルで自然です。"
+    "explain": "meeting は可算名詞（数えられる名詞）であり、単数形で特定の単一イベントを指す初出の表現には不定冠詞「a」が必要です。"
   },
   {
-    "q": "時刻（7時など）を表す際につける正しい前置詞を選びなさい。",
-    "sentence": "My alarm went off _____ 7:00 a.m.",
+    "q": "日記の「90 English」を「90分間の英語の授業」の意味にする正しい表現を選んでください。",
+    "sentence": "I had a 90-_____ English lesson in the afternoon.",
+    "choices": [
+      "minutes",
+      "minute",
+      "minutes'",
+      "minuted"
+    ],
+    "answer": 1,
+    "explain": "「数字 + 名詞」が形容詞として後ろの名詞（English lesson）を修飾する場合、ハイフンでつなぎ単数形にします（90-minute）。"
+  },
+  {
+    "q": "「徒歩で」を意味する正しい前置詞を選んでください。",
+    "sentence": "I usually commute to work _____ foot.",
+    "choices": [
+      "by",
+      "with",
+      "on",
+      "in"
+    ],
+    "answer": 2,
+    "explain": "「徒歩で」を表す慣用表現は「on foot」です。「by foot」とは言わない点に注意しましょう。"
+  },
+  {
+    "q": "特定された特定の会議「BCCCミーティング」を指す正しい冠詞を選んでください。",
+    "sentence": "We discussed our agenda for _____ BCCC meeting.",
+    "choices": [
+      "a",
+      "an",
+      "the",
+      "-(不要)"
+    ],
+    "answer": 2,
+    "explain": "相手との間で特定の会議（BCCCミーティング）であることが明確な場合は、定冠詞「the」を付けます。"
+  },
+  {
+    "q": "人名の表記と敬称の使い方のうち、英語の日記として最も適切な形を選んでください。",
+    "sentence": "I had a discussion with _____ in the morning.",
+    "choices": [
+      "fumi-san",
+      "Fumi-san",
+      "fumi San",
+      "fumi-SAN"
+    ],
+    "answer": 1,
+    "explain": "人名は固有名詞のため、必ず大文字で始めます（Fumi）。「-san」を付ける場合は「Fumi-san」と表記します。"
+  },
+  {
+    "q": "特定の時刻を表す際に用いる正しい前置詞を選んでください。",
+    "sentence": "My English class started _____ 1:00 p.m.",
     "choices": [
       "on",
       "in",
@@ -293,203 +341,168 @@ const vocabQuestions = [
       "for"
     ],
     "answer": 2,
-    "explain": "特定の時刻（7:00 a.m.など）を示す前置詞は \"at\" です。日付には on、月や年には in を用います。"
-  },
-  {
-    "q": "「（朝）起きる」の過去形として正しい形を選びなさい。",
-    "sentence": "I _____ up early this morning to avoid the rush hour.",
-    "choices": [
-      "get",
-      "got",
-      "gotten",
-      "getting"
-    ],
-    "answer": 1,
-    "explain": "日記など過去の出来事を語る際は動詞の過去形を使います。get の過去形は \"got\" です。"
-  },
-  {
-    "q": "日常英語での「午前7時」の自然な表記・表現を選びなさい。",
-    "sentence": "The meeting is scheduled to start at _____.",
-    "choices": [
-      "0700",
-      "7:00 a.m.",
-      "7 clock",
-      "7 of the morning"
-    ],
-    "answer": 1,
-    "explain": "\"0700\" は軍事時間（ミリタリータイム）の表記であり、日常やビジネスの文脈では \"7:00 a.m.\" や \"7 o'clock\" と表記・発音するのが一般的です。"
-  },
-  {
-    "q": "「〜して、それから…した」と動作の順序をつなぐ自然な接続表現を選びなさい。",
-    "sentence": "I brushed my teeth _____ left the house.",
-    "choices": [
-      "and then",
-      "after then",
-      "then after",
-      "so then"
-    ],
-    "answer": 0,
-    "explain": "「〜して、そのあと…」と連続する行動をつなぐときは \"and then\" を使うのが自然です。"
-  },
-  {
-    "q": "「オフィスへ（向かって）」という方向・目的地を表す前置詞を選びなさい。",
-    "sentence": "She walked _____ the station to catch the train.",
-    "choices": [
-      "to",
-      "at",
-      "for",
-      "in"
-    ],
-    "answer": 0,
-    "explain": "到達点や目的地を示す前置詞は \"to\" です。\"walk to ~\" で「〜へ歩いて行く」となります。"
+    "explain": "特定の時刻（1:00 p.m.など）の前には前置詞「at」を使用します。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 7:00 a.m. today.",
-    "q": "What time did the speaker wake up?",
+    "text": "I got up at 6:00 a.m. and went to the office on foot.",
+    "q": "How did the writer travel to the office?",
     "choices": [
-      "At 6:00 a.m.",
-      "At 6:30 a.m.",
-      "At 7:00 a.m.",
-      "At 7:30 a.m."
-    ],
-    "answer": 2
-  },
-  {
-    "text": "Instead of taking the train, I decided to walk to the office.",
-    "q": "How did the speaker commute to work?",
-    "choices": [
-      "By taking the train",
-      "By riding a bicycle",
       "By walking",
-      "By driving a car"
+      "By train",
+      "By bicycle",
+      "By car"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
-    "text": "It was a pleasant morning walk, and it took about thirty minutes.",
-    "q": "How long did the walk take?",
+    "text": "Then, I did some chores.",
+    "q": "What did the writer do after arriving at work?",
     "choices": [
-      "15 minutes",
-      "20 minutes",
+      "Prepared a presentation",
+      "Completed routine tasks",
+      "Ate breakfast",
+      "Called a client"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "At 10:30 a.m., I had a meeting with Fumi-san and Yagihashi-san about the BCCC meeting.",
+    "q": "What was the topic of the 10:30 a.m. meeting?",
+    "choices": [
+      "The BCCC meeting",
+      "Weekly sales budget",
+      "New employee orientation",
+      "Website redesign"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "After that, I updated my homepage.",
+    "q": "What action was taken after the morning meeting?",
+    "choices": [
+      "A new product was launched",
+      "The homepage was updated",
+      "An email was sent to customers",
+      "A document was printed"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "Finally, I had a 90-minute English lesson at 1:00 p.m.",
+    "q": "How long was the English lesson?",
+    "choices": [
       "30 minutes",
-      "45 minutes"
+      "60 minutes",
+      "90 minutes",
+      "120 minutes"
     ],
     "answer": 2
-  },
-  {
-    "text": "I arrived at the office on foot at 8:00 a.m.",
-    "q": "What time did the speaker reach the office?",
-    "choices": [
-      "7:30 a.m.",
-      "8:00 a.m.",
-      "8:30 a.m.",
-      "9:00 a.m."
-    ],
-    "answer": 1
-  },
-  {
-    "text": "I felt refreshed and ready to start my work day.",
-    "q": "How did the speaker feel after the walk?",
-    "choices": [
-      "Exhausted",
-      "Refreshed",
-      "Anxious",
-      "Sleepy"
-    ],
-    "answer": 1
   }
 ];
-const readingPassage = `MEMORANDUM<br><br>To: Human Resources Department<br>From: Health and Wellness Committee<br>Date: September 10, 2026<br>Subject: Morning Commute and Workplace Productivity Survey<br><br>This <span class="highlight">initiative</span> aims to evaluate employee commuting habits and their impact on daily work <span class="highlight">productivity</span>. On Thursday, September 10, 2026, several staff members participated in a trial morning walking routine. Instead of relying on public transit, participants <span class="highlight">commuted</span> on foot to the corporate office.<br><br>According to the preliminary feedback, employees who woke up at 7:00 a.m. and began their <span class="highlight">pedestrian</span> travel shortly after reported a notable increase in energy levels. The average walk took approximately thirty minutes, allowing participants to arrive at the office by 8:00 a.m. Most participants expressed that active commuting helped them feel <span class="highlight">refreshed</span> and mentally prepared before starting their regular tasks.<br><br>Due to these positive outcome metrics, the committee recommends encouraging walking options for staff members residing within a two-mile radius. Further guidelines regarding wellness <span class="highlight">incentives</span> will be announced next month.`;
+const readingPassage = `MEMORANDUM
+
+To: Department Staff
+From: Project Coordinator
+Date: September 11, 2026
+Subject: Daily Activity Report
+
+This report summarizes the <span class="highlight">routine</span> workplace activities and scheduled events completed on Friday, September 11, 2026.
+
+Upon arriving at the office on foot at approximately 6:30 a.m., initial workplace <span class="highlight">tasks</span> and daily chores were completed. At 10:30 a.m., a <span class="highlight">collaborative</span> planning session was <span class="highlight">conducted</span> with Fumi-san and Yagihashi-san. The primary <span class="highlight">objective</span> of this meeting was to discuss upcoming preparations for the BCCC conference.
+
+Following the discussion, maintenance on the department's digital content was performed to <span class="highlight">update</span> the official homepage with current information. In the afternoon, a 90-minute professional English training session was <span class="highlight">attended</span> at 1:00 p.m. to improve international communication skills.
+
+All scheduled objectives for the day were successfully completed according to the established timeline.`;
 
 const readingQuestions = [
   {
-    "q": "What is the main purpose of the memorandum?",
+    "q": "What is the primary purpose of the memorandum?",
     "choices": [
-      "To announce changes to public transit schedules",
-      "To report the findings of a morning walking commute trial",
-      "To reprimand employees who arrived late for work",
-      "To notify staff about a relocation of the corporate office"
+      "To announce a staff promotion",
+      "To report daily work activities",
+      "To reschedule the BCCC conference",
+      "To request IT support for the website"
     ],
     "answer": 1
   },
   {
-    "q": "When was the trial walking commute conducted?",
+    "q": "At what time did the meeting regarding the BCCC conference take place?",
     "choices": [
-      "On Monday, September 7",
-      "On Wednesday, September 9",
-      "On Thursday, September 10",
-      "On Friday, September 11"
+      "6:00 a.m.",
+      "6:30 a.m.",
+      "10:30 a.m.",
+      "1:00 p.m."
     ],
     "answer": 2
   },
   {
-    "q": "According to the passage, how long was the average commute on foot?",
+    "q": "Who participated in the morning planning session?",
     "choices": [
-      "15 minutes",
-      "30 minutes",
-      "45 minutes",
-      "60 minutes"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "How did the participating employees report feeling after walking to work?",
-    "choices": [
-      "Tired and unmotivated",
-      "Too warm to begin work",
-      "Refreshed and mentally prepared",
-      "Stressed due to traffic delays"
+      "Department staff and IT members",
+      "International clients",
+      "Fumi-san and Yagihashi-san",
+      "The English instructor"
     ],
     "answer": 2
   },
   {
-    "q": "What will the Health and Wellness Committee announce next month?",
+    "q": "What was done to the department's official homepage?",
     "choices": [
-      "A list of recommended gym memberships",
-      "Guidelines concerning wellness incentives",
-      "New parking regulations for employees",
-      "A mandatory daily exercise program"
+      "It was deleted.",
+      "It was updated with current information.",
+      "It was translated into English.",
+      "It was created for the first time."
     ],
     "answer": 1
+  },
+  {
+    "q": "Why was the English training session held in the afternoon?",
+    "choices": [
+      "To prepare for a trip abroad",
+      "To complete mandatory compliance training",
+      "To improve international communication skills",
+      "To review the BCCC meeting transcript"
+    ],
+    "answer": 2
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 7:00 a.m. today.",
-    "hint": "私は今日、午前7時に起きました。",
-    "focus": "「get up」の過去形「got up」と前置詞「at」を用いた時刻の表現。"
+    "target": "I got up at 6:00 a.m.",
+    "hint": "私は午前6時に起きました。",
+    "focus": "時刻の前置詞「at」と「a.m.」の発音"
   },
   {
-    "target": "After getting dressed, I ate a quick breakfast.",
-    "hint": "服を着替えた後、手早く朝食をとりました。",
-    "focus": "前置詞「after」の後の動名詞「getting」と「eat breakfast」の過去形。"
+    "target": "I went to the office on foot.",
+    "hint": "私は徒歩でオフィスへ行きました。",
+    "focus": "「the office」の定冠詞と「on foot（徒歩で）」の熟語"
   },
   {
-    "target": "I left my house around 7:30 a.m.",
-    "hint": "午前7時半ごろに家を出ました。",
-    "focus": "「leave」の過去形「left」と、およその時間を表す「around」。"
+    "target": "Then, I did some chores.",
+    "hint": "それから、私はいくつか雑務をこなしました。",
+    "focus": "過去形「did」と「chores（雑務）」の発音"
   },
   {
-    "target": "Instead of taking the train, I decided to walk to the office.",
-    "hint": "電車に乗る代わりに、オフィスまで歩くことにしました。",
-    "focus": "「〜する代わりに」を意味する「instead of + 動名詞」の構文。"
+    "target": "At 10:30 a.m., I had a meeting with Fumi-san and Yagihashi-san.",
+    "hint": "午前10時半に、フミさんと八木橋さんと会議を行いました。",
+    "focus": "「had a meeting with 〜」の滑らかなリンキング"
   },
   {
-    "target": "It was a pleasant morning walk, and it took about thirty minutes.",
-    "hint": "気持ちの良い朝の散歩で、30分ほどかかりました。",
-    "focus": "所要時間を表す「it took + 時間」の過去形表現。"
+    "target": "We talked about the BCCC meeting.",
+    "hint": "私たちはBCCCミーティングについて話し合いました。",
+    "focus": "「talked about」の過去形の発音と「the」の意識"
   },
   {
-    "target": "I arrived at the office on foot at 8:00 a.m.",
-    "hint": "午前8時に徒歩でオフィスに到着しました。",
-    "focus": "「徒歩で」を表すイディオム「on foot」と目的地を示す「arrive at」。"
+    "target": "I updated my homepage.",
+    "hint": "私はホームページを更新しました。",
+    "focus": "規則動詞の過去形「updated（アップデーティッド）」のアクセント"
   },
   {
-    "target": "I felt refreshed and ready to start my work day.",
-    "hint": "気分がリフレッシュし、一日の仕事を始める準備が整いました。",
-    "focus": "状態を表す「feel + 形容詞」と「be ready to do（〜する準備ができている）」。"
+    "target": "I had a 90-minute English lesson at 1:00 p.m.",
+    "hint": "午後1時に90分間の英語のレッスンを受けました。",
+    "focus": "複合形容詞「90-minute」の単数形維持と時間の表現"
   }
 ];
 // ==================== STATE ====================
