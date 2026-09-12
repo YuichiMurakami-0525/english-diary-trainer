@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 11, 2026</div>
+  <div class="date-badge">Sep 12, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0600 and went to office on foot. Do chores. At 1030 I had meeting with fumi-san and Yagihashi-san about BCCC meeting. I updated my homepage. I had 90 English at 1300.
+  I got up at 0600 and went to gym and throw away garbage. Then I went to gym.
 </div>
 
 <div class="tabs">
@@ -242,267 +242,254 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0600 and went to office on foot. Do chores. At 1030 I had meeting with fumi-san and Yagihashi-san about BCCC meeting. I updated my homepage. I had 90 English at 1300.";;;;;;
+const diaryOriginal = "I got up at 0600 and went to gym and throw away garbage. Then I went to gym.";;;;;;;
 
-const diaryCorrected = "I got up at 6:00 a.m. and went to the office on foot. Then, I did some chores. At 10:30 a.m., I had a meeting with Fumi-san and Yagihashi-san about the BCCC meeting. After that, I updated my homepage. Finally, I had a 90-minute English lesson at 1:00 p.m.";;;;;;
+const diaryCorrected = "I got up at 6:00 a.m. this morning. First, I took out the trash before leaving home. Then, I headed to the gym to do some morning exercise. I spent about an hour doing weight training and cardio. Working out early in the morning makes me feel energized. On my way back, I stopped by a local cafe for breakfast. It was a great start to my Saturday.";;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "日記の「went to office」を正しく修正する冠詞を選んでください。",
-    "sentence": "I got up at 6:00 a.m. and went to _____ office on foot.",
+    "q": "元の文にある 'throw' は過去の出来事に対して現在形になっています。過去形として正しい形はどれですか？",
+    "sentence": "I went to the kitchen and _____ away the old food.",
     "choices": [
-      "a",
-      "an",
-      "the",
-      "-(不要)"
-    ],
-    "answer": 2,
-    "explain": "自分が勤務している特定の職場に行く場合は、定冠詞「the」をつけて「go to the office」とするのが自然です。"
-  },
-  {
-    "q": "日記の「Do chores.」の動詞の時制を正しく修正した形を選んでください。",
-    "sentence": "After arriving at work, I _____ some routine chores.",
-    "choices": [
-      "do",
-      "did",
-      "have done",
-      "doing"
+      "throw",
+      "threw",
+      "thrown",
+      "throwing"
     ],
     "answer": 1,
-    "explain": "過去の出来事を記述しているため、現在形の「Do」ではなく過去形の「did」にする必要があります。"
+    "explain": "日記全体が過去の出来事について書かれているため、過去形の threw を使用するのが正解です。"
   },
   {
-    "q": "日記の「had meeting」の冠詞の文法エラーを修正してください。",
-    "sentence": "At 10:30 a.m., I had _____ meeting with my colleagues.",
+    "q": "「ジムに行く」と言う場合、通常 gym の前に冠詞が必要です。最も適切なものはどれですか？",
+    "sentence": "He usually goes to _____ gym three times a week.",
     "choices": [
       "a",
-      "an",
       "the",
-      "-(不要)"
-    ],
-    "answer": 0,
-    "explain": "meeting は可算名詞（数えられる名詞）であり、単数形で特定の単一イベントを指す初出の表現には不定冠詞「a」が必要です。"
-  },
-  {
-    "q": "日記の「90 English」を「90分間の英語の授業」の意味にする正しい表現を選んでください。",
-    "sentence": "I had a 90-_____ English lesson in the afternoon.",
-    "choices": [
-      "minutes",
-      "minute",
-      "minutes'",
-      "minuted"
+      "an",
+      "some"
     ],
     "answer": 1,
-    "explain": "「数字 + 名詞」が形容詞として後ろの名詞（English lesson）を修飾する場合、ハイフンでつなぎ単数形にします（90-minute）。"
+    "explain": "特定の建物を指す場合や日常通っているジムを指すときは definite article（定冠詞）の the を用いて go to the gym と表現します。"
   },
   {
-    "q": "「徒歩で」を意味する正しい前置詞を選んでください。",
-    "sentence": "I usually commute to work _____ foot.",
+    "q": "日記の '0600' は時刻の表現として不自然です。「午前6時に」と表す正しい前置詞はどれですか？",
+    "sentence": "My alarm clock rang _____ 6:00 a.m. this morning.",
     "choices": [
-      "by",
-      "with",
-      "on",
-      "in"
-    ],
-    "answer": 2,
-    "explain": "「徒歩で」を表す慣用表現は「on foot」です。「by foot」とは言わない点に注意しましょう。"
-  },
-  {
-    "q": "特定された特定の会議「BCCCミーティング」を指す正しい冠詞を選んでください。",
-    "sentence": "We discussed our agenda for _____ BCCC meeting.",
-    "choices": [
-      "a",
-      "an",
-      "the",
-      "-(不要)"
-    ],
-    "answer": 2,
-    "explain": "相手との間で特定の会議（BCCCミーティング）であることが明確な場合は、定冠詞「the」を付けます。"
-  },
-  {
-    "q": "人名の表記と敬称の使い方のうち、英語の日記として最も適切な形を選んでください。",
-    "sentence": "I had a discussion with _____ in the morning.",
-    "choices": [
-      "fumi-san",
-      "Fumi-san",
-      "fumi San",
-      "fumi-SAN"
-    ],
-    "answer": 1,
-    "explain": "人名は固有名詞のため、必ず大文字で始めます（Fumi）。「-san」を付ける場合は「Fumi-san」と表記します。"
-  },
-  {
-    "q": "特定の時刻を表す際に用いる正しい前置詞を選んでください。",
-    "sentence": "My English class started _____ 1:00 p.m.",
-    "choices": [
+      "at",
       "on",
       "in",
-      "at",
       "for"
     ],
+    "answer": 0,
+    "explain": "特定の時刻を表すときは前置詞 at を使用します。"
+  },
+  {
+    "q": "「ゴミを出す」という日常動作を表す際、throw away よりも自然なコロケーション（動詞）はどれですか？",
+    "sentence": "Don't forget to _____ out the garbage before you leave.",
+    "choices": [
+      "take",
+      "make",
+      "do",
+      "put"
+    ],
+    "answer": 0,
+    "explain": "家の中から指定の場所へ「ゴミを出す」という行為には take out the garbage (trash) という表現が最もよく使われます。"
+  },
+  {
+    "q": "「ゴミ」を表す garbage につける適切な冠詞はどれですか？",
+    "sentence": "Please put _____ garbage outside near the curb.",
+    "choices": [
+      "a",
+      "an",
+      "the",
+      "any"
+    ],
     "answer": 2,
-    "explain": "特定の時刻（1:00 p.m.など）の前には前置詞「at」を使用します。"
+    "explain": "出しに行く特定のゴミを指しているため、定冠詞 the をつけて the garbage とするのが適切です。"
+  },
+  {
+    "q": "日記の冒頭にある「起きる」の過去形として正しい綴りはどれですか？",
+    "sentence": "She _____ up early yesterday to catch the morning train.",
+    "choices": [
+      "get",
+      "got",
+      "gotten",
+      "getting"
+    ],
+    "answer": 1,
+    "explain": "get up の過去形は got up です。"
+  },
+  {
+    "q": "元の文では 'went to gym' が重複していました。動作の順序を自然につなぐつなぎ言葉はどれですか？",
+    "sentence": "I finished my morning chores. _____, I went to the fitness center.",
+    "choices": [
+      "After that",
+      "Although",
+      "Because",
+      "Unless"
+    ],
+    "answer": 0,
+    "explain": "「そのあとで」という出来事の順序を示すには After that や Then が適しています。"
+  },
+  {
+    "q": "「〜へ行く」と目的地を示す場合、go の後に必要な前置詞はどれですか？",
+    "sentence": "We are planning to go _____ the gym after work.",
+    "choices": [
+      "to",
+      "at",
+      "for",
+      "in"
+    ],
+    "answer": 0,
+    "explain": "移動の方向・目的地を示す場合は方向の前置詞 to を使い go to ... とします。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 6:00 a.m. and went to the office on foot.",
-    "q": "How did the writer travel to the office?",
+    "text": "I got up at 6:00 a.m. this morning.",
+    "q": "What time did the speaker get up?",
     "choices": [
-      "By walking",
-      "By train",
-      "By bicycle",
-      "By car"
+      "At 5:00 a.m.",
+      "At 6:00 a.m.",
+      "At 7:00 a.m.",
+      "At 8:00 a.m."
     ],
-    "answer": 0
+    "answer": 1
   },
   {
-    "text": "Then, I did some chores.",
-    "q": "What did the writer do after arriving at work?",
+    "text": "First, I took out the trash before leaving home.",
+    "q": "What did the speaker do before leaving home?",
     "choices": [
-      "Prepared a presentation",
-      "Completed routine tasks",
+      "Took out the trash",
       "Ate breakfast",
-      "Called a client"
-    ],
-    "answer": 1
-  },
-  {
-    "text": "At 10:30 a.m., I had a meeting with Fumi-san and Yagihashi-san about the BCCC meeting.",
-    "q": "What was the topic of the 10:30 a.m. meeting?",
-    "choices": [
-      "The BCCC meeting",
-      "Weekly sales budget",
-      "New employee orientation",
-      "Website redesign"
+      "Cleaned the bathroom",
+      "Checked the mail"
     ],
     "answer": 0
   },
   {
-    "text": "After that, I updated my homepage.",
-    "q": "What action was taken after the morning meeting?",
-    "choices": [
-      "A new product was launched",
-      "The homepage was updated",
-      "An email was sent to customers",
-      "A document was printed"
-    ],
-    "answer": 1
-  },
-  {
-    "text": "Finally, I had a 90-minute English lesson at 1:00 p.m.",
-    "q": "How long was the English lesson?",
+    "text": "I spent about an hour doing weight training and cardio.",
+    "q": "How long did the speaker exercise at the gym?",
     "choices": [
       "30 minutes",
-      "60 minutes",
-      "90 minutes",
-      "120 minutes"
+      "About an hour",
+      "Two hours",
+      "All morning"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "Working out early in the morning makes me feel energized.",
+    "q": "How does morning exercise make the speaker feel?",
+    "choices": [
+      "Exhausted",
+      "Stressed",
+      "Energized",
+      "Sleepy"
+    ],
+    "answer": 2
+  },
+  {
+    "text": "On my way back, I stopped by a local cafe for breakfast.",
+    "q": "Where did the speaker have breakfast?",
+    "choices": [
+      "At home",
+      "At work",
+      "At a local cafe",
+      "At the gym"
     ],
     "answer": 2
   }
 ];
-const readingPassage = `MEMORANDUM
-
-To: Department Staff
-From: Project Coordinator
-Date: September 11, 2026
-Subject: Daily Activity Report
-
-This report summarizes the <span class="highlight">routine</span> workplace activities and scheduled events completed on Friday, September 11, 2026.
-
-Upon arriving at the office on foot at approximately 6:30 a.m., initial workplace <span class="highlight">tasks</span> and daily chores were completed. At 10:30 a.m., a <span class="highlight">collaborative</span> planning session was <span class="highlight">conducted</span> with Fumi-san and Yagihashi-san. The primary <span class="highlight">objective</span> of this meeting was to discuss upcoming preparations for the BCCC conference.
-
-Following the discussion, maintenance on the department's digital content was performed to <span class="highlight">update</span> the official homepage with current information. In the afternoon, a 90-minute professional English training session was <span class="highlight">attended</span> at 1:00 p.m. to improve international communication skills.
-
-All scheduled objectives for the day were successfully completed according to the established timeline.`;
+const readingPassage = `This report <span class="highlight">examines</span> the morning routines of individuals who maintain an active lifestyle on weekends. On Saturday, September 12, a daily activity log was recorded by a participant who began their day at 6:00 a.m. The participant completed essential domestic responsibilities, such as <span class="highlight">disposing</span> of household waste, prior to departing for physical exercise. The individual then visited a local fitness facility to <span class="highlight">engage in</span> scheduled morning workouts. Research indicates that incorporating early physical activity into weekend routines significantly <span class="highlight">enhances</span> daily energy levels and overall mental clarity. Furthermore, completing household chores early allows individuals to manage their time more <span class="highlight">efficiently</span> throughout the remainder of the day. Consistent exercise habits combined with morning structure contribute positively to long-term wellness and productivity. Consequently, health professionals <span class="highlight">recommend</span> establishing a structured morning routine that balances physical conditioning with routine domestic tasks.`;
 
 const readingQuestions = [
   {
-    "q": "What is the primary purpose of the memorandum?",
+    "q": "What is the main purpose of the report?",
     "choices": [
-      "To announce a staff promotion",
-      "To report daily work activities",
-      "To reschedule the BCCC conference",
-      "To request IT support for the website"
+      "To market a new neighborhood gym",
+      "To analyze morning routines and their wellness benefits",
+      "To explain municipal waste management procedures",
+      "To review breakfast menu options at local cafes"
     ],
     "answer": 1
   },
   {
-    "q": "At what time did the meeting regarding the BCCC conference take place?",
+    "q": "What task was completed before going to the fitness facility?",
     "choices": [
-      "6:00 a.m.",
-      "6:30 a.m.",
-      "10:30 a.m.",
-      "1:00 p.m."
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Who participated in the morning planning session?",
-    "choices": [
-      "Department staff and IT members",
-      "International clients",
-      "Fumi-san and Yagihashi-san",
-      "The English instructor"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "What was done to the department's official homepage?",
-    "choices": [
-      "It was deleted.",
-      "It was updated with current information.",
-      "It was translated into English.",
-      "It was created for the first time."
+      "Preparing a meal",
+      "Disposing of household waste",
+      "Attending a business meeting",
+      "Reading a newspaper"
     ],
     "answer": 1
   },
   {
-    "q": "Why was the English training session held in the afternoon?",
+    "q": "According to the passage, what is one benefit of early weekend exercise?",
     "choices": [
-      "To prepare for a trip abroad",
-      "To complete mandatory compliance training",
-      "To improve international communication skills",
-      "To review the BCCC meeting transcript"
+      "Higher monthly income",
+      "Improved energy levels and mental clarity",
+      "Shorter commuting times",
+      "Reduced need for sleep"
     ],
-    "answer": 2
+    "answer": 1
+  },
+  {
+    "q": "The word 'efficiently' in the passage is closest in meaning to:",
+    "choices": [
+      "Productively",
+      "Slowly",
+      "Carelessly",
+      "Expensive"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "What do health professionals suggest doing?",
+    "choices": [
+      "Exercising late at night",
+      "Establishing a structured morning routine",
+      "Avoiding house chores on weekends",
+      "Skipping morning meals"
+    ],
+    "answer": 1
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 6:00 a.m.",
-    "hint": "私は午前6時に起きました。",
-    "focus": "時刻の前置詞「at」と「a.m.」の発音"
+    "target": "I got up at 6:00 a.m. this morning.",
+    "hint": "今朝は午前6時に起きました。",
+    "focus": "時刻を表す前置詞 at と過去形 got up の発音"
   },
   {
-    "target": "I went to the office on foot.",
-    "hint": "私は徒歩でオフィスへ行きました。",
-    "focus": "「the office」の定冠詞と「on foot（徒歩で）」の熟語"
+    "target": "First, I took out the trash before leaving home.",
+    "hint": "まず、家を出る前にゴミを出しました。",
+    "focus": "「ゴミを出す」を表す took out the trash"
   },
   {
-    "target": "Then, I did some chores.",
-    "hint": "それから、私はいくつか雑務をこなしました。",
-    "focus": "過去形「did」と「chores（雑務）」の発音"
+    "target": "Then, I headed to the gym to do some morning exercise.",
+    "hint": "それから、朝の運動をしにジムへ向かいました。",
+    "focus": "「〜へ向かう」の headed to と目的の to 不定詞"
   },
   {
-    "target": "At 10:30 a.m., I had a meeting with Fumi-san and Yagihashi-san.",
-    "hint": "午前10時半に、フミさんと八木橋さんと会議を行いました。",
-    "focus": "「had a meeting with 〜」の滑らかなリンキング"
+    "target": "I spent about an hour doing weight training and cardio.",
+    "hint": "筋トレと有酸素運動に約1時間費やしました。",
+    "focus": "spend + 時間 + -ing（〜して時間を過ごす）構文"
   },
   {
-    "target": "We talked about the BCCC meeting.",
-    "hint": "私たちはBCCCミーティングについて話し合いました。",
-    "focus": "「talked about」の過去形の発音と「the」の意識"
+    "target": "Working out early in the morning makes me feel energized.",
+    "hint": "朝早くに運動すると、元気が湧いてきます。",
+    "focus": "動名詞主語（Working out）と make + 人 + 形容詞"
   },
   {
-    "target": "I updated my homepage.",
-    "hint": "私はホームページを更新しました。",
-    "focus": "規則動詞の過去形「updated（アップデーティッド）」のアクセント"
+    "target": "On my way back, I stopped by a local cafe for breakfast.",
+    "hint": "帰る途中で、地元のカフェに立ち寄って朝食を食べました。",
+    "focus": "「〜の帰りに」の on my way back と「立ち寄る」の stop by"
   },
   {
-    "target": "I had a 90-minute English lesson at 1:00 p.m.",
-    "hint": "午後1時に90分間の英語のレッスンを受けました。",
-    "focus": "複合形容詞「90-minute」の単数形維持と時間の表現"
+    "target": "It was a great start to my Saturday.",
+    "hint": "土曜日の素晴らしい一日のスタートとなりました。",
+    "focus": "「〜の素晴らしいスタート」を表す a great start to ..."
   }
 ];
 // ==================== STATE ====================
