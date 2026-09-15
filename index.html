@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 12, 2026</div>
+  <div class="date-badge">Sep 15, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0600 and went to gym and throw away garbage. Then I went to gym.
+  I got up at 0630 and went to office on foot. I updated my HomePage using Codex. At 0900 I had meeting with Kurokawa-san about AI kouritsu kaikei. Then I made blog and analyzed Sacoin. I finished Sacoin monthly report of August.
 </div>
 
 <div class="tabs">
@@ -242,254 +242,266 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0600 and went to gym and throw away garbage. Then I went to gym.";;;;;;;
+const diaryOriginal = "I got up at 0630 and went to office on foot. I updated my HomePage using Codex. At 0900 I had meeting with Kurokawa-san about AI kouritsu kaikei. Then I made blog and analyzed Sacoin. I finished Sacoin monthly report of August.";;;;;;;;
 
-const diaryCorrected = "I got up at 6:00 a.m. this morning. First, I took out the trash before leaving home. Then, I headed to the gym to do some morning exercise. I spent about an hour doing weight training and cardio. Working out early in the morning makes me feel energized. On my way back, I stopped by a local cafe for breakfast. It was a great start to my Saturday.";;;;;;;
+const diaryCorrected = "I got up at 6:30 and went to the office on foot. I updated my website using Codex. At 9:00, I had a meeting with Mr. Kurokawa about AI-driven efficient accounting. Then, I wrote a blog post and analyzed Sacoin. Finally, I finished the August monthly report for Sacoin.";;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "元の文にある 'throw' は過去の出来事に対して現在形になっています。過去形として正しい形はどれですか？",
-    "sentence": "I went to the kitchen and _____ away the old food.",
+    "q": "特定された特定の職場（オフィス）へ行くと言う場合、officeの前に必要な冠詞を選びなさい。",
+    "sentence": "I got up at 6:30 and went to _____ office on foot.",
     "choices": [
-      "throw",
-      "threw",
-      "thrown",
-      "throwing"
-    ],
-    "answer": 1,
-    "explain": "日記全体が過去の出来事について書かれているため、過去形の threw を使用するのが正解です。"
-  },
-  {
-    "q": "「ジムに行く」と言う場合、通常 gym の前に冠詞が必要です。最も適切なものはどれですか？",
-    "sentence": "He usually goes to _____ gym three times a week.",
-    "choices": [
-      "a",
       "the",
+      "a",
       "an",
-      "some"
+      "（不要）"
     ],
-    "answer": 1,
-    "explain": "特定の建物を指す場合や日常通っているジムを指すときは definite article（定冠詞）の the を用いて go to the gym と表現します。"
+    "answer": 0,
+    "explain": "自分が勤めている特定のオフィスを指す場合は定冠詞 the をつけて to the office と表現します。"
   },
   {
-    "q": "日記の '0600' は時刻の表現として不自然です。「午前6時に」と表す正しい前置詞はどれですか？",
-    "sentence": "My alarm clock rang _____ 6:00 a.m. this morning.",
+    "q": "「徒歩で」という移動手段を表す正しい前置詞を選びなさい。",
+    "sentence": "I went to the office _____ foot.",
     "choices": [
-      "at",
       "on",
-      "in",
-      "for"
-    ],
-    "answer": 0,
-    "explain": "特定の時刻を表すときは前置詞 at を使用します。"
-  },
-  {
-    "q": "「ゴミを出す」という日常動作を表す際、throw away よりも自然なコロケーション（動詞）はどれですか？",
-    "sentence": "Don't forget to _____ out the garbage before you leave.",
-    "choices": [
-      "take",
-      "make",
-      "do",
-      "put"
-    ],
-    "answer": 0,
-    "explain": "家の中から指定の場所へ「ゴミを出す」という行為には take out the garbage (trash) という表現が最もよく使われます。"
-  },
-  {
-    "q": "「ゴミ」を表す garbage につける適切な冠詞はどれですか？",
-    "sentence": "Please put _____ garbage outside near the curb.",
-    "choices": [
-      "a",
-      "an",
-      "the",
-      "any"
-    ],
-    "answer": 2,
-    "explain": "出しに行く特定のゴミを指しているため、定冠詞 the をつけて the garbage とするのが適切です。"
-  },
-  {
-    "q": "日記の冒頭にある「起きる」の過去形として正しい綴りはどれですか？",
-    "sentence": "She _____ up early yesterday to catch the morning train.",
-    "choices": [
-      "get",
-      "got",
-      "gotten",
-      "getting"
-    ],
-    "answer": 1,
-    "explain": "get up の過去形は got up です。"
-  },
-  {
-    "q": "元の文では 'went to gym' が重複していました。動作の順序を自然につなぐつなぎ言葉はどれですか？",
-    "sentence": "I finished my morning chores. _____, I went to the fitness center.",
-    "choices": [
-      "After that",
-      "Although",
-      "Because",
-      "Unless"
-    ],
-    "answer": 0,
-    "explain": "「そのあとで」という出来事の順序を示すには After that や Then が適しています。"
-  },
-  {
-    "q": "「〜へ行く」と目的地を示す場合、go の後に必要な前置詞はどれですか？",
-    "sentence": "We are planning to go _____ the gym after work.",
-    "choices": [
-      "to",
-      "at",
-      "for",
+      "by",
+      "with",
       "in"
     ],
     "answer": 0,
-    "explain": "移動の方向・目的地を示す場合は方向の前置詞 to を使い go to ... とします。"
+    "explain": "交通手段の by bus や by train とは異なり、「徒歩で」は慣用的に on foot を使用します。"
+  },
+  {
+    "q": "「会議を持つ／会議をする」という場合、可算名詞 meeting の前につける適切な語を選びなさい。",
+    "sentence": "At 9:00, I had _____ meeting with Mr. Kurokawa.",
+    "choices": [
+      "a",
+      "the",
+      "an",
+      "（不要）"
+    ],
+    "answer": 0,
+    "explain": "meeting は可算名詞（数えられる名詞）であるため、単数形の場合は冠詞 a が必要です。"
+  },
+  {
+    "q": "「ブログ記事を書く」を表す最も自然な英語表現を選びなさい。",
+    "sentence": "Then, I _____ a blog post and analyzed Sacoin.",
+    "choices": [
+      "wrote",
+      "made",
+      "did",
+      "talked"
+    ],
+    "answer": 0,
+    "explain": "「ブログ（の記事）を書く」は make blog ではなく write a blog (post) と表現するのが自然です。"
+  },
+  {
+    "q": "「効率的な会計」を表すのに適した形容詞形を選びなさい。",
+    "sentence": "We discussed AI-driven _____ accounting.",
+    "choices": [
+      "efficient",
+      "efficiency",
+      "effectively",
+      "effect"
+    ],
+    "answer": 0,
+    "explain": "名詞 accounting（会計）を修飾するためには形容詞 efficient（効率的な）を用います。efficiency は名詞です。"
+  },
+  {
+    "q": "「8月分の〜」という期間・対象を表すのに最も適切な前置詞を選びなさい。",
+    "sentence": "I finished the Sacoin monthly report _____ August.",
+    "choices": [
+      "for",
+      "of",
+      "in",
+      "at"
+    ],
+    "answer": 0,
+    "explain": "特定月向けのレポートや成果物を表す場合、「〜のための／〜分の」という意味で for August とする方が自然です。"
+  },
+  {
+    "q": "英語で「（企業の）ウェブサイト」を指す最も一般的な単語を選びなさい。",
+    "sentence": "I updated my _____ using Codex.",
+    "choices": [
+      "website",
+      "HomePage",
+      "home page",
+      "web page"
+    ],
+    "answer": 0,
+    "explain": "日本語の「ホームページ」は英語では通常 website と表現します（homepage はサイトのトップページのみを指すことが多いです）。"
+  },
+  {
+    "q": "英語で男性の苗字の前につける適切な敬称（〜さん）を選びなさい。",
+    "sentence": "I had a meeting with _____ Kurokawa.",
+    "choices": [
+      "Mr.",
+      "-san",
+      "Sir",
+      "Master"
+    ],
+    "answer": 0,
+    "explain": "英語で人の名前を呼ぶ際、「黒川さん」は男性であれば Mr. Kurokawa（女性なら Ms. Kurokawa）と表現します。-san は日本語の音訳です。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 6:00 a.m. this morning.",
-    "q": "What time did the speaker get up?",
+    "text": "I got up at 6:30 and went to the office on foot.",
+    "q": "How did the speaker travel to the office?",
     "choices": [
-      "At 5:00 a.m.",
-      "At 6:00 a.m.",
-      "At 7:00 a.m.",
-      "At 8:00 a.m."
-    ],
-    "answer": 1
-  },
-  {
-    "text": "First, I took out the trash before leaving home.",
-    "q": "What did the speaker do before leaving home?",
-    "choices": [
-      "Took out the trash",
-      "Ate breakfast",
-      "Cleaned the bathroom",
-      "Checked the mail"
+      "By walking",
+      "By train",
+      "By bus",
+      "By car"
     ],
     "answer": 0
   },
   {
-    "text": "I spent about an hour doing weight training and cardio.",
-    "q": "How long did the speaker exercise at the gym?",
+    "text": "I updated my website using Codex.",
+    "q": "What tool was used to update the website?",
     "choices": [
-      "30 minutes",
-      "About an hour",
-      "Two hours",
-      "All morning"
+      "Codex",
+      "WordPress",
+      "Photoshop",
+      "Excel"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "text": "Working out early in the morning makes me feel energized.",
-    "q": "How does morning exercise make the speaker feel?",
+    "text": "At 9:00, I had a meeting with Mr. Kurokawa about AI-driven efficient accounting.",
+    "q": "Who did the speaker meet at 9:00 AM?",
     "choices": [
-      "Exhausted",
-      "Stressed",
-      "Energized",
-      "Sleepy"
+      "Mr. Kurokawa",
+      "Mr. Sacoin",
+      "A new client",
+      "The IT manager"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
-    "text": "On my way back, I stopped by a local cafe for breakfast.",
-    "q": "Where did the speaker have breakfast?",
+    "text": "Then, I wrote a blog post and analyzed Sacoin.",
+    "q": "What did the speaker do right after writing a blog post?",
     "choices": [
-      "At home",
-      "At work",
-      "At a local cafe",
-      "At the gym"
+      "Analyzed Sacoin",
+      "Updated Codex",
+      "Attended a meeting",
+      "Left the office"
     ],
-    "answer": 2
+    "answer": 0
+  },
+  {
+    "text": "Finally, I finished the August monthly report for Sacoin.",
+    "q": "Which month's report was completed at the end of the day?",
+    "choices": [
+      "August",
+      "September",
+      "July",
+      "October"
+    ],
+    "answer": 0
   }
 ];
-const readingPassage = `This report <span class="highlight">examines</span> the morning routines of individuals who maintain an active lifestyle on weekends. On Saturday, September 12, a daily activity log was recorded by a participant who began their day at 6:00 a.m. The participant completed essential domestic responsibilities, such as <span class="highlight">disposing</span> of household waste, prior to departing for physical exercise. The individual then visited a local fitness facility to <span class="highlight">engage in</span> scheduled morning workouts. Research indicates that incorporating early physical activity into weekend routines significantly <span class="highlight">enhances</span> daily energy levels and overall mental clarity. Furthermore, completing household chores early allows individuals to manage their time more <span class="highlight">efficiently</span> throughout the remainder of the day. Consistent exercise habits combined with morning structure contribute positively to long-term wellness and productivity. Consequently, health professionals <span class="highlight">recommend</span> establishing a structured morning routine that balances physical conditioning with routine domestic tasks.`;
+const readingPassage = `MEMORANDUM
+Date: September 15, 2026
+To: Operations Team
+From: Digital Solutions Department
+Subject: Daily Activity Report
+
+This report <span class="highlight">summarizes</span> the operational tasks completed on Tuesday, September 15. The workday <span class="highlight">commenced</span> early in the morning with a walk to the corporate office.
+
+The first task involved routine maintenance on the official corporate <span class="highlight">website</span> using Codex to ensure system stability. Following this, at 9:00 AM, a strategic meeting was <span class="highlight">conducted</span> with Mr. Kurokawa. The discussion centered on implementing AI technology to achieve <span class="highlight">efficient</span> accounting procedures across all departments.
+
+In the afternoon, promotional efforts were continued by <span class="highlight">publishing</span> a new blog post. Subsequently, data collection and market analysis were executed regarding Sacoin. By the end of business hours, the primary deliverable was successfully <span class="highlight">completed</span>: the Sacoin monthly performance report for August.
+
+All assigned tasks have been finalized, and the completed financial documentation is now ready for management <span class="highlight">review</span> and approval.`;
 
 const readingQuestions = [
   {
-    "q": "What is the main purpose of the report?",
+    "q": "What is the primary purpose of the memorandum?",
     "choices": [
-      "To market a new neighborhood gym",
-      "To analyze morning routines and their wellness benefits",
-      "To explain municipal waste management procedures",
-      "To review breakfast menu options at local cafes"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "What task was completed before going to the fitness facility?",
-    "choices": [
-      "Preparing a meal",
-      "Disposing of household waste",
-      "Attending a business meeting",
-      "Reading a newspaper"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "According to the passage, what is one benefit of early weekend exercise?",
-    "choices": [
-      "Higher monthly income",
-      "Improved energy levels and mental clarity",
-      "Shorter commuting times",
-      "Reduced need for sleep"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "The word 'efficiently' in the passage is closest in meaning to:",
-    "choices": [
-      "Productively",
-      "Slowly",
-      "Carelessly",
-      "Expensive"
+      "To summarize tasks completed on September 15",
+      "To announce a new AI software launch",
+      "To request additional budget for Sacoin",
+      "To reschedule a meeting with Mr. Kurokawa"
     ],
     "answer": 0
   },
   {
-    "q": "What do health professionals suggest doing?",
+    "q": "How did the writer commute to the corporate office?",
     "choices": [
-      "Exercising late at night",
-      "Establishing a structured morning routine",
-      "Avoiding house chores on weekends",
-      "Skipping morning meals"
+      "On foot",
+      "By public bus",
+      "By subway train",
+      "By driving a personal car"
     ],
-    "answer": 1
+    "answer": 0
+  },
+  {
+    "q": "What was the main topic of the 9:00 AM meeting?",
+    "choices": [
+      "Improving accounting procedures using AI",
+      "Redesigning the corporate website layout",
+      "Writing promotional blog posts for products",
+      "Preparing the budget report for September"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "What document was completed by the end of the business day?",
+    "choices": [
+      "The Sacoin monthly report for August",
+      "The software installation manual for Codex",
+      "The system update checklist for September",
+      "The quarterly financial statement"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "What is scheduled to happen next with the financial documentation?",
+    "choices": [
+      "It will be reviewed by management.",
+      "It will be published on the company blog.",
+      "It will be deleted from the server.",
+      "It will be sent to external auditors."
+    ],
+    "answer": 0
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 6:00 a.m. this morning.",
-    "hint": "今朝は午前6時に起きました。",
-    "focus": "時刻を表す前置詞 at と過去形 got up の発音"
+    "target": "I got up at 6:30 and went to the office on foot.",
+    "hint": "私は6時半に起きて、徒歩でオフィスへ行きました。",
+    "focus": "時刻の言い方（at 6:30）と徒歩を表す慣用句「on foot」、officeの前の「the」を意識しましょう。"
   },
   {
-    "target": "First, I took out the trash before leaving home.",
-    "hint": "まず、家を出る前にゴミを出しました。",
-    "focus": "「ゴミを出す」を表す took out the trash"
+    "target": "I updated my website using Codex.",
+    "hint": "Codexを使って自分のウェブサイトを更新しました。",
+    "focus": "「ホームページ」は website と表現する点と、〜を使って（using...）の言い回しを練習します。"
   },
   {
-    "target": "Then, I headed to the gym to do some morning exercise.",
-    "hint": "それから、朝の運動をしにジムへ向かいました。",
-    "focus": "「〜へ向かう」の headed to と目的の to 不定詞"
+    "target": "At 9:00, I had a meeting with Mr. Kurokawa.",
+    "hint": "9時に黒川さんと会議を行いました。",
+    "focus": "have a meeting の冠詞「a」と、人名に付ける敬称「Mr.」の発音・リズムを確認しましょう。"
   },
   {
-    "target": "I spent about an hour doing weight training and cardio.",
-    "hint": "筋トレと有酸素運動に約1時間費やしました。",
-    "focus": "spend + 時間 + -ing（〜して時間を過ごす）構文"
+    "target": "We discussed AI-driven efficient accounting.",
+    "hint": "私達はAIを活用した効率的な会計について話し合いました。",
+    "focus": "discussは他動詞なので about を挟まない点と、「efficient accounting（効率的な会計）」の発音に注目します。"
   },
   {
-    "target": "Working out early in the morning makes me feel energized.",
-    "hint": "朝早くに運動すると、元気が湧いてきます。",
-    "focus": "動名詞主語（Working out）と make + 人 + 形容詞"
+    "target": "Then, I wrote a blog post.",
+    "hint": "それから、ブログ記事を書きました。",
+    "focus": "「ブログを書く」の自然な表現 write a blog post (過去形 wrote) をなめらかに言えるようにします。"
   },
   {
-    "target": "On my way back, I stopped by a local cafe for breakfast.",
-    "hint": "帰る途中で、地元のカフェに立ち寄って朝食を食べました。",
-    "focus": "「〜の帰りに」の on my way back と「立ち寄る」の stop by"
+    "target": "I analyzed the data for Sacoin.",
+    "hint": "Sacoinのデータを分析しました。",
+    "focus": "動詞 analyze（分析する）の過去形 analyzed の発音とアクセントの位置に注意します。"
   },
   {
-    "target": "It was a great start to my Saturday.",
-    "hint": "土曜日の素晴らしい一日のスタートとなりました。",
-    "focus": "「〜の素晴らしいスタート」を表す a great start to ..."
+    "target": "Finally, I finished the August monthly report for Sacoin.",
+    "hint": "最後に、Sacoinの8月分の月次レポートを完成させました。",
+    "focus": "「8月分の〜」を表す前置詞 for August の使い方と順序を自然にスピーキング練習します。"
   }
 ];
 // ==================== STATE ====================
