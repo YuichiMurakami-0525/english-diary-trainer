@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 15, 2026</div>
+  <div class="date-badge">Sep 29, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0630 and went to office on foot. I updated my HomePage using Codex. At 0900 I had meeting with Kurokawa-san about AI kouritsu kaikei. Then I made blog and analyzed Sacoin. I finished Sacoin monthly report of August.
+  I got up at 0700 then went to office by walk. I made D-chain tax return report and made month end invoices. At 1300 I had 90 English lesson. I sent tax return review of D-chain by superabi.
 </div>
 
 <div class="tabs">
@@ -242,266 +242,254 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0630 and went to office on foot. I updated my HomePage using Codex. At 0900 I had meeting with Kurokawa-san about AI kouritsu kaikei. Then I made blog and analyzed Sacoin. I finished Sacoin monthly report of August.";;;;;;;;
+const diaryOriginal = "I got up at 0700 then went to office by walk. I made D-chain tax return report and made month end invoices. At 1300 I had 90 English lesson. I sent tax return review of D-chain by superabi.";;;;;;;;;
 
-const diaryCorrected = "I got up at 6:30 and went to the office on foot. I updated my website using Codex. At 9:00, I had a meeting with Mr. Kurokawa about AI-driven efficient accounting. Then, I wrote a blog post and analyzed Sacoin. Finally, I finished the August monthly report for Sacoin.";;;;;;;;
+const diaryCorrected = "I got up at 7:00 a.m. and walked to the office. I prepared the D-chain tax return report and generated the month-end invoices. At 1:00 p.m., I took a 90-minute English lesson. Finally, I submitted the D-chain tax return review through Superabi.";;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "特定された特定の職場（オフィス）へ行くと言う場合、officeの前に必要な冠詞を選びなさい。",
-    "sentence": "I got up at 6:30 and went to _____ office on foot.",
+    "q": "「徒歩で」を表す適切な表現を選んでください。（「by walk」は不自然な英語表現です）",
+    "sentence": "I went to the office _____ this morning.",
     "choices": [
-      "the",
-      "a",
-      "an",
-      "（不要）"
+      "on foot",
+      "by walk",
+      "with walk",
+      "by feet"
     ],
     "answer": 0,
-    "explain": "自分が勤めている特定のオフィスを指す場合は定冠詞 the をつけて to the office と表現します。"
+    "explain": "「徒歩で」は on foot または動詞 walk を使って walked to ... と表現します。by walk は誤りです。"
   },
   {
-    "q": "「徒歩で」という移動手段を表す正しい前置詞を選びなさい。",
-    "sentence": "I went to the office _____ foot.",
+    "q": "特定のおフィスの場所を指す際、適切な冠詞を含んだ表現を選んでください。",
+    "sentence": "I arrived at _____ at 8:00 a.m.",
+    "choices": [
+      "an office",
+      "office",
+      "the office",
+      "offices"
+    ],
+    "answer": 2,
+    "explain": "自分が勤務している特定のオフィスを指す場合は定冠詞 the をつけて the office とします。"
+  },
+  {
+    "q": "ビジネスで書類やレポートを「作成・準備する」際に make より適した動詞を選んでください。",
+    "sentence": "I _____ the tax return report for D-chain.",
+    "choices": [
+      "did",
+      "prepared",
+      "took",
+      "had"
+    ],
+    "answer": 1,
+    "explain": "報告書や申請書類を「準備・作成する」には prepare や draft がビジネス英語としてより適しています。"
+  },
+  {
+    "q": "「月末の」を意味する複合形容詞の正しい表記を選んでください。",
+    "sentence": "I generated the _____ invoices before lunch.",
+    "choices": [
+      "end-month",
+      "month of end",
+      "month-end",
+      "ending month"
+    ],
+    "answer": 2,
+    "explain": "「月末の請求書」は month-end invoices のようにハイフンでつないで形容詞化します。"
+  },
+  {
+    "q": "「90分間のレッスン」のように数詞＋単位を形容詞として使う正しい形を選んでください。",
+    "sentence": "At 1:00 p.m., I had a _____ English lesson.",
+    "choices": [
+      "90-minutes",
+      "90-minute",
+      "90 minute's",
+      "90 of minutes"
+    ],
+    "answer": 1,
+    "explain": "「数詞-単数名詞」の形で直後の名詞を修飾します（例: a 90-minute lesson）。名詞に複数形の -s はつけません。"
+  },
+  {
+    "q": "「確定申告（書）」を意味する正しい英単語の組み合わせを選んでください。",
+    "sentence": "I completed the company's annual _____ report.",
+    "choices": [
+      "tax return",
+      "tax back",
+      "tax give",
+      "tax pay"
+    ],
+    "answer": 0,
+    "explain": "「確定申告」「納税申告書」は英語で tax return と表現します。"
+  },
+  {
+    "q": "システムやツール「経由で」提出・送信する際の適切な前置詞を選んでください。",
+    "sentence": "I sent the document _____ Superabi.",
+    "choices": [
+      "under",
+      "through",
+      "into",
+      "over"
+    ],
+    "answer": 1,
+    "explain": "システムやツールを経由する場合は through や via を使用します。"
+  },
+  {
+    "q": "特定の時刻（〇〇時に）を表す際に用いる正しい前置詞を選んでください。",
+    "sentence": "I woke up _____ 7:00 a.m.",
     "choices": [
       "on",
-      "by",
-      "with",
-      "in"
-    ],
-    "answer": 0,
-    "explain": "交通手段の by bus や by train とは異なり、「徒歩で」は慣用的に on foot を使用します。"
-  },
-  {
-    "q": "「会議を持つ／会議をする」という場合、可算名詞 meeting の前につける適切な語を選びなさい。",
-    "sentence": "At 9:00, I had _____ meeting with Mr. Kurokawa.",
-    "choices": [
-      "a",
-      "the",
-      "an",
-      "（不要）"
-    ],
-    "answer": 0,
-    "explain": "meeting は可算名詞（数えられる名詞）であるため、単数形の場合は冠詞 a が必要です。"
-  },
-  {
-    "q": "「ブログ記事を書く」を表す最も自然な英語表現を選びなさい。",
-    "sentence": "Then, I _____ a blog post and analyzed Sacoin.",
-    "choices": [
-      "wrote",
-      "made",
-      "did",
-      "talked"
-    ],
-    "answer": 0,
-    "explain": "「ブログ（の記事）を書く」は make blog ではなく write a blog (post) と表現するのが自然です。"
-  },
-  {
-    "q": "「効率的な会計」を表すのに適した形容詞形を選びなさい。",
-    "sentence": "We discussed AI-driven _____ accounting.",
-    "choices": [
-      "efficient",
-      "efficiency",
-      "effectively",
-      "effect"
-    ],
-    "answer": 0,
-    "explain": "名詞 accounting（会計）を修飾するためには形容詞 efficient（効率的な）を用います。efficiency は名詞です。"
-  },
-  {
-    "q": "「8月分の〜」という期間・対象を表すのに最も適切な前置詞を選びなさい。",
-    "sentence": "I finished the Sacoin monthly report _____ August.",
-    "choices": [
-      "for",
-      "of",
       "in",
-      "at"
+      "at",
+      "for"
     ],
-    "answer": 0,
-    "explain": "特定月向けのレポートや成果物を表す場合、「〜のための／〜分の」という意味で for August とする方が自然です。"
-  },
-  {
-    "q": "英語で「（企業の）ウェブサイト」を指す最も一般的な単語を選びなさい。",
-    "sentence": "I updated my _____ using Codex.",
-    "choices": [
-      "website",
-      "HomePage",
-      "home page",
-      "web page"
-    ],
-    "answer": 0,
-    "explain": "日本語の「ホームページ」は英語では通常 website と表現します（homepage はサイトのトップページのみを指すことが多いです）。"
-  },
-  {
-    "q": "英語で男性の苗字の前につける適切な敬称（〜さん）を選びなさい。",
-    "sentence": "I had a meeting with _____ Kurokawa.",
-    "choices": [
-      "Mr.",
-      "-san",
-      "Sir",
-      "Master"
-    ],
-    "answer": 0,
-    "explain": "英語で人の名前を呼ぶ際、「黒川さん」は男性であれば Mr. Kurokawa（女性なら Ms. Kurokawa）と表現します。-san は日本語の音訳です。"
+    "answer": 2,
+    "explain": "時刻の前には前置詞 at を使用します。またミリタリータイム（0700）ではなく 7:00 a.m. と表記するのが一般的です。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 6:30 and went to the office on foot.",
-    "q": "How did the speaker travel to the office?",
+    "text": "I got up at 7:00 a.m. and walked to the office.",
+    "q": "How did the speaker commute to the office?",
     "choices": [
-      "By walking",
-      "By train",
       "By bus",
+      "By train",
+      "On foot",
       "By car"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
-    "text": "I updated my website using Codex.",
-    "q": "What tool was used to update the website?",
+    "text": "I prepared the D-chain tax return report and generated the month-end invoices.",
+    "q": "What document was prepared for D-chain?",
     "choices": [
-      "Codex",
-      "WordPress",
-      "Photoshop",
-      "Excel"
+      "A tax return report",
+      "An annual sales invoice",
+      "A contract agreement",
+      "A monthly performance review"
     ],
     "answer": 0
   },
   {
-    "text": "At 9:00, I had a meeting with Mr. Kurokawa about AI-driven efficient accounting.",
-    "q": "Who did the speaker meet at 9:00 AM?",
+    "text": "At 1:00 p.m., I took a 90-minute English lesson.",
+    "q": "What time did the English lesson finish?",
     "choices": [
-      "Mr. Kurokawa",
-      "Mr. Sacoin",
-      "A new client",
-      "The IT manager"
+      "1:30 p.m.",
+      "2:00 p.m.",
+      "2:30 p.m.",
+      "3:00 p.m."
     ],
-    "answer": 0
+    "answer": 2
   },
   {
-    "text": "Then, I wrote a blog post and analyzed Sacoin.",
-    "q": "What did the speaker do right after writing a blog post?",
+    "text": "At 1:00 p.m., I took a 90-minute English lesson.",
+    "q": "What activity did the speaker do at 1:00 p.m.?",
     "choices": [
-      "Analyzed Sacoin",
-      "Updated Codex",
-      "Attended a meeting",
-      "Left the office"
+      "Ate lunch",
+      "Attended an English lesson",
+      "Submitted a report",
+      "Met with a client"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
-    "text": "Finally, I finished the August monthly report for Sacoin.",
-    "q": "Which month's report was completed at the end of the day?",
+    "text": "Finally, I submitted the D-chain tax return review through Superabi.",
+    "q": "How was the tax return review submitted?",
     "choices": [
-      "August",
-      "September",
-      "July",
-      "October"
+      "By postal mail",
+      "Via email attachment",
+      "Through Superabi",
+      "In person to the manager"
     ],
-    "answer": 0
+    "answer": 2
   }
 ];
-const readingPassage = `MEMORANDUM
-Date: September 15, 2026
-To: Operations Team
-From: Digital Solutions Department
-Subject: Daily Activity Report
-
-This report <span class="highlight">summarizes</span> the operational tasks completed on Tuesday, September 15. The workday <span class="highlight">commenced</span> early in the morning with a walk to the corporate office.
-
-The first task involved routine maintenance on the official corporate <span class="highlight">website</span> using Codex to ensure system stability. Following this, at 9:00 AM, a strategic meeting was <span class="highlight">conducted</span> with Mr. Kurokawa. The discussion centered on implementing AI technology to achieve <span class="highlight">efficient</span> accounting procedures across all departments.
-
-In the afternoon, promotional efforts were continued by <span class="highlight">publishing</span> a new blog post. Subsequently, data collection and market analysis were executed regarding Sacoin. By the end of business hours, the primary deliverable was successfully <span class="highlight">completed</span>: the Sacoin monthly performance report for August.
-
-All assigned tasks have been finalized, and the completed financial documentation is now ready for management <span class="highlight">review</span> and approval.`;
+const readingPassage = `MEMORANDUM<br><br>To: Accounting Department<br>From: Taro Yamada<br>Date: September 29, 2026<br>Subject: Daily Work Summary and Progress Report<br><br>This report summarizes the financial and professional activities completed on Tuesday, September 29, 2026. Upon arriving at the office in the morning, I immediately began working on essential accounting tasks. First, I <span class="highlight">prepared</span> the annual tax return report for our client, D-chain, ensuring all financial data was accurate and compliant with current regulations. Following this, I successfully <span class="highlight">generated</span> all necessary <span class="highlight">month-end</span> invoices to be dispatched to clients before the deadline.<br><br>In the afternoon, at 1:00 p.m., I attended a scheduled 90-minute professional English training session to improve business communication skills. After the training, I finalized the <span class="highlight">tax return</span> review document for D-chain and officially <span class="highlight">submitted</span> it through the internal Superabi system for final approval. All primary tasks for the day were completed on schedule without major issues.`;
 
 const readingQuestions = [
   {
-    "q": "What is the primary purpose of the memorandum?",
+    "q": "What is the primary purpose of this memorandum?",
     "choices": [
-      "To summarize tasks completed on September 15",
-      "To announce a new AI software launch",
-      "To request additional budget for Sacoin",
-      "To reschedule a meeting with Mr. Kurokawa"
+      "To request a budget increase for accounting software",
+      "To report daily work progress and completed tasks",
+      "To schedule a business meeting with D-chain",
+      "To announce the hiring of a new English teacher"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "What was the writer's first task in the morning?",
+    "choices": [
+      "Attending an English training session",
+      "Generating month-end invoices",
+      "Preparing the tax return report for D-chain",
+      "Submitting documents through Superabi"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "According to the passage, when did the English training session take place?",
+    "choices": [
+      "At 7:00 a.m.",
+      "At 1:00 p.m.",
+      "At 2:30 p.m.",
+      "At the end of the workday"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "How was the final tax return review document submitted?",
+    "choices": [
+      "Through the internal Superabi system",
+      "By sending an email directly to the client",
+      "By handing printed paper to the accountant",
+      "Through regular postal mail"
     ],
     "answer": 0
   },
   {
-    "q": "How did the writer commute to the corporate office?",
+    "q": "What is indicated about D-chain in the text?",
     "choices": [
-      "On foot",
-      "By public bus",
-      "By subway train",
-      "By driving a personal car"
+      "It is a new accounting software.",
+      "It is a client of the company.",
+      "It is an internal training program.",
+      "It is the manager of the accounting department."
     ],
-    "answer": 0
-  },
-  {
-    "q": "What was the main topic of the 9:00 AM meeting?",
-    "choices": [
-      "Improving accounting procedures using AI",
-      "Redesigning the corporate website layout",
-      "Writing promotional blog posts for products",
-      "Preparing the budget report for September"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "What document was completed by the end of the business day?",
-    "choices": [
-      "The Sacoin monthly report for August",
-      "The software installation manual for Codex",
-      "The system update checklist for September",
-      "The quarterly financial statement"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "What is scheduled to happen next with the financial documentation?",
-    "choices": [
-      "It will be reviewed by management.",
-      "It will be published on the company blog.",
-      "It will be deleted from the server.",
-      "It will be sent to external auditors."
-    ],
-    "answer": 0
+    "answer": 1
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 6:30 and went to the office on foot.",
-    "hint": "私は6時半に起きて、徒歩でオフィスへ行きました。",
-    "focus": "時刻の言い方（at 6:30）と徒歩を表す慣用句「on foot」、officeの前の「the」を意識しましょう。"
+    "target": "I got up at 7:00 a.m. today.",
+    "hint": "私は今日、午前7時に起きました。",
+    "focus": "時刻を表す前置詞 at と a.m. の正しい発音・リズム"
   },
   {
-    "target": "I updated my website using Codex.",
-    "hint": "Codexを使って自分のウェブサイトを更新しました。",
-    "focus": "「ホームページ」は website と表現する点と、〜を使って（using...）の言い回しを練習します。"
+    "target": "I walked to the office this morning.",
+    "hint": "今朝、私はオフィスまで歩いて行きました。",
+    "focus": "「by walk」ではなく walked to を用いた自然な過去形表現"
   },
   {
-    "target": "At 9:00, I had a meeting with Mr. Kurokawa.",
-    "hint": "9時に黒川さんと会議を行いました。",
-    "focus": "have a meeting の冠詞「a」と、人名に付ける敬称「Mr.」の発音・リズムを確認しましょう。"
+    "target": "I prepared the D-chain tax return report.",
+    "hint": "私はD-chainの確定申告書を準備しました。",
+    "focus": "動詞 prepare と 確定申告書 (tax return report) の組み合わせ"
   },
   {
-    "target": "We discussed AI-driven efficient accounting.",
-    "hint": "私達はAIを活用した効率的な会計について話し合いました。",
-    "focus": "discussは他動詞なので about を挟まない点と、「efficient accounting（効率的な会計）」の発音に注目します。"
+    "target": "I generated the month-end invoices.",
+    "hint": "私は月末の請求書を作成（発行）しました。",
+    "focus": "複合形容詞 month-end の発音と名詞 invoice の複数形"
   },
   {
-    "target": "Then, I wrote a blog post.",
-    "hint": "それから、ブログ記事を書きました。",
-    "focus": "「ブログを書く」の自然な表現 write a blog post (過去形 wrote) をなめらかに言えるようにします。"
+    "target": "At 1:00 p.m., I took a 90-minute English lesson.",
+    "hint": "午後1時に、90分間の英語レッスンを受けました。",
+    "focus": "形容詞「90-minute」の単数形維持と時間の表現"
   },
   {
-    "target": "I analyzed the data for Sacoin.",
-    "hint": "Sacoinのデータを分析しました。",
-    "focus": "動詞 analyze（分析する）の過去形 analyzed の発音とアクセントの位置に注意します。"
+    "target": "I reviewed the tax documents in the afternoon.",
+    "hint": "午後に税務書類をレビューしました。",
+    "focus": "in the afternoon のリンキング（音のつながり）"
   },
   {
-    "target": "Finally, I finished the August monthly report for Sacoin.",
-    "hint": "最後に、Sacoinの8月分の月次レポートを完成させました。",
-    "focus": "「8月分の〜」を表す前置詞 for August の使い方と順序を自然にスピーキング練習します。"
+    "target": "I submitted the tax return review through Superabi.",
+    "hint": "Superabi経由で確定申告のレビューを提出しました。",
+    "focus": "システム経由を表す前置詞 through の発音"
   }
 ];
 // ==================== STATE ====================
