@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Sep 29, 2026</div>
+  <div class="date-badge">Oct 07, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0700 then went to office by walk. I made D-chain tax return report and made month end invoices. At 1300 I had 90 English lesson. I sent tax return review of D-chain by superabi.
+  I got up at 0700 then went to office on foot. I recorded one youtube. I did chores. At 1100 I had meeting with XTELA about collaboration.
 </div>
 
 <div class="tabs">
@@ -242,254 +242,267 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0700 then went to office by walk. I made D-chain tax return report and made month end invoices. At 1300 I had 90 English lesson. I sent tax return review of D-chain by superabi.";;;;;;;;;
+const diaryOriginal = "I got up at 0700 then went to office on foot. I recorded one youtube. I did chores. At 1100 I had meeting with XTELA about collaboration.";;;;;;;;;;
 
-const diaryCorrected = "I got up at 7:00 a.m. and walked to the office. I prepared the D-chain tax return report and generated the month-end invoices. At 1:00 p.m., I took a 90-minute English lesson. Finally, I submitted the D-chain tax return review through Superabi.";;;;;;;;;
+const diaryCorrected = "I got up at 7:00 a.m. and walked to the office. I recorded a YouTube video and did some chores. At 11:00 a.m., I had a meeting with XTELA regarding a potential collaboration.";;;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "「徒歩で」を表す適切な表現を選んでください。（「by walk」は不自然な英語表現です）",
-    "sentence": "I went to the office _____ this morning.",
+    "q": "「オフィスに行く」という表現で、適切な定冠詞を含むものはどれですか？",
+    "sentence": "I got up early and went to _____ office on foot.",
     "choices": [
-      "on foot",
-      "by walk",
-      "with walk",
-      "by feet"
+      "the",
+      "a",
+      "an",
+      "−"
     ],
     "answer": 0,
-    "explain": "「徒歩で」は on foot または動詞 walk を使って walked to ... と表現します。by walk は誤りです。"
+    "explain": "「自分の職場・オフィス」へ行く場合は定冠詞 the を付けて go to the office と表します。"
   },
   {
-    "q": "特定のおフィスの場所を指す際、適切な冠詞を含んだ表現を選んでください。",
-    "sentence": "I arrived at _____ at 8:00 a.m.",
+    "q": "「YouTube動画を録画した」と正しく表現するための名詞を選んでください。",
+    "sentence": "I recorded a YouTube _____ this morning.",
     "choices": [
-      "an office",
-      "office",
-      "the office",
-      "offices"
-    ],
-    "answer": 2,
-    "explain": "自分が勤務している特定のオフィスを指す場合は定冠詞 the をつけて the office とします。"
-  },
-  {
-    "q": "ビジネスで書類やレポートを「作成・準備する」際に make より適した動詞を選んでください。",
-    "sentence": "I _____ the tax return report for D-chain.",
-    "choices": [
-      "did",
-      "prepared",
-      "took",
-      "had"
-    ],
-    "answer": 1,
-    "explain": "報告書や申請書類を「準備・作成する」には prepare や draft がビジネス英語としてより適しています。"
-  },
-  {
-    "q": "「月末の」を意味する複合形容詞の正しい表記を選んでください。",
-    "sentence": "I generated the _____ invoices before lunch.",
-    "choices": [
-      "end-month",
-      "month of end",
-      "month-end",
-      "ending month"
-    ],
-    "answer": 2,
-    "explain": "「月末の請求書」は month-end invoices のようにハイフンでつないで形容詞化します。"
-  },
-  {
-    "q": "「90分間のレッスン」のように数詞＋単位を形容詞として使う正しい形を選んでください。",
-    "sentence": "At 1:00 p.m., I had a _____ English lesson.",
-    "choices": [
-      "90-minutes",
-      "90-minute",
-      "90 minute's",
-      "90 of minutes"
-    ],
-    "answer": 1,
-    "explain": "「数詞-単数名詞」の形で直後の名詞を修飾します（例: a 90-minute lesson）。名詞に複数形の -s はつけません。"
-  },
-  {
-    "q": "「確定申告（書）」を意味する正しい英単語の組み合わせを選んでください。",
-    "sentence": "I completed the company's annual _____ report.",
-    "choices": [
-      "tax return",
-      "tax back",
-      "tax give",
-      "tax pay"
+      "video",
+      "channel",
+      "account",
+      "media"
     ],
     "answer": 0,
-    "explain": "「確定申告」「納税申告書」は英語で tax return と表現します。"
+    "explain": "YouTube はサービス名・媒体名のため、「1本の動画」を意味する場合は video を補って a YouTube video とします。"
   },
   {
-    "q": "システムやツール「経由で」提出・送信する際の適切な前置詞を選んでください。",
-    "sentence": "I sent the document _____ Superabi.",
+    "q": "「会議があった」を表す際、名詞 meeting の前に必要な不定冠詞を選んでください。",
+    "sentence": "At 11:00 a.m., I had _____ meeting with XTELA.",
     "choices": [
-      "under",
-      "through",
-      "into",
-      "over"
+      "a",
+      "the",
+      "an",
+      "−"
     ],
-    "answer": 1,
-    "explain": "システムやツールを経由する場合は through や via を使用します。"
+    "answer": 0,
+    "explain": "meeting は可算名詞（数えられる名詞）のため、単数形の場合は冠詞 a が必要です。"
   },
   {
-    "q": "特定の時刻（〇〇時に）を表す際に用いる正しい前置詞を選んでください。",
-    "sentence": "I woke up _____ 7:00 a.m.",
+    "q": "英語の表記として最も自然な「午前7時に」を選んでください。",
+    "sentence": "I got up at _____ and started my morning routine.",
     "choices": [
-      "on",
-      "in",
-      "at",
-      "for"
+      "7:00 a.m.",
+      "0700 o'clock",
+      "7 clock",
+      "the 7 a.m."
     ],
-    "answer": 2,
-    "explain": "時刻の前には前置詞 at を使用します。またミリタリータイム（0700）ではなく 7:00 a.m. と表記するのが一般的です。"
+    "answer": 0,
+    "explain": "時刻を英語で表記する場合、「7:00 a.m.」や「7:00」が最も標準的で自然な形です。"
+  },
+  {
+    "q": "「〜についての会議」を表す際、ビジネスでよく使われる適切な前置詞を選んでください。",
+    "sentence": "We had a meeting _____ a potential business collaboration.",
+    "choices": [
+      "regarding",
+      "regard",
+      "regards",
+      "with regard"
+    ],
+    "answer": 0,
+    "explain": "「〜に関して」という意味の前置詞 regarding は、about よりフォーマルでビジネスシーンによく適しています。"
+  },
+  {
+    "q": "「徒歩でオフィスに行った」を簡潔に表す適切な動詞を選んでください。",
+    "sentence": "Instead of taking the train, I _____ to the office.",
+    "choices": [
+      "walked",
+      "went on walk",
+      "walked on",
+      "footing"
+    ],
+    "answer": 0,
+    "explain": "went on foot も間違いではありませんが、動詞 walk を使って walked to the office と言う方が自然で簡潔です。"
+  },
+  {
+    "q": "「日常の雑用・用事を済ませる」という意味の正しい名詞を選んでください。",
+    "sentence": "I had a busy morning because I did some _____.",
+    "choices": [
+      "chores",
+      "chore",
+      "workings",
+      "job"
+    ],
+    "answer": 0,
+    "explain": "雑用や雑務、家事を行うことは do chores（または do some chores）と複数形で表現します。"
+  },
+  {
+    "q": "「コラボレーション（共同事業）」を表す正しい名詞形を選んでください。",
+    "sentence": "We discussed a strategic _____ with our business partners.",
+    "choices": [
+      "collaboration",
+      "collaborate",
+      "collaborative",
+      "collaborator"
+    ],
+    "answer": 0,
+    "explain": "冠詞 a の後ろには名詞形が必要なため、「コラボレーション・協業」を意味する名詞 collaboration が入ります。"
   }
 ];
 const listeningQuestions = [
   {
     "text": "I got up at 7:00 a.m. and walked to the office.",
-    "q": "How did the speaker commute to the office?",
+    "q": "How did the speaker get to the office?",
     "choices": [
+      "By walking",
       "By bus",
       "By train",
-      "On foot",
       "By car"
-    ],
-    "answer": 2
-  },
-  {
-    "text": "I prepared the D-chain tax return report and generated the month-end invoices.",
-    "q": "What document was prepared for D-chain?",
-    "choices": [
-      "A tax return report",
-      "An annual sales invoice",
-      "A contract agreement",
-      "A monthly performance review"
     ],
     "answer": 0
   },
   {
-    "text": "At 1:00 p.m., I took a 90-minute English lesson.",
-    "q": "What time did the English lesson finish?",
+    "text": "I recorded a YouTube video and did some chores.",
+    "q": "What did the speaker record in the morning?",
     "choices": [
-      "1:30 p.m.",
-      "2:00 p.m.",
-      "2:30 p.m.",
-      "3:00 p.m."
+      "A YouTube video",
+      "A podcast episode",
+      "A voice memo",
+      "A music track"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
-    "text": "At 1:00 p.m., I took a 90-minute English lesson.",
-    "q": "What activity did the speaker do at 1:00 p.m.?",
+    "text": "At 11:00 a.m., I had a meeting with XTELA regarding a potential collaboration.",
+    "q": "Who did the speaker meet with at 11:00 a.m.?",
     "choices": [
-      "Ate lunch",
-      "Attended an English lesson",
-      "Submitted a report",
-      "Met with a client"
+      "XTELA",
+      "A video production team",
+      "A office cleaner",
+      "A YouTube representative"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "text": "Finally, I submitted the D-chain tax return review through Superabi.",
-    "q": "How was the tax return review submitted?",
+    "text": "At 11:00 a.m., I had a meeting with XTELA regarding a potential collaboration.",
+    "q": "What was the main topic of the 11:00 a.m. meeting?",
     "choices": [
-      "By postal mail",
-      "Via email attachment",
-      "Through Superabi",
-      "In person to the manager"
+      "A potential collaboration",
+      "A contract renewal",
+      "A product refund",
+      "An office relocation"
     ],
-    "answer": 2
+    "answer": 0
+  },
+  {
+    "text": "I recorded a YouTube video and did some chores.",
+    "q": "Besides recording a video, what else did the speaker do?",
+    "choices": [
+      "Completed some chores",
+      "Attended a lecture",
+      "Purchased new equipment",
+      "Prepared lunch"
+    ],
+    "answer": 0
   }
 ];
-const readingPassage = `MEMORANDUM<br><br>To: Accounting Department<br>From: Taro Yamada<br>Date: September 29, 2026<br>Subject: Daily Work Summary and Progress Report<br><br>This report summarizes the financial and professional activities completed on Tuesday, September 29, 2026. Upon arriving at the office in the morning, I immediately began working on essential accounting tasks. First, I <span class="highlight">prepared</span> the annual tax return report for our client, D-chain, ensuring all financial data was accurate and compliant with current regulations. Following this, I successfully <span class="highlight">generated</span> all necessary <span class="highlight">month-end</span> invoices to be dispatched to clients before the deadline.<br><br>In the afternoon, at 1:00 p.m., I attended a scheduled 90-minute professional English training session to improve business communication skills. After the training, I finalized the <span class="highlight">tax return</span> review document for D-chain and officially <span class="highlight">submitted</span> it through the internal Superabi system for final approval. All primary tasks for the day were completed on schedule without major issues.`;
+const readingPassage = `MEMORANDUM
+
+To: Project Planning Team
+From: Content Development Manager
+Date: October 7, 2026
+Subject: Daily Activity and XTELA Meeting Summary
+
+This memo summarizes the key activities completed on Wednesday, October 7, 2026.
+
+The workday began early with routine administrative tasks and content creation. Specifically, a new <span class="highlight">promotional video</span> for our official YouTube channel was successfully <span class="highlight">recorded</span> in the morning. Additionally, several minor operational <span class="highlight">chores</span> and office maintenance duties were completed prior to scheduled external appointments.
+
+At 11:00 a.m., a formal business meeting was held with representative members from XTELA. The primary objective of this session was to explore possibilities regarding a strategic <span class="highlight">collaboration</span> between our organizations. During the discussion, both parties <span class="highlight">exchanged</span> ideas on joint marketing initiatives and target audience engagement.
+
+XTELA expressed strong interest in our proposed content strategy. Further follow-up discussions will be scheduled next week to finalize the details of the partnership agreement.`;
 
 const readingQuestions = [
   {
-    "q": "What is the primary purpose of this memorandum?",
+    "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To request a budget increase for accounting software",
-      "To report daily work progress and completed tasks",
-      "To schedule a business meeting with D-chain",
-      "To announce the hiring of a new English teacher"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "What was the writer's first task in the morning?",
-    "choices": [
-      "Attending an English training session",
-      "Generating month-end invoices",
-      "Preparing the tax return report for D-chain",
-      "Submitting documents through Superabi"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "According to the passage, when did the English training session take place?",
-    "choices": [
-      "At 7:00 a.m.",
-      "At 1:00 p.m.",
-      "At 2:30 p.m.",
-      "At the end of the workday"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "How was the final tax return review document submitted?",
-    "choices": [
-      "Through the internal Superabi system",
-      "By sending an email directly to the client",
-      "By handing printed paper to the accountant",
-      "Through regular postal mail"
+      "To summarize daily activities and a business meeting",
+      "To announce a new video product launch date",
+      "To invite employees to a project planning seminar",
+      "To request approval for video production equipment"
     ],
     "answer": 0
   },
   {
-    "q": "What is indicated about D-chain in the text?",
+    "q": "What activity was completed for YouTube in the morning?",
     "choices": [
-      "It is a new accounting software.",
-      "It is a client of the company.",
-      "It is an internal training program.",
-      "It is the manager of the accounting department."
+      "Recording a promotional video",
+      "Editing viewer comments",
+      "Deleting inactive accounts",
+      "Hosting a livestreaming event"
     ],
-    "answer": 1
+    "answer": 0
+  },
+  {
+    "q": "According to the memo, what was discussed during the 11:00 a.m. meeting?",
+    "choices": [
+      "A potential strategic collaboration",
+      "Budget cuts for the next quarter",
+      "Office building renovation plans",
+      "New employee orientation procedures"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "What is planned for next week?",
+    "choices": [
+      "Holding follow-up discussions",
+      "Creating a second YouTube channel",
+      "Visiting XTELA's overseas headquarters",
+      "Publishing the partnership contract online"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "The word 'exchanged' in paragraph 3 is closest in meaning to:",
+    "choices": [
+      "shared",
+      "replaced",
+      "purchased",
+      "canceled"
+    ],
+    "answer": 0
   }
 ];
 const speakingExercises = [
   {
     "target": "I got up at 7:00 a.m. today.",
     "hint": "私は今日、午前7時に起きました。",
-    "focus": "時刻を表す前置詞 at と a.m. の正しい発音・リズム"
+    "focus": "特定時刻を表す「at + 時刻」の前置詞の使い方"
   },
   {
     "target": "I walked to the office this morning.",
-    "hint": "今朝、私はオフィスまで歩いて行きました。",
-    "focus": "「by walk」ではなく walked to を用いた自然な過去形表現"
+    "hint": "私は今朝、オフィスまで歩いて行きました。",
+    "focus": "「歩いてオフィスへ行く」を表す walked to the office の表現"
   },
   {
-    "target": "I prepared the D-chain tax return report.",
-    "hint": "私はD-chainの確定申告書を準備しました。",
-    "focus": "動詞 prepare と 確定申告書 (tax return report) の組み合わせ"
+    "target": "I recorded a YouTube video in the morning.",
+    "hint": "私は午前中にYouTube動画を撮影しました。",
+    "focus": "「動画」を明確にする a YouTube video の表現"
   },
   {
-    "target": "I generated the month-end invoices.",
-    "hint": "私は月末の請求書を作成（発行）しました。",
-    "focus": "複合形容詞 month-end の発音と名詞 invoice の複数形"
+    "target": "I did some chores before my appointment.",
+    "hint": "私は予定の前にいくつか雑用を済ませました。",
+    "focus": "「雑用をする」を表す do some chores の自然なコロケーション"
   },
   {
-    "target": "At 1:00 p.m., I took a 90-minute English lesson.",
-    "hint": "午後1時に、90分間の英語レッスンを受けました。",
-    "focus": "形容詞「90-minute」の単数形維持と時間の表現"
+    "target": "At 11:00 a.m., I had an important meeting.",
+    "hint": "午前11時に、重要な会議がありました。",
+    "focus": "「会議がある」を表す have a meeting の冠詞の使い方"
   },
   {
-    "target": "I reviewed the tax documents in the afternoon.",
-    "hint": "午後に税務書類をレビューしました。",
-    "focus": "in the afternoon のリンキング（音のつながり）"
+    "target": "I met with XTELA to discuss business.",
+    "hint": "ビジネスについて話し合うため、XTELAと面談しました。",
+    "focus": "「〜と会合・面談する」を表す meet with の使い方"
   },
   {
-    "target": "I submitted the tax return review through Superabi.",
-    "hint": "Superabi経由で確定申告のレビューを提出しました。",
-    "focus": "システム経由を表す前置詞 through の発音"
+    "target": "We discussed a potential collaboration.",
+    "hint": "私たちは今後のコラボレーションの可能性について議論しました。",
+    "focus": "discuss は他動詞のため about をつけずに直接目的語をとる点"
   }
 ];
 // ==================== STATE ====================
