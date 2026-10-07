@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Oct 07, 2026</div>
+  <div class="date-badge">Oct 08, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0700 then went to office on foot. I recorded one youtube. I did chores. At 1100 I had meeting with XTELA about collaboration.
+  I got up at 0630 then went to office by walk.
 </div>
 
 <div class="tabs">
@@ -242,267 +242,262 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0700 then went to office on foot. I recorded one youtube. I did chores. At 1100 I had meeting with XTELA about collaboration.";;;;;;;;;;
+const diaryOriginal = "I got up at 0630 then went to office by walk.";;;;;;;;;;;
 
-const diaryCorrected = "I got up at 7:00 a.m. and walked to the office. I recorded a YouTube video and did some chores. At 11:00 a.m., I had a meeting with XTELA regarding a potential collaboration.";;;;;;;;;;
+const diaryCorrected = "Today is Thursday, October 8, 2026. I woke up at 6:30 a.m. this morning. After getting out of bed, I got dressed for work. I decided to walk to the office instead of taking the train. It took me about twenty minutes to reach my workplace on foot. The fresh morning air made my commute very pleasant. I arrived at the office feeling energized and ready to start my day.";;;;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "「オフィスに行く」という表現で、適切な定冠詞を含むものはどれですか？",
-    "sentence": "I got up early and went to _____ office on foot.",
+    "q": "原案の『by walk』は誤りです。「徒歩で」を意味する正しい前置詞を選びなさい。",
+    "sentence": "I went to the office _____ foot this morning.",
+    "choices": [
+      "on",
+      "by",
+      "with",
+      "in"
+    ],
+    "answer": 0,
+    "explain": "「徒歩で」は by walk ではなく on foot と表現します。by の後は by train, by bus など無冠詞の交通手段の名詞が続きます。"
+  },
+  {
+    "q": "原案の『went to office』は冠詞が抜けています。特定の職場・オフィスを指す場合の正しい形を選びなさい。",
+    "sentence": "He walked to _____ office at seven o'clock.",
     "choices": [
       "the",
-      "a",
       "an",
-      "−"
-    ],
-    "answer": 0,
-    "explain": "「自分の職場・オフィス」へ行く場合は定冠詞 the を付けて go to the office と表します。"
-  },
-  {
-    "q": "「YouTube動画を録画した」と正しく表現するための名詞を選んでください。",
-    "sentence": "I recorded a YouTube _____ this morning.",
-    "choices": [
-      "video",
-      "channel",
-      "account",
-      "media"
-    ],
-    "answer": 0,
-    "explain": "YouTube はサービス名・媒体名のため、「1本の動画」を意味する場合は video を補って a YouTube video とします。"
-  },
-  {
-    "q": "「会議があった」を表す際、名詞 meeting の前に必要な不定冠詞を選んでください。",
-    "sentence": "At 11:00 a.m., I had _____ meeting with XTELA.",
-    "choices": [
       "a",
-      "the",
-      "an",
-      "−"
+      "no article"
     ],
     "answer": 0,
-    "explain": "meeting は可算名詞（数えられる名詞）のため、単数形の場合は冠詞 a が必要です。"
+    "explain": "自分が勤めている特定の「オフィス」へ行く場合は go to the office のように定冠詞 the が必要です。（go to work の場合は冠詞不要です）"
   },
   {
-    "q": "英語の表記として最も自然な「午前7時に」を選んでください。",
-    "sentence": "I got up at _____ and started my morning routine.",
+    "q": "原案の『0630』を、一般的な英語表現の時刻表記に直す場合、空欄に入る最も適切なものを選びなさい。",
+    "sentence": "I got up at _____ this morning.",
     "choices": [
-      "7:00 a.m.",
-      "0700 o'clock",
-      "7 clock",
-      "the 7 a.m."
+      "6:30 a.m.",
+      "6:30 o'clock",
+      "6:30 hours",
+      "6:30 in morning"
     ],
     "answer": 0,
-    "explain": "時刻を英語で表記する場合、「7:00 a.m.」や「7:00」が最も標準的で自然な形です。"
+    "explain": "日常会話や日記での時刻表現は「6:30 a.m.」または「six thirty in the morning」が自然です。o'clock はちょうどの時間（6:00など）に使います。"
   },
   {
-    "q": "「〜についての会議」を表す際、ビジネスでよく使われる適切な前置詞を選んでください。",
-    "sentence": "We had a meeting _____ a potential business collaboration.",
+    "q": "原案の『then』のみで文をつなぐより、自然な接続詞の組み合わせを選ぶ問題です。",
+    "sentence": "I woke up early _____ went to the gym.",
     "choices": [
-      "regarding",
-      "regard",
-      "regards",
-      "with regard"
+      "and then",
+      "then so",
+      "after then",
+      "so then"
     ],
     "answer": 0,
-    "explain": "「〜に関して」という意味の前置詞 regarding は、about よりフォーマルでビジネスシーンによく適しています。"
+    "explain": "「起きて、それから〜した」という順序を表す際、節と節をつなぐ接続詞として and then を使うのが非常に自然です。"
   },
   {
-    "q": "「徒歩でオフィスに行った」を簡潔に表す適切な動詞を選んでください。",
-    "sentence": "Instead of taking the train, I _____ to the office.",
+    "q": "「オフィスまで歩いて行った」を1つの動詞を使って表現する場合の適切な動詞を選びなさい。",
+    "sentence": "She _____ to the station because it was a clear morning.",
     "choices": [
       "walked",
-      "went on walk",
-      "walked on",
-      "footing"
+      "went by walk",
+      "walked by",
+      "took walk"
     ],
     "answer": 0,
-    "explain": "went on foot も間違いではありませんが、動詞 walk を使って walked to the office と言う方が自然で簡潔です。"
+    "explain": "「〜へ歩いて行く」は walked to ... と動詞 walk を使って簡潔に表現するのが最も自然です。"
   },
   {
-    "q": "「日常の雑用・用事を済ませる」という意味の正しい名詞を選んでください。",
-    "sentence": "I had a busy morning because I did some _____.",
+    "q": "交通手段の「電車で」を表す正しい前置詞を選びなさい。",
+    "sentence": "Usually I go to work _____ train, but today I walked.",
     "choices": [
-      "chores",
-      "chore",
-      "workings",
-      "job"
+      "by",
+      "on",
+      "in",
+      "with"
     ],
     "answer": 0,
-    "explain": "雑用や雑務、家事を行うことは do chores（または do some chores）と複数形で表現します。"
+    "explain": "電車やバスなどの交通手段を表す場合は「by + 名詞（無冠詞）」を用います。"
   },
   {
-    "q": "「コラボレーション（共同事業）」を表す正しい名詞形を選んでください。",
-    "sentence": "We discussed a strategic _____ with our business partners.",
+    "q": "「起床する」を意味する get up の過去形として正しいものを選びなさい。",
+    "sentence": "I _____ up as soon as the alarm rang.",
     "choices": [
-      "collaboration",
-      "collaborate",
-      "collaborative",
-      "collaborator"
+      "got",
+      "getted",
+      "gotten",
+      "getting"
     ],
     "answer": 0,
-    "explain": "冠詞 a の後ろには名詞形が必要なため、「コラボレーション・協業」を意味する名詞 collaboration が入ります。"
+    "explain": "get の過去形は got です。「起きる」の過去形は got up となります。"
+  },
+  {
+    "q": "「オフィスに到着する」を表す arrive の後の適切な前置詞を選びなさい。",
+    "sentence": "I arrived _____ the office at around seven thirty.",
+    "choices": [
+      "at",
+      "to",
+      "for",
+      "on"
+    ],
+    "answer": 0,
+    "explain": "建物や地点などの比較的小さな場所へ到着する場合は arrive at を使用します。（国や都市など広範な場所は arrive in）"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 7:00 a.m. and walked to the office.",
-    "q": "How did the speaker get to the office?",
+    "text": "I woke up at 6:30 a.m. this morning.",
+    "q": "What time did the speaker wake up?",
+    "choices": [
+      "At 6:30 a.m.",
+      "At 6:00 a.m.",
+      "At 7:00 a.m.",
+      "At 7:30 a.m."
+    ],
+    "answer": 0
+  },
+  {
+    "text": "I decided to walk to the office instead of taking the train.",
+    "q": "How did the speaker choose to go to work?",
     "choices": [
       "By walking",
-      "By bus",
       "By train",
+      "By bus",
       "By car"
     ],
     "answer": 0
   },
   {
-    "text": "I recorded a YouTube video and did some chores.",
-    "q": "What did the speaker record in the morning?",
+    "text": "It took me about twenty minutes to reach my workplace on foot.",
+    "q": "How long was the commute to the workplace?",
     "choices": [
-      "A YouTube video",
-      "A podcast episode",
-      "A voice memo",
-      "A music track"
+      "About twenty minutes",
+      "About thirty minutes",
+      "About ten minutes",
+      "About one hour"
     ],
     "answer": 0
   },
   {
-    "text": "At 11:00 a.m., I had a meeting with XTELA regarding a potential collaboration.",
-    "q": "Who did the speaker meet with at 11:00 a.m.?",
+    "text": "The fresh morning air made my commute very pleasant.",
+    "q": "How did the speaker feel about the commute?",
     "choices": [
-      "XTELA",
-      "A video production team",
-      "A office cleaner",
-      "A YouTube representative"
+      "It was pleasant.",
+      "It was stressful.",
+      "It was boring.",
+      "It was exhausting."
     ],
     "answer": 0
   },
   {
-    "text": "At 11:00 a.m., I had a meeting with XTELA regarding a potential collaboration.",
-    "q": "What was the main topic of the 11:00 a.m. meeting?",
+    "text": "I arrived at the office feeling energized and ready to start my day.",
+    "q": "How did the speaker feel upon arriving at the office?",
     "choices": [
-      "A potential collaboration",
-      "A contract renewal",
-      "A product refund",
-      "An office relocation"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "I recorded a YouTube video and did some chores.",
-    "q": "Besides recording a video, what else did the speaker do?",
-    "choices": [
-      "Completed some chores",
-      "Attended a lecture",
-      "Purchased new equipment",
-      "Prepared lunch"
+      "Energized and ready",
+      "Tired and sleepy",
+      "Anxious and nervous",
+      "Late and rushed"
     ],
     "answer": 0
   }
 ];
 const readingPassage = `MEMORANDUM
+TO: All Staff
+FROM: Human Resources Department
+DATE: October 8, 2026
+SUBJECT: Commute Habits and Wellness Survey Results
 
-To: Project Planning Team
-From: Content Development Manager
-Date: October 7, 2026
-Subject: Daily Activity and XTELA Meeting Summary
+As part of our company's active health and sustainability initiative, we recently conducted a morning commute survey on Thursday, October 8, 2026. A representative example from today's log shows that many employees are choosing healthier alternatives to public transportation. One staff member reported waking up at 6:30 a.m. and commuting to the office on foot rather than taking the crowded morning train.
 
-This memo summarizes the key activities completed on Wednesday, October 7, 2026.
-
-The workday began early with routine administrative tasks and content creation. Specifically, a new <span class="highlight">promotional video</span> for our official YouTube channel was successfully <span class="highlight">recorded</span> in the morning. Additionally, several minor operational <span class="highlight">chores</span> and office maintenance duties were completed prior to scheduled external appointments.
-
-At 11:00 a.m., a formal business meeting was held with representative members from XTELA. The primary objective of this session was to explore possibilities regarding a strategic <span class="highlight">collaboration</span> between our organizations. During the discussion, both parties <span class="highlight">exchanged</span> ideas on joint marketing initiatives and target audience engagement.
-
-XTELA expressed strong interest in our proposed content strategy. Further follow-up discussions will be scheduled next week to finalize the details of the partnership agreement.`;
+According to the responses, walking to work has significantly improved employees' morning <span class="highlight">energy levels</span> and reduced overall work stress. The survey revealed that employees who engage in physical exercise during their commute arrive at their <span class="highlight">workplace</span> feeling more <span class="highlight">refreshed</span> and ready for daily tasks. HR encourages all staff members to consider <span class="highlight">incorporating</span> light exercise, such as walking, into their routine. Please contact HR if you wish to join the company's walking challenge next month to earn health <span class="highlight">incentives</span>.`;
 
 const readingQuestions = [
   {
     "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To summarize daily activities and a business meeting",
-      "To announce a new video product launch date",
-      "To invite employees to a project planning seminar",
-      "To request approval for video production equipment"
+      "To share survey findings regarding employee commute habits and health benefits",
+      "To announce a change in official office working hours",
+      "To instruct employees to stop using public transportation",
+      "To warn staff members about train delays on October 8"
     ],
     "answer": 0
   },
   {
-    "q": "What activity was completed for YouTube in the morning?",
+    "q": "According to the memo, how did one employee travel to work on October 8?",
     "choices": [
-      "Recording a promotional video",
-      "Editing viewer comments",
-      "Deleting inactive accounts",
-      "Hosting a livestreaming event"
+      "On foot",
+      "By train",
+      "By bicycle",
+      "By taxi"
     ],
     "answer": 0
   },
   {
-    "q": "According to the memo, what was discussed during the 11:00 a.m. meeting?",
+    "q": "What benefit of walking to work is mentioned in the text?",
     "choices": [
-      "A potential strategic collaboration",
-      "Budget cuts for the next quarter",
-      "Office building renovation plans",
-      "New employee orientation procedures"
+      "Increased morning energy levels",
+      "Lower transportation expenses",
+      "Faster travel speed than trains",
+      "Fewer working hours"
     ],
     "answer": 0
   },
   {
-    "q": "What is planned for next week?",
+    "q": "What does HR encourage all staff members to do?",
     "choices": [
-      "Holding follow-up discussions",
-      "Creating a second YouTube channel",
-      "Visiting XTELA's overseas headquarters",
-      "Publishing the partnership contract online"
+      "Incorporate light exercise into their daily routine",
+      "Wake up earlier every weekend",
+      "Move closer to the office building",
+      "Work remotely from home"
     ],
     "answer": 0
   },
   {
-    "q": "The word 'exchanged' in paragraph 3 is closest in meaning to:",
+    "q": "What event is planned for next month?",
     "choices": [
-      "shared",
-      "replaced",
-      "purchased",
-      "canceled"
+      "A company walking challenge",
+      "A mandatory health checkup",
+      "A public transportation strike",
+      "An office renovation project"
     ],
     "answer": 0
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 7:00 a.m. today.",
-    "hint": "私は今日、午前7時に起きました。",
-    "focus": "特定時刻を表す「at + 時刻」の前置詞の使い方"
+    "target": "Today is Thursday, October 8, 2026.",
+    "hint": "今日は2026年10月8日木曜日です。",
+    "focus": "日付と曜日の英語表現（曜日は月日より先、または最後に置く）"
   },
   {
-    "target": "I walked to the office this morning.",
-    "hint": "私は今朝、オフィスまで歩いて行きました。",
-    "focus": "「歩いてオフィスへ行く」を表す walked to the office の表現"
+    "target": "I woke up at 6:30 a.m. this morning.",
+    "hint": "私は今朝6時30分に目が覚めました。",
+    "focus": "wake up at + 時刻 の使い方"
   },
   {
-    "target": "I recorded a YouTube video in the morning.",
-    "hint": "私は午前中にYouTube動画を撮影しました。",
-    "focus": "「動画」を明確にする a YouTube video の表現"
+    "target": "After getting out of bed, I got dressed for work.",
+    "hint": "ベッドから出た後、仕事着に着替えました。",
+    "focus": "After -ing（〜した後に）と get dressed（着替える）"
   },
   {
-    "target": "I did some chores before my appointment.",
-    "hint": "私は予定の前にいくつか雑用を済ませました。",
-    "focus": "「雑用をする」を表す do some chores の自然なコロケーション"
+    "target": "I decided to walk to the office instead of taking the train.",
+    "hint": "電車に乗る代わりに、オフィスまで歩いて行くことにしました。",
+    "focus": "decide to do（〜することに決める）と instead of -ing（〜する代わりに）"
   },
   {
-    "target": "At 11:00 a.m., I had an important meeting.",
-    "hint": "午前11時に、重要な会議がありました。",
-    "focus": "「会議がある」を表す have a meeting の冠詞の使い方"
+    "target": "It took me about twenty minutes to reach my workplace on foot.",
+    "hint": "徒歩で職場に着くのに約20分かかりました。",
+    "focus": "It takes [人] [時間] to do（人が〜するのに時間がかかる）と on foot（徒歩で）"
   },
   {
-    "target": "I met with XTELA to discuss business.",
-    "hint": "ビジネスについて話し合うため、XTELAと面談しました。",
-    "focus": "「〜と会合・面談する」を表す meet with の使い方"
+    "target": "The fresh morning air made my commute very pleasant.",
+    "hint": "朝の新鮮な空気のおかげで、通勤がとても快適になりました。",
+    "focus": "make A B（AをBの状態にする）無生物主語構文"
   },
   {
-    "target": "We discussed a potential collaboration.",
-    "hint": "私たちは今後のコラボレーションの可能性について議論しました。",
-    "focus": "discuss は他動詞のため about をつけずに直接目的語をとる点"
+    "target": "I arrived at the office feeling energized and ready to start my day.",
+    "hint": "活力に満ち、1日を始める準備が整った気分でオフィスに到着しました。",
+    "focus": "arrive at（〜に到着する）と分詞構文（feeling...）"
   }
 ];
 // ==================== STATE ====================
