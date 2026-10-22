@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Oct 20, 2026</div>
+  <div class="date-badge">Oct 23, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0630 then went to office on foot.
+  I got up at 0100 and play FF resonance. Then I took a nap. At 0500 I got up and went to office on foot.
 </div>
 
 <div class="tabs">
@@ -242,38 +242,38 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0630 then went to office on foot.";;;;;;;;;;;;;;
+const diaryOriginal = "I got up at 0100 and play FF resonance. Then I took a nap. At 0500 I got up and went to office on foot.";;;;;;;;;;;;;;;
 
-const diaryCorrected = "I got up at 6:30 a.m. today. After getting ready, I went to the office on foot. It was a crisp Tuesday morning on October 20, 2026. Walking to work took about 30 minutes, which was great exercise. I arrived at the office around 7:30 a.m. and was able to start my tasks early. Overall, commuting on foot was a refreshing way to start the day.";;;;;;;;;;;;;;
+const diaryCorrected = "I woke up at 1:00 a.m. and played Final Fantasy Resonance. After that, I took a short nap. At 5:00 a.m., I got up again and went to the office on foot.";;;;;;;;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "「6:30に」のように具体的な時刻を表す際、前に置く適切な前置詞を選びなさい。",
-    "sentence": "I got up _____ 6:30 a.m. this morning.",
+    "q": "日記の「play」の時制に関するエラーです。過去の出来事を並べて述べる際、正しい形はどれですか？",
+    "sentence": "I got up at 1:00 a.m. and _____ Final Fantasy Resonance.",
     "choices": [
-      "at",
-      "in",
-      "on",
-      "for"
+      "played",
+      "play",
+      "playing",
+      "plays"
     ],
     "answer": 0,
-    "explain": "特定の時刻の前には前置詞 at を使用します。in は月や年、on は日付や曜日に使います。"
+    "explain": "過去の出来事（got up）と同列の動作を表すため、過去形の played にする必要があります。"
   },
   {
-    "q": "「オフィスに行く」と言う際、特定の職場を指すため office の前に必要な冠詞を選びなさい。",
-    "sentence": "I went to _____ office on foot.",
+    "q": "特定のおフィスの場所へ行く場合、officeの前に必要な冠詞はどれですか？",
+    "sentence": "At 5:00 a.m., I got up and went to _____ office.",
     "choices": [
       "the",
       "a",
       "an",
-      "（不要）"
+      "不要"
     ],
     "answer": 0,
-    "explain": "自分が勤務している特定のオフィスを指す場合は定冠詞 the が必要です。went to office では不自然になります。"
+    "explain": "自分が勤務している特定の職場（オフィス）を指すため、定冠詞 the をつけて went to the office とします。"
   },
   {
-    "q": "「徒歩で」を意味する正しい前置詞を選びなさい。",
-    "sentence": "I decided to go to work _____ foot.",
+    "q": "「徒歩で」を意味する正しく自然な表現の選択肢はどれですか？",
+    "sentence": "I was feeling energetic, so I decided to go to work _____ foot.",
     "choices": [
       "on",
       "by",
@@ -281,215 +281,223 @@ const vocabQuestions = [
       "in"
     ],
     "answer": 0,
-    "explain": "「徒歩で」は慣用表現で on foot と言います。by train や by car のように by を使いたくなりますが、foot の場合は on を使う点に注意しましょう。"
+    "explain": "「徒歩で」は慣用表現で on foot と言います。乗り物（by bus, by train）とは異なり on を使います。"
   },
   {
-    "q": "日記の「0630」という表記を、英語の自然な時刻表現にする場合どれが最も適切ですか。",
-    "sentence": "I woke up early at _____.",
+    "q": "「1:00に」のように特定の時刻を表す前置詞はどれですか？",
+    "sentence": "I unexpectedly woke up _____ 1:00 a.m.",
     "choices": [
-      "6:30 a.m.",
-      "0630 o'clock",
-      "6:30 clock",
-      "6 and half"
+      "at",
+      "on",
+      "in",
+      "to"
     ],
     "answer": 0,
-    "explain": "英語で時刻を表す際は「6:30 a.m.」や「six thirty」と書くのが標準的です。軍事表記（0630）は日常会話や日記では一般的ではありません。"
+    "explain": "ピンポイントの時間・時刻を表すときは前置詞 at を使用します。"
   },
   {
-    "q": "句動詞 get up（起きる）の過去形として正しいものを選びなさい。",
-    "sentence": "I _____ up at 6:30 this morning.",
+    "q": "「仮眠をとる」を意味する動詞の組み合わせとして正しいものはどれですか？",
+    "sentence": "I felt sleepy after gaming, so I decided to _____ a nap.",
+    "choices": [
+      "take",
+      "make",
+      "do",
+      "have to"
+    ],
+    "answer": 0,
+    "explain": "「仮眠をとる」は take a nap または have a nap を使用します。選択肢の中では take が正解です。"
+  },
+  {
+    "q": "「ベッドから起き上がる」という意味で使われる熟語の過去形はどれですか？",
+    "sentence": "At 5:00 a.m., I _____ up and started getting ready.",
     "choices": [
       "got",
-      "getted",
-      "gotten",
-      "getting"
+      "rose up",
+      "woke",
+      "raised"
     ],
     "answer": 0,
-    "explain": "get の過去形は got です。不規則変化動詞のため getted とはなりません。"
+    "explain": "「目が覚める」は wake up、「ベッドから起き上がる」は get up です。過去形は got up になります。"
   },
   {
-    "q": "「徒歩で通勤する」を意味する動詞 commute の過去形として適切なものを選びなさい。",
-    "sentence": "I _____ to the office on foot today.",
+    "q": "文と文をつなぎ「その後、それから」を意味するつなぎ言葉（副詞）はどれですか？",
+    "sentence": "I played a video game for two hours. _____, I took a short nap.",
     "choices": [
-      "commuted",
-      "commuting",
-      "commute",
-      "was commuted"
+      "Then",
+      "Because",
+      "Although",
+      "Unless"
     ],
     "answer": 0,
-    "explain": "過去の出来事を述べるため、動詞 commute の過去形 commuted が適切です。"
+    "explain": "順序を表して「それから／その後」と言う場合は Then または After that が適しています。"
   },
   {
-    "q": "「〜（時間）がかかった」を表す動詞 take の過去形を選びなさい。",
-    "sentence": "It _____ about 30 minutes to walk to work.",
+    "q": "「午前1時」を英語で表記・発話する際の一般的な形はどれですか？",
+    "sentence": "The train leaves early in the morning at 1:00 _____.",
     "choices": [
-      "took",
-      "taken",
-      "taked",
-      "cost"
+      "a.m.",
+      "o'clock a.m.",
+      "clock",
+      "hours"
     ],
     "answer": 0,
-    "explain": "時間の経過を表す「It takes + 時間」の過去形は「It took + 時間」です。take は不規則動詞です。"
-  },
-  {
-    "q": "「起き上がって、それから会社へ行った」のように順序を表す適切な副詞を選びなさい。",
-    "sentence": "I got up at 6:30, and _____ I walked to the office.",
-    "choices": [
-      "then",
-      "than",
-      "there",
-      "that"
-    ],
-    "answer": 0,
-    "explain": "「それから」「その後で」という時の経過を表すには then を使用します。than は比較に用いる語です。"
+    "explain": "数字の後に a.m.（午前）をつけるのが一般的です。1:00 o'clock a.m. のように o'clock と a.m. を同時に使うのは二重表現となり不自然です。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 6:30 a.m. today.",
-    "q": "What time did the speaker get out of bed?",
+    "text": "I woke up at 1:00 a.m. and played Final Fantasy Resonance.",
+    "q": "What time did the speaker wake up initially?",
     "choices": [
-      "At 6:30 a.m.",
-      "At 7:00 a.m.",
-      "At 7:30 a.m.",
-      "At 6:00 a.m."
+      "At 1:00 a.m.",
+      "At 5:00 a.m.",
+      "At 1:00 p.m.",
+      "At 5:00 p.m."
     ],
     "answer": 0
   },
   {
-    "text": "After getting ready, I went to the office on foot.",
+    "text": "After playing the game for a while, I took a short nap.",
+    "q": "What did the speaker do right after playing the video game?",
+    "choices": [
+      "Took a short nap",
+      "Walked to work",
+      "Ate breakfast",
+      "Left the house"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "At 5:00 a.m., I got up again and prepared for my day.",
+    "q": "When did the speaker get up for the second time?",
+    "choices": [
+      "At 5:00 a.m.",
+      "At 1:00 a.m.",
+      "At 6:00 a.m.",
+      "At 7:00 a.m."
+    ],
+    "answer": 0
+  },
+  {
+    "text": "I went to the office on foot because the weather was fine.",
     "q": "How did the speaker travel to the office?",
     "choices": [
       "By walking",
       "By train",
-      "By bicycle",
-      "By bus"
+      "By bus",
+      "By bicycle"
     ],
     "answer": 0
   },
   {
-    "text": "Walking to work took about 30 minutes, which was great exercise.",
-    "q": "How long was the speaker's walk to work?",
+    "text": "The morning walk helped me feel refreshed despite sleeping very little.",
+    "q": "How did the walk affect the speaker?",
     "choices": [
-      "About 30 minutes",
-      "About 15 minutes",
-      "About 45 minutes",
-      "About one hour"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "I arrived at the office around 7:30 a.m. and was able to start my tasks early.",
-    "q": "What advantage did arriving at 7:30 a.m. give the speaker?",
-    "choices": [
-      "Starting work early",
-      "Meeting with the manager",
-      "Having a long breakfast",
-      "Avoiding evening overtime"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "Overall, commuting on foot was a refreshing way to start the day.",
-    "q": "How did the speaker feel about walking to the office?",
-    "choices": [
-      "It was refreshing.",
-      "It was exhausting.",
-      "It was boring.",
-      "It was inconvenient."
+      "It helped the speaker feel refreshed.",
+      "It made the speaker feel extremely tired.",
+      "It caused the speaker to be late.",
+      "It hurt the speaker's legs."
     ],
     "answer": 0
   }
 ];
-const readingPassage = `MEMORANDUM<br><br>Date: October 20, 2026<br>To: All Department Staff<br>From: Human Resources<br>Subject: Employee Health Initiative Update<br><br>This memo <span class="highlight">summarizes</span> the results of our walk-to-work wellness event held on Tuesday, October 20, 2026. To promote physical wellness and reduce environmental impact, staff members were encouraged to modify their morning routines.<br><br>Many participants <span class="highlight">initiated</span> their workday earlier than usual. For instance, several employees got up around 6:30 a.m. and chose to <span class="highlight">commute</span> on foot rather than relying on public transportation. On average, the morning walk took <span class="highlight">approximately</span> 30 minutes, allowing participants to reach the office by 7:30 a.m.<br><br>Feedback indicates that walking provided a refreshing start to the workday and contributed to higher energy levels throughout the morning. Furthermore, punctual <span class="highlight">arrival</span> times were maintained across all participating teams. HR highly <span class="highlight">recommends</span> incorporating walking into your daily routine to <span class="highlight">enhance</span> overall health and workplace productivity.`;
+const readingPassage = `Memo: Daily Activity Log and Commute Observation
+Date: October 23, 2026
+Reporter: Employee Activity Tracking Committee
+
+This report <span class="highlight">summarizes</span> an early-morning schedule observed on Friday, October 23, 2026. The subject <span class="highlight">awakened</span> unusually early at 1:00 a.m. and spent time playing a video game, Final Fantasy Resonance, for relaxation. Following this activity, the individual <span class="highlight">rested</span> for a brief period by taking a nap to recharge.
+
+At 5:00 a.m., the subject <span class="highlight">commenced</span> their morning routine. Instead of utilizing public transportation or driving, the subject chose to travel to the office <span class="highlight">on foot</span>. This decision was made to incorporate light exercise into the early schedule before standard business hours.
+
+Observations indicate that early waking combined with moderate physical activity, such as walking, can significantly increase morning <span class="highlight">productivity</span>. However, maintaining continuous sleep remains essential for long-term health. Employees are encouraged to balance recreation and proper sleep routines to ensure optimal daily performance at the work site.`;
 
 const readingQuestions = [
   {
-    "q": "What is the main purpose of the memorandum?",
+    "q": "What is the main purpose of this memo?",
     "choices": [
-      "To summarize the results of a health initiative",
-      "To announce a change in office hours",
-      "To report train delays on October 20",
-      "To introduce a new HR manager"
+      "To summarize an employee's early-morning routine and commute",
+      "To announce a change in company business hours",
+      "To advertise a new video game released on October 23",
+      "To penalize an employee for coming to work too early"
     ],
     "answer": 0
   },
   {
-    "q": "According to the memo, how did participating employees travel to work?",
+    "q": "What did the subject do at 1:00 a.m.?",
+    "choices": [
+      "Played a video game for relaxation",
+      "Began walking to the office",
+      "Attended a business meeting",
+      "Drove to a local train station"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "How did the subject commute to work at 5:00 a.m.?",
     "choices": [
       "On foot",
-      "By express train",
-      "By company shuttle",
-      "By carpool"
+      "By public bus",
+      "By company car",
+      "By bicycle"
     ],
     "answer": 0
   },
   {
-    "q": "What time did many participating employees arrive at the office?",
+    "q": "What benefit of walking to work is mentioned in the report?",
     "choices": [
-      "Around 7:30 a.m.",
-      "Around 6:30 a.m.",
-      "Around 8:00 a.m.",
-      "Around 8:30 a.m."
+      "It can increase morning productivity.",
+      "It eliminates the need for any sleep.",
+      "It reduces company transportation expenses.",
+      "It shortens the commute time significantly."
     ],
     "answer": 0
   },
   {
-    "q": "What benefit of walking to work is mentioned in the text?",
+    "q": "According to the passage, what is recommended for long-term health?",
     "choices": [
-      "A refreshing start to the day",
-      "Lower transportation expenses",
-      "Extra morning sleep time",
-      "Free breakfast at the office"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "What does Human Resources recommend employees do?",
-    "choices": [
-      "Incorporate walking into their daily routines",
-      "Use public transportation more frequently",
-      "Start working from home on Tuesdays",
-      "Wake up before 6:00 a.m. every day"
+      "Maintaining continuous sleep",
+      "Waking up at 1:00 a.m. every day",
+      "Avoiding video games entirely",
+      "Taking public transit daily"
     ],
     "answer": 0
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 6:30 a.m. today.",
-    "hint": "私は今日、午前6時半に起きました。",
-    "focus": "時刻を表す「at + 時間」の発音とリズムに注意しましょう。"
+    "target": "I woke up at 1:00 a.m. and played Final Fantasy Resonance.",
+    "hint": "私は午前1時に目が覚めて、ファイナルファンタジー・レゾナンスをプレイしました。",
+    "focus": "時刻を表す「at + 時間」と過去形「woke up」「played」の並列処理"
   },
   {
-    "target": "After getting ready, I went to the office on foot.",
-    "hint": "準備を整えた後、歩いてオフィスへ行きました。",
-    "focus": "「徒歩で」を意味する on foot の前置詞 on を意識して音読しましょう。"
+    "target": "I played a video game for a little while early in the morning.",
+    "hint": "早朝に少しの間ビデオゲームをしました。",
+    "focus": "「for a little while（少しの間）」という期間の表現"
   },
   {
-    "target": "It was a crisp Tuesday morning on October 20, 2026.",
-    "hint": "2026年10月20日火曜日の、爽やかな朝でした。",
-    "focus": "日付（October 20）と曜日（Tuesday）の並べ方と清々しい気候を表す crisp の発音練習です。"
+    "target": "After playing the game, I took a short nap.",
+    "hint": "ゲームをした後、短い仮眠をとりました。",
+    "focus": "前置詞 after の後の動名詞（playing）と「take a nap」の過去形"
   },
   {
-    "target": "Walking to work took about 30 minutes.",
-    "hint": "職場まで歩くのに約30分かかりました。",
-    "focus": "時間を要することを表す「It took + 時間」の表現に慣れましょう。"
+    "target": "At 5:00 a.m., I got up and prepared for work.",
+    "hint": "午前5時に起きて仕事の準備をしました。",
+    "focus": "「get up（起き上がる）」の過去形 got up の発音"
   },
   {
-    "target": "I arrived at the office around 7:30 a.m.",
-    "hint": "午前7時半ごろにオフィスに到着しました。",
-    "focus": "arrived at のリンキング（音のつながり：アライヴドゥアット）を意識します。"
+    "target": "I decided to go to the office on foot today.",
+    "hint": "今日はオフィスへ徒歩で行くことにしました。",
+    "focus": "「on foot（徒歩で）」の前置詞 on の正しい使用"
   },
   {
-    "target": "I was able to start my tasks early.",
-    "hint": "早く業務を開始することができました。",
-    "focus": "「〜することができた」を表す was able to のスムーズな発音です。"
+    "target": "Walking to work helped me feel fresh and alert.",
+    "hint": "歩いて通勤したことで、気分がすっきりして目が冴えました。",
+    "focus": "動名詞主語「Walking to work」と make/help の使役的ニュアンス"
   },
   {
-    "target": "Commuting on foot was a refreshing way to start the day.",
-    "hint": "徒歩での通勤は、一日を始める爽やかな方法でした。",
-    "focus": "動名詞 Commuting（通勤すること）を主語にした文構造を捉えましょう。"
+    "target": "I arrived at the office early on Friday morning.",
+    "hint": "金曜日の朝、オフィスに早く到着しました。",
+    "focus": "「arrive at + 場所」と「on + 曜日 + morning」の前置詞使い分け"
   }
 ];
 // ==================== STATE ====================
