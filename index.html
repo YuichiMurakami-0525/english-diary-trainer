@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Oct 23, 2026</div>
+  <div class="date-badge">Oct 26, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0100 and play FF resonance. Then I took a nap. At 0500 I got up and went to office on foot.
+  I got up at 0700 then went to office on foot. I did chores. At 1000 I had meeting with Shima-san about menter. I prepared the HP of 2028 bunri kazei. At 1300 I had meeting with Yanetani-san about seminar. Then I left office at 1530 and went to Nerima to have massage. Then I went back to office. I submitted SaTaSho kousei seikyu shorui.
 </div>
 
 <div class="tabs">
@@ -242,262 +242,254 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0100 and play FF resonance. Then I took a nap. At 0500 I got up and went to office on foot.";;;;;;;;;;;;;;;
+const diaryOriginal = "I got up at 0700 then went to office on foot. I did chores. At 1000 I had meeting with Shima-san about menter. I prepared the HP of 2028 bunri kazei. At 1300 I had meeting with Yanetani-san about seminar. Then I left office at 1530 and went to Nerima to have massage. Then I went back to office. I submitted SaTaSho kousei seikyu shorui.";;;;;;;;;;;;;;;;
 
-const diaryCorrected = "I woke up at 1:00 a.m. and played Final Fantasy Resonance. After that, I took a short nap. At 5:00 a.m., I got up again and went to the office on foot.";;;;;;;;;;;;;;;
+const diaryCorrected = "I got up at 7:00 a.m. and walked to the office. I took care of some routine chores. At 10:00 a.m., I had a meeting with Mr. Shima regarding the mentoring program. Later, I prepared the website content for the 2028 separate taxation system. At 1:00 p.m., I held a meeting with Ms. Yanetani about the seminar. I left the office at 3:30 p.m. and went to Nerima to get a massage. Afterwards, I returned to the office and submitted the application documents for tax reassessment.";;;;;;;;;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "日記の「play」の時制に関するエラーです。過去の出来事を並べて述べる際、正しい形はどれですか？",
-    "sentence": "I got up at 1:00 a.m. and _____ Final Fantasy Resonance.",
+    "q": "「徒歩で職場に行った」と述べる際、名詞 office の前に必要な冠詞を選んでください。",
+    "sentence": "I got up at 7:00 a.m. and went to _____ office on foot.",
     "choices": [
-      "played",
-      "play",
-      "playing",
-      "plays"
-    ],
-    "answer": 0,
-    "explain": "過去の出来事（got up）と同列の動作を表すため、過去形の played にする必要があります。"
-  },
-  {
-    "q": "特定のおフィスの場所へ行く場合、officeの前に必要な冠詞はどれですか？",
-    "sentence": "At 5:00 a.m., I got up and went to _____ office.",
-    "choices": [
-      "the",
       "a",
       "an",
-      "不要"
+      "the",
+      "– (不要)"
     ],
-    "answer": 0,
-    "explain": "自分が勤務している特定の職場（オフィス）を指すため、定冠詞 the をつけて went to the office とします。"
+    "answer": 2,
+    "explain": "特定の自分の職場を指すため、定冠詞 the を補って to the office とするのが自然です。"
   },
   {
-    "q": "「徒歩で」を意味する正しく自然な表現の選択肢はどれですか？",
-    "sentence": "I was feeling energetic, so I decided to go to work _____ foot.",
+    "q": "「ミーティングがあった」を表す際、名詞 meeting につける適切な冠詞を選んでください。",
+    "sentence": "At 10:00 a.m., I had _____ meeting with Mr. Shima.",
     "choices": [
-      "on",
-      "by",
-      "with",
-      "in"
+      "a",
+      "an",
+      "the",
+      "– (不要)"
     ],
     "answer": 0,
-    "explain": "「徒歩で」は慣用表現で on foot と言います。乗り物（by bus, by train）とは異なり on を使います。"
+    "explain": "meeting は数えられる名詞（可算名詞）です。「ある1つの会議」を指すため不定冠詞 a が必要です。"
   },
   {
-    "q": "「1:00に」のように特定の時刻を表す前置詞はどれですか？",
-    "sentence": "I unexpectedly woke up _____ 1:00 a.m.",
+    "q": "「メンター制度・指導」を表す正しい英語表現（語形）を選んでください。",
+    "sentence": "We discussed the _____ program during our morning meeting.",
     "choices": [
-      "at",
+      "menter",
+      "mentoring",
+      "mentored",
+      "mentoree"
+    ],
+    "answer": 1,
+    "explain": "日記の menter は誤記です。指導制度やプログラムを指す場合は動名詞/形容詞的役割の mentoring を用いて mentoring program と表現します。"
+  },
+  {
+    "q": "英語で「ウェブサイト・ホームページ」を指す際、最も一般的で自然な単語を選んでください。",
+    "sentence": "I prepared the content for our official _____.",
+    "choices": [
+      "HP",
+      "webpage",
+      "website",
+      "home top"
+    ],
+    "answer": 2,
+    "explain": "日本語の「HP（ホームページ）」は和製英語的で、英語では個人のトップページを指すことがあります。サイト全体を指す場合は website が適切です。"
+  },
+  {
+    "q": "「マッサージを受ける」を表す英文の空欄に入る適切な冠詞を選んでください。",
+    "sentence": "I went to Nerima to get _____ massage.",
+    "choices": [
+      "a",
+      "the",
+      "some",
+      "– (不要)"
+    ],
+    "answer": 0,
+    "explain": "massage は1回の施術を指す可算名詞として扱われるため、get a massage / have a massage と不定冠詞 a が必要です。"
+  },
+  {
+    "q": "日常会話や一般の日記で「午前7時に」を表現する適切な前置詞を選んでください。",
+    "sentence": "I woke up early _____ 7:00 a.m. this morning.",
+    "choices": [
       "on",
       "in",
-      "to"
+      "at",
+      "for"
     ],
-    "answer": 0,
-    "explain": "ピンポイントの時間・時刻を表すときは前置詞 at を使用します。"
+    "answer": 2,
+    "explain": "時刻（7:00 a.m.など）の前には前置詞 at を使用します。また、「0700」という軍事表記より 7:00 a.m. が一般的です。"
   },
   {
-    "q": "「仮眠をとる」を意味する動詞の組み合わせとして正しいものはどれですか？",
-    "sentence": "I felt sleepy after gaming, so I decided to _____ a nap.",
+    "q": "「オフィスを出た（退社した）」を表す英文の空欄に入る語を選んでください。",
+    "sentence": "I left _____ office at 3:30 p.m.",
     "choices": [
-      "take",
-      "make",
-      "do",
-      "have to"
+      "a",
+      "an",
+      "the",
+      "some"
     ],
-    "answer": 0,
-    "explain": "「仮眠をとる」は take a nap または have a nap を使用します。選択肢の中では take が正解です。"
+    "answer": 2,
+    "explain": "「自分が働いているそのオフィス」という特定の場所を指すため、left the office のように定冠詞 the が必要です。"
   },
   {
-    "q": "「ベッドから起き上がる」という意味で使われる熟語の過去形はどれですか？",
-    "sentence": "At 5:00 a.m., I _____ up and started getting ready.",
+    "q": "「税金の更正の請求（再査定・修正請求）」を意味するビジネス単語を選んでください。",
+    "sentence": "I submitted a request for tax _____ to the tax office.",
     "choices": [
-      "got",
-      "rose up",
-      "woke",
-      "raised"
+      "reassessment",
+      "recreation",
+      "receipt",
+      "reduction"
     ],
     "answer": 0,
-    "explain": "「目が覚める」は wake up、「ベッドから起き上がる」は get up です。過去形は got up になります。"
-  },
-  {
-    "q": "文と文をつなぎ「その後、それから」を意味するつなぎ言葉（副詞）はどれですか？",
-    "sentence": "I played a video game for two hours. _____, I took a short nap.",
-    "choices": [
-      "Then",
-      "Because",
-      "Although",
-      "Unless"
-    ],
-    "answer": 0,
-    "explain": "順序を表して「それから／その後」と言う場合は Then または After that が適しています。"
-  },
-  {
-    "q": "「午前1時」を英語で表記・発話する際の一般的な形はどれですか？",
-    "sentence": "The train leaves early in the morning at 1:00 _____.",
-    "choices": [
-      "a.m.",
-      "o'clock a.m.",
-      "clock",
-      "hours"
-    ],
-    "answer": 0,
-    "explain": "数字の後に a.m.（午前）をつけるのが一般的です。1:00 o'clock a.m. のように o'clock と a.m. を同時に使うのは二重表現となり不自然です。"
+    "explain": "元の表記「SaTaSho kousei seikyu」は税務署への更正の請求のことです。税金の再評価・更正は tax reassessment や tax correction と表現します。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I woke up at 1:00 a.m. and played Final Fantasy Resonance.",
-    "q": "What time did the speaker wake up initially?",
+    "text": "I got up at 7:00 a.m. and walked to the office.",
+    "q": "How did the writer travel to the office on Monday morning?",
     "choices": [
-      "At 1:00 a.m.",
-      "At 5:00 a.m.",
-      "At 1:00 p.m.",
-      "At 5:00 p.m."
-    ],
-    "answer": 0
-  },
-  {
-    "text": "After playing the game for a while, I took a short nap.",
-    "q": "What did the speaker do right after playing the video game?",
-    "choices": [
-      "Took a short nap",
-      "Walked to work",
-      "Ate breakfast",
-      "Left the house"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "At 5:00 a.m., I got up again and prepared for my day.",
-    "q": "When did the speaker get up for the second time?",
-    "choices": [
-      "At 5:00 a.m.",
-      "At 1:00 a.m.",
-      "At 6:00 a.m.",
-      "At 7:00 a.m."
-    ],
-    "answer": 0
-  },
-  {
-    "text": "I went to the office on foot because the weather was fine.",
-    "q": "How did the speaker travel to the office?",
-    "choices": [
-      "By walking",
       "By train",
       "By bus",
+      "On foot",
       "By bicycle"
+    ],
+    "answer": 2
+  },
+  {
+    "text": "At 10:00 a.m., I had a meeting with Mr. Shima regarding the mentoring program.",
+    "q": "Who did the writer discuss the mentoring program with at 10:00 a.m.?",
+    "choices": [
+      "Mr. Shima",
+      "Ms. Yanetani",
+      "A massage therapist",
+      "A tax officer"
     ],
     "answer": 0
   },
   {
-    "text": "The morning walk helped me feel refreshed despite sleeping very little.",
-    "q": "How did the walk affect the speaker?",
+    "text": "I prepared the website content for the 2028 separate taxation system.",
+    "q": "What task did the writer complete regarding the 2028 separate taxation system?",
     "choices": [
-      "It helped the speaker feel refreshed.",
-      "It made the speaker feel extremely tired.",
-      "It caused the speaker to be late.",
-      "It hurt the speaker's legs."
+      "Submitted tax documents",
+      "Prepared website content",
+      "Attended a seminar",
+      "Scheduled a meeting"
     ],
-    "answer": 0
+    "answer": 1
+  },
+  {
+    "text": "I left the office at 3:30 p.m. and went to Nerima to get a massage.",
+    "q": "Why did the writer travel to Nerima in the afternoon?",
+    "choices": [
+      "To meet Ms. Yanetani",
+      "To visit a client",
+      "To get a massage",
+      "To file a tax claim"
+    ],
+    "answer": 2
+  },
+  {
+    "text": "Afterwards, I returned to the office and submitted the application documents for tax reassessment.",
+    "q": "What did the writer do after returning to the office?",
+    "choices": [
+      "Attended a seminar",
+      "Took a short break",
+      "Had another meeting",
+      "Submitted tax correction documents"
+    ],
+    "answer": 3
   }
 ];
-const readingPassage = `Memo: Daily Activity Log and Commute Observation
-Date: October 23, 2026
-Reporter: Employee Activity Tracking Committee
-
-This report <span class="highlight">summarizes</span> an early-morning schedule observed on Friday, October 23, 2026. The subject <span class="highlight">awakened</span> unusually early at 1:00 a.m. and spent time playing a video game, Final Fantasy Resonance, for relaxation. Following this activity, the individual <span class="highlight">rested</span> for a brief period by taking a nap to recharge.
-
-At 5:00 a.m., the subject <span class="highlight">commenced</span> their morning routine. Instead of utilizing public transportation or driving, the subject chose to travel to the office <span class="highlight">on foot</span>. This decision was made to incorporate light exercise into the early schedule before standard business hours.
-
-Observations indicate that early waking combined with moderate physical activity, such as walking, can significantly increase morning <span class="highlight">productivity</span>. However, maintaining continuous sleep remains essential for long-term health. Employees are encouraged to balance recreation and proper sleep routines to ensure optimal daily performance at the work site.`;
+const readingPassage = `<b>MEMORANDUM</b><br><br><b>Date:</b> October 26, 2026<br><b>To:</b> Operations Management<br><b>From:</b> Staff Member<br><b>Subject:</b> Daily Business Activity Report<br><br>This report outlines the primary business activities completed on Monday, October 26, 2026.<br><br>In the morning, I arrived at the workplace following a brief <span class="highlight">commute</span> and immediately handled routine administrative tasks. At 10:00 a.m., I held a discussion with Mr. Shima regarding the upcoming <span class="highlight">mentoring</span> initiative. Following this meeting, I prepared updated promotional content for our official website regarding the 2028 <span class="highlight">separate taxation</span> system.<br><br>In the afternoon, I met with Ms. Yanetani at 1:00 p.m. to finalize arrangements for an upcoming seminar. At 3:30 p.m., I briefly left the office to travel to Nerima for personal health maintenance. Upon returning to the office later in the afternoon, I completed and <span class="highlight">submitted</span> the necessary administrative filings for a tax <span class="highlight">reassessment</span> request. All daily objectives were successfully achieved.`;
 
 const readingQuestions = [
   {
-    "q": "What is the main purpose of this memo?",
+    "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To summarize an employee's early-morning routine and commute",
-      "To announce a change in company business hours",
-      "To advertise a new video game released on October 23",
-      "To penalize an employee for coming to work too early"
+      "To request time off for personal appointments",
+      "To summarize work activities completed during the day",
+      "To announce changes to the separate taxation system",
+      "To invite staff members to an upcoming seminar"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
-    "q": "What did the subject do at 1:00 a.m.?",
+    "q": "What topic was discussed during the 10:00 a.m. meeting?",
     "choices": [
-      "Played a video game for relaxation",
-      "Began walking to the office",
-      "Attended a business meeting",
-      "Drove to a local train station"
+      "Website technical updates",
+      "A mentoring initiative",
+      "Tax correction procedures",
+      "Seminar logistics"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
-    "q": "How did the subject commute to work at 5:00 a.m.?",
+    "q": "According to the passage, what did the staff member do after meeting with Ms. Yanetani?",
     "choices": [
-      "On foot",
-      "By public bus",
-      "By company car",
-      "By bicycle"
+      "Commuted to the office",
+      "Prepared website materials",
+      "Left the office to go to Nerima",
+      "Submitted tax filings"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
-    "q": "What benefit of walking to work is mentioned in the report?",
+    "q": "What action was taken regarding the tax reassessment request?",
     "choices": [
-      "It can increase morning productivity.",
-      "It eliminates the need for any sleep.",
-      "It reduces company transportation expenses.",
-      "It shortens the commute time significantly."
+      "It was rejected by management.",
+      "It was postponed until next week.",
+      "The application documents were submitted.",
+      "It was reviewed by Mr. Shima."
     ],
-    "answer": 0
+    "answer": 2
   },
   {
-    "q": "According to the passage, what is recommended for long-term health?",
+    "q": "The word 'commute' in paragraph 2 is closest in meaning to:",
     "choices": [
-      "Maintaining continuous sleep",
-      "Waking up at 1:00 a.m. every day",
-      "Avoiding video games entirely",
-      "Taking public transit daily"
+      "travel to work",
+      "exercise routine",
+      "business transaction",
+      "conference call"
     ],
     "answer": 0
   }
 ];
 const speakingExercises = [
   {
-    "target": "I woke up at 1:00 a.m. and played Final Fantasy Resonance.",
-    "hint": "私は午前1時に目が覚めて、ファイナルファンタジー・レゾナンスをプレイしました。",
-    "focus": "時刻を表す「at + 時間」と過去形「woke up」「played」の並列処理"
+    "target": "I got up at 7:00 a.m. and walked to the office.",
+    "hint": "今朝は7時に起きて、徒歩でオフィスへ行きました。",
+    "focus": "時刻を表す at 7:00 a.m. と「歩いて行った」を表す walked to the office の表現。"
   },
   {
-    "target": "I played a video game for a little while early in the morning.",
-    "hint": "早朝に少しの間ビデオゲームをしました。",
-    "focus": "「for a little while（少しの間）」という期間の表現"
+    "target": "I took care of some routine chores in the morning.",
+    "hint": "午前中にいくつかの日常的な雑務を片付けました。",
+    "focus": "「雑務を片付ける」を表す take care of routine chores というフレーズ。"
   },
   {
-    "target": "After playing the game, I took a short nap.",
-    "hint": "ゲームをした後、短い仮眠をとりました。",
-    "focus": "前置詞 after の後の動名詞（playing）と「take a nap」の過去形"
+    "target": "At 10:00 a.m., I had a meeting with Mr. Shima regarding the mentoring program.",
+    "hint": "午前10時に、嶋さんとメンター制度に関する打ち合わせをしました。",
+    "focus": "have a meeting with ... の可算名詞 a と、「～に関して」を表す regarding の使い方。"
   },
   {
-    "target": "At 5:00 a.m., I got up and prepared for work.",
-    "hint": "午前5時に起きて仕事の準備をしました。",
-    "focus": "「get up（起き上がる）」の過去形 got up の発音"
+    "target": "I prepared the website content for the 2028 separate taxation system.",
+    "hint": "2028年の分離課税制度に関するウェブサイトのコンテンツを準備しました。",
+    "focus": "「ホームページ」を website と言い、「分離課税」を separate taxation system と表現する点。"
   },
   {
-    "target": "I decided to go to the office on foot today.",
-    "hint": "今日はオフィスへ徒歩で行くことにしました。",
-    "focus": "「on foot（徒歩で）」の前置詞 on の正しい使用"
+    "target": "At 1:00 p.m., I held a meeting with Ms. Yanetani about the seminar.",
+    "hint": "午後1時に、屋根谷さんとセミナーについてのミーティングを行いました。",
+    "focus": "held a meeting (会議を開催した) というビジネスでよく使う動詞表現。"
   },
   {
-    "target": "Walking to work helped me feel fresh and alert.",
-    "hint": "歩いて通勤したことで、気分がすっきりして目が冴えました。",
-    "focus": "動名詞主語「Walking to work」と make/help の使役的ニュアンス"
+    "target": "I left the office at 3:30 p.m. and went to Nerima to get a massage.",
+    "hint": "午後3時30分に退社し、マッサージを受けるため練馬へ行きました。",
+    "focus": "退社する left the office の定冠詞 the と、マッサージを受ける get a massage の不定冠詞 a。"
   },
   {
-    "target": "I arrived at the office early on Friday morning.",
-    "hint": "金曜日の朝、オフィスに早く到着しました。",
-    "focus": "「arrive at + 場所」と「on + 曜日 + morning」の前置詞使い分け"
+    "target": "Afterwards, I returned to the office and submitted the documents for tax reassessment.",
+    "hint": "その後オフィスに戻り、税の更正請求書を提出しました。",
+    "focus": "接続副詞 Afterwards（その後）と「更正請求・税の再評価」を表す tax reassessment。"
   }
 ];
 // ==================== STATE ====================
