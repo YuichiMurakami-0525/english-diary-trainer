@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Nov 05, 2026</div>
+  <div class="date-badge">Nov 09, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0600 then went to office on foot. I recorded one youtube.
+  I got up at 0600 then went to office on foot.
 </div>
 
 <div class="tabs">
@@ -242,98 +242,86 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0600 then went to office on foot. I recorded one youtube.";;;;;;;;;;;;;;;;;;
+const diaryOriginal = "I got up at 0600 then went to office on foot.";;;;;;;;;;;;;;;;;;;
 
-const diaryCorrected = "I got up at 6:00 a.m. this morning. Then, I went to the office on foot. Walking to work helped me stay healthy and energized. After finishing my regular work, I prepared my equipment. Then, I recorded a YouTube video for my channel. The recording process went smoothly without any trouble. Overall, it was a very productive Thursday.";;;;;;;;;;;;;;;;;;
+const diaryCorrected = "I got up at 6:00 a.m. this morning. After getting dressed, I ate a quick breakfast. Then, I went to the office on foot instead of taking the train. Walking to work was very refreshing because the morning air was crisp. I arrived at the office early and started my work. It was a productive start to my Monday. I hope to maintain this healthy routine for the rest of the week.";;;;;;;;;;;;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "「午前6時に起きた」を英語で表す際、時刻表記として最も適切なものはどれですか？",
-    "sentence": "I woke up _____ this morning.",
-    "choices": [
-      "at 6:00 a.m.",
-      "at 0600 time",
-      "on 6:00 a.m.",
-      "in 6 o'clock"
-    ],
-    "answer": 0,
-    "explain": "英語で時刻を表す際は「at + 数字 + a.m./p.m.」の形が一般的です。「0600」は軍事時間（military time）で日常会話ではあまり使われません。"
-  },
-  {
-    "q": "「オフィスに行く」を表す際、特定のお勤め先を指す場合に必要な冠詞を選びましょう。",
-    "sentence": "I left home early and went to _____ office.",
+    "q": "「オフィスに行く」を表す際、名詞 office の前に必要な冠詞はどれですか？（元の文：went to office）",
+    "sentence": "I left home and went to _____ office at 7:30 a.m.",
     "choices": [
       "the",
       "a",
       "an",
-      "（冠詞なし）"
+      "（不要）"
     ],
     "answer": 0,
-    "explain": "「（自分が勤めている特定の中の）オフィス」を指す場合は定冠詞 the をつけて go to the office と表現するのが一般的です。"
+    "explain": "特定の位置や勤務先としてのオフィスを指す場合、通常定冠詞 the を伴って go to the office と表現します。"
   },
   {
-    "q": "「徒歩で」移動したことを表す正しい前置詞を選びましょう。",
-    "sentence": "Instead of taking the bus, I went to work _____ foot.",
+    "q": "「徒歩で」を意味する最も自然な英語の表現はどれですか？（元の文：on foot）",
+    "sentence": "She prefers to commute _____ foot when the weather is nice.",
     "choices": [
-      "on",
       "by",
+      "on",
       "with",
-      "in"
+      "for"
     ],
-    "answer": 0,
-    "explain": "交通手段で「徒歩で」と言うときは on foot を使います。by bus や by train のように by を使うのは乗り物の時だけです。"
+    "answer": 1,
+    "explain": "「徒歩で」は慣用表現で on foot と言います。交通手段で by を使う場合でも by foot とは言わないため注意しましょう。"
   },
   {
-    "q": "「YouTubeの動画を1本撮影した」を表す正しい表現を選びましょう。",
-    "sentence": "After work, I recorded _____ for my channel.",
+    "q": "「午前6時に」という時刻を日常英語で正しく表す前置詞はどれですか？（元の文：at 0600）",
+    "sentence": "My alarm rang _____ 6:00 a.m. sharp.",
     "choices": [
-      "a YouTube video",
-      "one youtube",
-      "a youtube",
-      "one YouTube's video"
+      "at",
+      "in",
+      "on",
+      "for"
     ],
     "answer": 0,
-    "explain": "YouTubeはプラットフォーム名なので、動画そのものは a YouTube video と呼びます。a youtube だけでは不自然です。"
+    "explain": "特定の時刻を表すときは前置詞 at を使用します。また「0600」は軍隊などで使われる表記のため、一般的な日常会話や日記では 6:00 a.m. と表します。"
   },
   {
-    "q": "「起きる（get up）」の過去形として正しいものを選びましょう。",
-    "sentence": "I _____ up early today to prepare for my busy schedule.",
+    "q": "「朝起きる」を意味する熟語 get up の過去形として正しいものはどれですか？",
+    "sentence": "I _____ early this morning to prepare for the meeting.",
     "choices": [
-      "got",
-      "get",
-      "gotten",
-      "getting"
+      "got up",
+      "get up",
+      "got off",
+      "getting up"
     ],
     "answer": 0,
-    "explain": "過去の出来事を話しているため、動詞 get の過去形 got を使用します。"
+    "explain": "日記など過去の出来事を述べる際は、get の過去形 got を用いて got up（起きた）とします。"
   },
   {
-    "q": "「動画を録画する・撮影する」の意味で使われる適切な動詞を選びましょう。",
-    "sentence": "I planned to _____ a new instructional video in the evening.",
+    "q": "「電車に乗る代わりに」という文脈で使われる適切な熟語はどれですか？",
+    "sentence": "I walked to the workplace _____ taking the crowded bus.",
     "choices": [
-      "record",
-      "write",
-      "listen",
-      "speak"
+      "instead of",
+      "because of",
+      "in spite of",
+      "due to"
     ],
     "answer": 0,
-    "explain": "映像や音声を録画・録音する場合は record（または film）を使用します。"
+    "explain": "「～する代わりに」は instead of + 動名詞(-ing) で表します。"
   },
   {
-    "q": "「その後、〜した」と出来事の順序を表す接続副詞を選びましょう。",
-    "sentence": "I walked to the office. _____, I started checking my emails.",
+    "q": "「朝の空気が清々しい・冷んやりして心地よい」を意味する形容詞はどれですか？",
+    "sentence": "The morning air was very _____ and invigorating today.",
     "choices": [
-      "Then",
-      "So that",
-      "Because",
-      "Although"
+      "crisp",
+      "heavy",
+      "dark",
+      "dull"
     ],
     "answer": 0,
-    "explain": "「それから」「その後」と行動を順番に述べる際には Then が最も適しています。"
+    "explain": "crisp は「（天候や空気が）清々しい、爽やかで心地よく冷たい」という意味を表す形容詞です。"
   },
   {
-    "q": "「実りある、生産的な」という意味の形容詞を選びましょう。",
-    "sentence": "I managed to complete all my tasks, so it was a very _____ day.",
+    "q": "文脈に合う「生産的な、効率的な」という意味の形容詞はどれですか？",
+    "sentence": "Starting the day early leads to a very _____ morning.",
     "choices": [
       "productive",
       "product",
@@ -341,7 +329,19 @@ const vocabQuestions = [
       "productively"
     ],
     "answer": 0,
-    "explain": "「充実した」「生産的な」という意味の形容詞は productive です。It was a productive day で「充実した1日だった」となります。"
+    "explain": "名詞 morning を修飾する形容詞が必要なため、productive（生産的な）が正解です。"
+  },
+  {
+    "q": "「そしてそのあと」と順序を自然につなぐ接続表現はどれですか？（元の文：then の使い方）",
+    "sentence": "I finished my coffee, _____ I left for work.",
+    "choices": [
+      "and then",
+      "although",
+      "because",
+      "so that"
+    ],
+    "answer": 0,
+    "explain": "前後の動作を時間の順序に従ってスムーズにつなげるには and then（そしてそのあと）を使用するのが自然です。"
   }
 ];
 const listeningQuestions = [
@@ -352,105 +352,116 @@ const listeningQuestions = [
       "At 6:00 a.m.",
       "At 6:30 a.m.",
       "At 7:00 a.m.",
-      "At 8:00 a.m."
+      "At 7:30 a.m."
     ],
     "answer": 0
   },
   {
-    "text": "Then, I went to the office on foot.",
-    "q": "How did the speaker get to the office?",
+    "text": "Then, I went to the office on foot instead of taking the train.",
+    "q": "How did the speaker travel to the office?",
     "choices": [
       "By walking",
-      "By bus",
-      "By train",
-      "By car"
+      "By taking a train",
+      "By riding a bus",
+      "By driving a car"
     ],
     "answer": 0
   },
   {
-    "text": "Walking to work helped me stay healthy and energized.",
-    "q": "According to the speaker, what was the benefit of walking to work?",
+    "text": "Walking to work was very refreshing because the morning air was crisp.",
+    "q": "Why did the speaker find the walk enjoyable?",
     "choices": [
-      "It kept the speaker healthy and full of energy.",
-      "It saved a lot of transportation money.",
-      "It allowed the speaker to meet colleagues.",
-      "It shortened the commuting time."
+      "Because the morning air was pleasant and cool",
+      "Because they met a friend along the way",
+      "Because the train was delayed",
+      "Because it was warm and sunny"
     ],
     "answer": 0
   },
   {
-    "text": "After finishing my regular work, I prepared my equipment.",
-    "q": "What did the speaker do after completing regular office duties?",
+    "text": "I arrived at the office early and started my work.",
+    "q": "What happened when the speaker reached the office?",
     "choices": [
-      "Got equipment ready",
-      "Went home immediately",
-      "Attended a meeting",
-      "Ate dinner at a restaurant"
+      "They arrived ahead of time and began working",
+      "They realized they were late for a meeting",
+      "They had breakfast at their desk",
+      "They waited outside for the building to open"
     ],
     "answer": 0
   },
   {
-    "text": "Then, I recorded a YouTube video for my channel.",
-    "q": "What activity did the speaker do for the channel?",
+    "text": "I hope to maintain this healthy routine for the rest of the week.",
+    "q": "What is the speaker's goal for the coming days?",
     "choices": [
-      "Recorded a video",
-      "Wrote an article",
-      "Edited audio files",
-      "Designed a poster"
+      "To keep up this healthy morning habit",
+      "To switch back to taking the train",
+      "To start walking to work every weekend",
+      "To wake up even earlier tomorrow"
     ],
     "answer": 0
   }
 ];
-const readingPassage = `On Thursday, November 5, 2026, Mr. Tanaka initiated his daily schedule by waking up at 6:00 a.m. To maintain a <span class="highlight">healthy lifestyle</span>, he chose to <span class="highlight">commute</span> to the office on foot rather than relying on public transportation. He noted that walking provided a refreshing start to his workday, allowing him to organize his thoughts prior to entering the workplace. Upon arrival, he spent the core working hours completing his administrative duties efficiently. Following the completion of his regular responsibilities in the evening, he shifted his focus to video production. He set up his recording equipment and successfully <span class="highlight">filmed</span> a new video for his official YouTube channel. The recording session went smoothly without any technical difficulties. Overall, it was a highly <span class="highlight">productive</span> day that successfully balanced physical <span class="highlight">wellness</span> with personal creative goals.`;
+const readingPassage = `MEMORANDUM
+
+To: All Staff
+From: Human Resources Department
+Date: November 9, 2026
+Subject: Morning Commute and Wellness Initiative
+
+As part of our company effort to promote wellness, we are encouraging employees to adopt active commuting habits. Today, several staff members began participating in our new Morning Walking Campaign. Rather than relying solely on public transportation, employees are invited to <span class="highlight">commute</span> <span class="highlight">on foot</span> for all or part of their daily journey.
+
+Walking to work offers numerous health <span class="highlight">benefits</span>, such as improving cardiovascular fitness and helping staff feel more <span class="highlight">refreshed</span> before starting work. Initial feedback from participants indicates that walking in the crisp morning air helped them feel more <span class="highlight">productive</span> throughout the workday.
+
+We encourage everyone to <span class="highlight">maintain</span> this healthy routine throughout November. For those living far away, consider stepping off the train one station early. Please record your active commute days on the HR portal by Friday to earn wellness rewards points.`;
 
 const readingQuestions = [
   {
-    "q": "What is the main purpose of the report?",
+    "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To summarize an employee's daily activities on November 5",
-      "To promote a new YouTube channel launch",
-      "To announce a change in company commuting policy",
-      "To give instructions on how to record videos"
+      "To promote a company wellness initiative focused on walking",
+      "To announce changes to public transportation schedules",
+      "To inform staff about mandatory overtime hours",
+      "To request feedback on a new office building layout"
     ],
     "answer": 0
   },
   {
-    "q": "How did Mr. Tanaka travel to his office?",
+    "q": "What commute method is being encouraged by HR?",
     "choices": [
-      "He walked.",
-      "He took a bus.",
-      "He rode a bicycle.",
-      "He drove a car."
+      "Walking",
+      "Cycling",
+      "Carpooling",
+      "Taking the express train"
     ],
     "answer": 0
   },
   {
-    "q": "What did Mr. Tanaka do after finishing his office duties?",
+    "q": "According to the memo, how did early participants feel after walking to work?",
     "choices": [
-      "He created video content for YouTube.",
-      "He held a meeting with clients.",
-      "He exercised in a gym.",
-      "He bought new recording equipment."
+      "More productive during their workday",
+      "Too tired to complete their work",
+      "Stressed about arriving late",
+      "Eager to leave work early"
     ],
     "answer": 0
   },
   {
-    "q": "What advantage of walking is mentioned in the passage?",
+    "q": "What suggestion is provided for employees who live far from the office?",
     "choices": [
-      "It helped him organize his thoughts before work.",
-      "It reduced his daily commuting expenses.",
-      "It helped him arrive earlier than other staff.",
-      "It allowed him to practice speaking skills."
+      "Get off the train one station early and walk",
+      "Move closer to the office location",
+      "Work from home twice a week",
+      "Drive their personal cars instead"
     ],
     "answer": 0
   },
   {
-    "q": "What is indicated about the video recording session?",
+    "q": "What should employees do by Friday to receive rewards points?",
     "choices": [
-      "It proceeded without any technical issues.",
-      "It was canceled due to equipment failure.",
-      "It took longer than originally planned.",
-      "It was conducted during regular office hours."
+      "Log their active commute days on the HR portal",
+      "Submit a doctor's wellness report",
+      "Attend a health seminar",
+      "Sign up for a gym membership"
     ],
     "answer": 0
   }
@@ -459,37 +470,37 @@ const speakingExercises = [
   {
     "target": "I got up at 6:00 a.m. this morning.",
     "hint": "今朝は午前6時に起きました。",
-    "focus": "時刻を表す at 6:00 a.m. の正確な発音とリズム"
+    "focus": "時刻を表す前置詞 at と past tense（過去形 got up）の発音を意識しましょう。"
   },
   {
-    "target": "Then, I went to the office on foot.",
-    "hint": "それから、徒歩でオフィスへ行きました。",
-    "focus": "「徒歩で」を意味する on foot のフレーズ表現"
+    "target": "After getting dressed, I ate a quick breakfast.",
+    "hint": "着替えた後、簡単に朝食を食べました。",
+    "focus": "「After + 動名詞 (-ing)」の構文と、quick のクリアな発音に注意します。"
   },
   {
-    "target": "Walking to work helped me stay healthy and energized.",
-    "hint": "徒歩通勤は健康を保ち、元気に過ごすのに役立ちました。",
-    "focus": "動名詞 Walking と help + 目的語 + 原形動詞 の構文"
+    "target": "Then, I went to the office on foot instead of taking the train.",
+    "hint": "それから、電車に乗る代わりに徒歩でオフィスへ行きました。",
+    "focus": "on foot（徒歩で）と instead of + -ing（～する代わりに）をスムーズにつなげましょう。"
   },
   {
-    "target": "After finishing my regular work, I prepared my equipment.",
-    "hint": "通常の仕事を終えた後、機材の準備をしました。",
-    "focus": "前置詞 After の後の動名詞 finishing のイントネーション"
+    "target": "Walking to work was very refreshing because the morning air was crisp.",
+    "hint": "朝の空気が澄んでいてすがすがしかったので、歩いて出勤するのはとてもリフレッシュできました。",
+    "focus": "形容詞 refreshing と crisp の意味・発音を意識して文節ごとに区切って発声しましょう。"
   },
   {
-    "target": "Then, I recorded a YouTube video for my channel.",
-    "hint": "それから、自分のチャンネル用にYouTube動画を1本録画しました。",
-    "focus": "「動画を録画する」を表す recorded a YouTube video のコロケーション"
+    "target": "I arrived at the office early and started my work.",
+    "hint": "早くオフィスに到着し、仕事を始めました。",
+    "focus": "「arrive at + 場所」の結びつきと、過去形 arrived / started の語尾のリンキングを練習します。"
   },
   {
-    "target": "The recording process went smoothly without any trouble.",
-    "hint": "録音・録画作業はトラブルもなくスムーズに進みました。",
-    "focus": "副詞 smoothly と前置詞句 without any trouble のつながり"
+    "target": "It was a productive start to my Monday.",
+    "hint": "月曜日の幸先の良い（生産的な）スタートとなりました。",
+    "focus": "productive start のアクセントと流れるようなリズムを意識してください。"
   },
   {
-    "target": "Overall, it was a very productive Thursday.",
-    "hint": "全体として、とても充実した木曜日でした。",
-    "focus": "まとめを表す Overall と形容詞 productive の強勢"
+    "target": "I hope to maintain this healthy routine for the rest of the week.",
+    "hint": "今週の残りの日も、この健康的な習慣を維持したいと思います。",
+    "focus": "「hope to + 動詞の原形」および「for the rest of ~」のチャンク（意味のまとまり）を意識して音読しましょう。"
   }
 ];
 // ==================== STATE ====================
