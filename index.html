@@ -211,12 +211,12 @@ body {
 
 <div class="header">
   <h1>English Diary Trainer</h1>
-  <div class="date-badge">Nov 21, 2026</div>
+  <div class="date-badge">Nov 24, 2026</div>
 </div>
 
 <div class="diary-original">
   <div class="label">TODAY'S DIARY</div>
-  I got up at 0630 then went to gym. Then I played Aniimo.
+  I got up at 0530 then went to office on foot.
 </div>
 
 <div class="tabs">
@@ -242,254 +242,265 @@ body {
 
 <script>
 // ==================== DATA ====================
-const diaryOriginal = "I got up at 0630 then went to gym. Then I played Aniimo.";;;;;;;;;;;;;;;;;;;;;
+const diaryOriginal = "I got up at 0530 then went to office on foot.";;;;;;;;;;;;;;;;;;;;;;
 
-const diaryCorrected = "I got up at 6:30 a.m. on Saturday morning. After getting dressed, I went to the gym for a workout. I exercised for about an hour to stay active. When I returned home, I took a refreshing shower. Then, I decided to play my favorite game, Aniimo. I spent a couple of hours playing it and had a great time. It was a very productive and enjoyable start to the weekend.";;;;;;;;;;;;;;;;;;;;;
+const diaryCorrected = "I got up at 5:30 a.m. today. After getting ready, I left my house around 6:00 a.m. Then, I went to the office on foot. Walking to work in the fresh morning air felt very refreshing. It took me about thirty minutes to arrive at my desk. I was able to start my work earlier than usual. I plan to continue this healthy morning routine from now on.";;;;;;;;;;;;;;;;;;;;;;
 
 const vocabQuestions = [
   {
-    "q": "「ジムに行く」と言う際、gymの前に必要な冠詞を選んでください。",
-    "sentence": "I got up early and went to _____ gym.",
+    "q": "「5時30分に」と時刻を表す際の正しい英文を選びましょう。日記の「0530」は表記として不自然です。",
+    "sentence": "I woke up _____ 5:30 a.m. this morning.",
     "choices": [
-      "a",
-      "the",
-      "an",
-      "（不要）"
-    ],
-    "answer": 1,
-    "explain": "特定の施設（普段利用しているジムなど）を指す場合、通常「go to the gym」のように定冠詞 the が必要です。"
-  },
-  {
-    "q": "時刻を表す「6:30に」の適切な前置詞を選んでください。",
-    "sentence": "I woke up _____ 6:30 a.m. this morning.",
-    "choices": [
+      "at",
       "on",
       "in",
-      "at",
-      "for"
-    ],
-    "answer": 2,
-    "explain": "具体的な時刻の前には前置詞「at」を使用します。（例: at 6:30 a.m.）"
-  },
-  {
-    "q": "「そのあと」という意味で、文頭で自然につなげる接続表現を選んでください。",
-    "sentence": "I finished my workout. _____, I returned home.",
-    "choices": [
-      "After that",
-      "After",
-      "Before",
-      "While"
+      "by"
     ],
     "answer": 0,
-    "explain": "「その後」と前の文を受けて話をつなぐには「After that」や「Afterwards」が適切です。「After」単体では後ろに名詞や節が必要です。"
+    "explain": "特定の時刻を表すときは前置詞「at」を使用します。"
   },
   {
-    "q": "過去の出来事を表す動詞「起きる（get up）」の正しい過去形を選んでください。",
-    "sentence": "I _____ up early yesterday morning.",
+    "q": "「オフィスに行く」と言う場合、officeには冠詞が必要です。最も適切な選択肢を選びましょう。",
+    "sentence": "He walked to _____ office early in the morning.",
     "choices": [
-      "get",
-      "gotten",
+      "the",
+      "a",
+      "an",
+      "some"
+    ],
+    "answer": 0,
+    "explain": "特定されている自分の職場（オフィス）を指す場合は定冠詞「the」を付けて「to the office」とします。"
+  },
+  {
+    "q": "「徒歩で」を意味する正しい前置詞を選びましょう。",
+    "sentence": "I usually go to work _____ foot.",
+    "choices": [
+      "on",
+      "by",
+      "with",
+      "in"
+    ],
+    "answer": 0,
+    "explain": "「徒歩で」は慣用表現で「on foot」と言います。交通手段の「by bus」「by train」と混同しないよう注意しましょう。"
+  },
+  {
+    "q": "「起きる」を意味する get up の過去形を選びましょう。",
+    "sentence": "She _____ up early yesterday morning.",
+    "choices": [
       "got",
-      "getting"
+      "get",
+      "getting",
+      "gotten"
     ],
-    "answer": 2,
-    "explain": "日記など過去の出来事を語る際は過去形を使用します。get の過去形は「got」です。"
+    "answer": 0,
+    "explain": "過去の出来事を表すため、get の過去形「got」を使用します。"
   },
   {
-    "q": "英語の日記や文章で「午前6時30分」を表記する最も標準的な形式を選んでください。",
-    "sentence": "The store opens at _____.",
+    "q": "「それから〜した」と出来事の順序をつなぐ接続表現を選びましょう。",
+    "sentence": "I had a cup of coffee, and _____ I left the house.",
     "choices": [
-      "0630 o'clock",
-      "6:30 a.m.",
-      "6.30 hours",
-      "6 and 30 morning"
+      "then",
+      "than",
+      "after",
+      "when"
     ],
-    "answer": 1,
-    "explain": "一般英語では「6:30 a.m.」の形式が最も自然で標準的です。「0630」は軍隊などで使われる表記です。"
+    "answer": 0,
+    "explain": "「そのあと、それから」と動作の順序を示すには副詞「then」が適しています。"
   },
   {
-    "q": "「運動をする・トレーニングをする」という意味の適切な動詞を選んでください。",
-    "sentence": "I went to the gym to _____ for an hour.",
+    "q": "「身支度をする」を意味する表現の正しい形を選びましょう。",
+    "sentence": "After _____ ready, I went outside.",
     "choices": [
-      "workout",
-      "exercise",
-      "practice",
-      "play"
+      "getting",
+      "get",
+      "got",
+      "to get"
     ],
-    "answer": 1,
-    "explain": "体を動かす全般的な「運動する」には動詞「exercise」が適しています。（workoutは動詞として work out と2語で書くか、名詞として用います）"
+    "answer": 0,
+    "explain": "前置詞「after」の直後には動名詞（V-ing）が続くため「getting ready」となります。"
   },
   {
-    "q": "「ゲームをする」を表す正しい動詞を選んでください。",
-    "sentence": "I _____ a video game after coming back home.",
+    "q": "「いつもより早く」を意味する比較表現を選びましょう。",
+    "sentence": "I arrived at work earlier _____ usual.",
     "choices": [
-      "did",
-      "made",
-      "played",
-      "took"
+      "than",
+      "then",
+      "as",
+      "from"
     ],
-    "answer": 2,
-    "explain": "ゲームやスポーツを行うときは動詞「play」を使用します。"
+    "answer": 0,
+    "explain": "「〜より早く」という比較級の文脈では「than usual（いつもより）」を用います。"
   },
   {
-    "q": "「〜へ行った」を表す「go」の過去形を選んでください。",
-    "sentence": "She _____ to the fitness center this morning.",
+    "q": "「朝の日課」を意味する適切な名詞を選びましょう。",
+    "sentence": "Walking in the morning is part of my daily _____.",
     "choices": [
-      "go",
-      "gone",
-      "went",
-      "going"
+      "routine",
+      "routinely",
+      "routined",
+      "routing"
     ],
-    "answer": 2,
-    "explain": "「go」の過去形は「went」です。日記の記述では過去形が基本となります。"
+    "answer": 0,
+    "explain": "「日課・決まった手順」を表す名詞は「routine」です。"
   }
 ];
 const listeningQuestions = [
   {
-    "text": "I got up at 6:30 a.m. on Saturday morning.",
+    "text": "I got up at 5:30 a.m. today.",
     "q": "What time did the speaker wake up?",
     "choices": [
-      "At 6:00 a.m.",
-      "At 6:30 a.m.",
-      "At 7:00 a.m.",
-      "At 7:30 a.m."
+      "A) At 5:30 a.m.",
+      "B) At 6:00 a.m.",
+      "C) At 6:30 a.m.",
+      "D) At 7:00 a.m."
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "text": "After getting dressed, I went to the gym for a workout.",
-    "q": "Where did the speaker go after getting dressed?",
+    "text": "Then, I went to the office on foot.",
+    "q": "How did the speaker travel to the office?",
     "choices": [
-      "To the park",
-      "To the office",
-      "To the gym",
-      "To a game store"
+      "A) On foot",
+      "B) By train",
+      "C) By bicycle",
+      "D) By bus"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
-    "text": "I exercised for about an hour to stay active.",
-    "q": "How long did the speaker exercise?",
+    "text": "Walking to work in the fresh morning air felt very refreshing.",
+    "q": "How did the speaker describe the morning walk?",
     "choices": [
-      "For 30 minutes",
-      "For about an hour",
-      "For two hours",
-      "For half a day"
+      "A) Refreshing",
+      "B) Exhausting",
+      "C) Boring",
+      "D) Stressful"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "text": "When I returned home, I took a refreshing shower.",
-    "q": "What did the speaker do upon returning home?",
+    "text": "It took me about thirty minutes to arrive at my desk.",
+    "q": "How long did it take to reach the desk?",
     "choices": [
-      "Ate breakfast",
-      "Took a shower",
-      "Played Aniimo",
-      "Went to sleep"
+      "A) About 30 minutes",
+      "B) About 15 minutes",
+      "C) About 45 minutes",
+      "D) About 60 minutes"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "text": "Then, I decided to play my favorite game, Aniimo.",
-    "q": "What is Aniimo mentioned as?",
+    "text": "I was able to start my work earlier than usual.",
+    "q": "What was the speaker able to do after arriving early?",
     "choices": [
-      "A gym class",
-      "A morning drink",
-      "The speaker's favorite game",
-      "A workout routine"
+      "A) Start work earlier than usual",
+      "B) Leave the office early",
+      "C) Eat breakfast with colleagues",
+      "D) Take a short morning nap"
     ],
-    "answer": 2
+    "answer": 0
   }
 ];
-const readingPassage = `This official report summarizes an individual activity log recorded on Saturday, November 21, 2026. The subject's morning routine <span class="highlight">commenced</span> at 6:30 a.m. when they woke up and prepared for scheduled events. To maintain physical well-being, the subject promptly visited a local fitness facility for an intensive <span class="highlight">workout session</span>. During this time, various physical activities were performed to enhance personal health and stamina. Upon returning home at approximately 7:45 a.m., the individual completed personal hygiene routines before engaging in a planned <span class="highlight">leisure activity</span>. Specifically, the subject spent time playing a digital video game called Aniimo for relaxation. The overall morning was described as highly <span class="highlight">productive</span> and satisfying, effectively combining healthy exercise with enjoyable entertainment. Such balanced daily routines are strongly <span class="highlight">recommended</span> for adults seeking to manage stress levels while maintaining physical fitness during the weekend.`;
+const readingPassage = `MEMORANDUM
+
+To: All Staff Members
+From: Human Resources Department
+Date: Tuesday, November 24, 2026
+Subject: Morning Productivity and Commuting Habits Survey
+
+As part of our company's health initiative, the Human Resources Department recently conducted a survey regarding employee <span class="highlight">commuting</span> habits and work routines. The results indicate that employees who wake up early and engage in physical activity before work report higher energy levels.
+
+Specifically, staff members who chose to commute to the office <span class="highlight">on foot</span> noted a clear improvement in their morning concentration. Arriving early allows individuals to <span class="highlight">establish</span> a calm environment, organize their tasks efficiently, and reduce work-related <span class="highlight">stress</span>.
+
+We strongly encourage everyone to <span class="highlight">adopt</span> healthy morning habits. Incorporating walking into your daily routine can enhance your overall <span class="highlight">performance</span>. Please contact HR if you have any questions.`;
 
 const readingQuestions = [
   {
-    "q": "What is the primary purpose of this report?",
+    "q": "What is the main purpose of the memorandum?",
     "choices": [
-      "To advertise a new fitness gym",
-      "To summarize an individual's morning activity log",
-      "To review a video game named Aniimo",
-      "To outline a corporate stress management program"
+      "A) To share survey results and encourage healthy morning habits",
+      "B) To announce changes to official working hours",
+      "C) To mandate daily walking for all employees",
+      "D) To explain parking ticket reimbursement procedures"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "At what time did the subject start their morning routine?",
+    "q": "According to the memo, what advantage did employees who walked to work report?",
     "choices": [
-      "6:00 a.m.",
-      "6:30 a.m.",
-      "7:45 a.m.",
-      "8:30 a.m."
+      "A) Better morning concentration",
+      "B) Lower transportation expenses",
+      "C) Shorter work hours",
+      "D) Free breakfast meals"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "Why did the subject visit the local fitness facility?",
+    "q": "What benefit of arriving early is mentioned in the passage?",
     "choices": [
-      "To attend a business meeting",
-      "To play a digital video game",
-      "To participate in a workout session",
-      "To work as a fitness trainer"
+      "A) It allows employees to organize tasks efficiently.",
+      "B) It guarantees a salary bonus.",
+      "C) It shortens the commute time.",
+      "D) It eliminates all evening meetings."
     ],
-    "answer": 2
+    "answer": 0
   },
   {
-    "q": "According to the passage, what did the subject do after taking care of personal hygiene?",
+    "q": "The word 'adopt' in paragraph 3 is closest in meaning to:",
     "choices": [
-      "Went back to sleep",
-      "Played the game Aniimo",
-      "Left for the office",
-      "Prepared breakfast"
+      "A) take up",
+      "B) reject",
+      "C) cancel",
+      "D) discuss"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "How is the morning described in the report?",
+    "q": "Who issued this memorandum?",
     "choices": [
-      "Stressful and exhausting",
-      "Productive and satisfying",
-      "Unplanned and chaotic",
-      "Boring and repetitive"
+      "A) The Human Resources Department",
+      "B) The Chief Executive Officer",
+      "C) The Accounting Department",
+      "D) The Health Insurance Association"
     ],
-    "answer": 1
+    "answer": 0
   }
 ];
 const speakingExercises = [
   {
-    "target": "I got up at 6:30 a.m. on Saturday morning.",
-    "hint": "土曜日の朝、私は午前6時半に起きました。",
-    "focus": "時刻（at 6:30 a.m.）と曜日（on Saturday morning）の前置詞の使い分け"
+    "target": "I got up at 5:30 a.m. today.",
+    "hint": "今日、私は午前5時30分に起きました。",
+    "focus": "時刻を表す「at」の発音と「got up」のリンキング（ガッタップ）。"
   },
   {
-    "target": "After getting dressed, I went to the gym for a workout.",
-    "hint": "服を着替えた後、トレーニングをしにジムへ行きました。",
-    "focus": "「go to the gym（ジムに行く）」の定冠詞 the の補足"
+    "target": "After getting ready, I left my house around 6:00 a.m.",
+    "hint": "準備を済ませた後、午前6時ごろに家を出ました。",
+    "focus": "前置詞 after の後の動名詞「getting ready」と概数を表す「around」。"
   },
   {
-    "target": "I exercised for about an hour to stay active.",
-    "hint": "健康維持のために約1時間運動しました。",
-    "focus": "「for about an hour（約1時間）」と目的を表す不定詞「to stay active」"
+    "target": "Then, I went to the office on foot.",
+    "hint": "それから、徒歩でオフィスに向かいました。",
+    "focus": "「徒歩で」を意味する「on foot」と冠詞「the office」の正しい発音。"
   },
   {
-    "target": "When I returned home, I took a refreshing shower.",
-    "hint": "家に帰ると、さっぱりするシャワーを浴びました。",
-    "focus": "接続詞 When を用いた時を表す節の構成"
+    "target": "Walking to work in the fresh morning air felt very refreshing.",
+    "hint": "朝の新鮮な空気の中を歩いて出勤するのは、とても爽やかに感じられました。",
+    "focus": "動名詞「Walking to work」を文頭の主語として自然に発音するリズム。"
   },
   {
-    "target": "Then, I decided to play my favorite game, Aniimo.",
-    "hint": "それから、お気に入りのゲーム「Aniimo」をプレイすることにしました。",
-    "focus": "「decide to + 動詞原形（〜することにする）」の使い方"
+    "target": "It took me about thirty minutes to arrive at my desk.",
+    "hint": "自分のデスクに到着するまでに約30分かかりました。",
+    "focus": "「It took me + 時間 + to do」構文のスムーズな音読。"
   },
   {
-    "target": "I spent a couple of hours playing it and had a great time.",
-    "hint": "それを2時間ほどプレイして楽しい時間を過ごしました。",
-    "focus": "「spend + 時間 + -ing（〜して時間を過ごす）」の構文"
+    "target": "I was able to start my work earlier than usual.",
+    "hint": "いつもより早く仕事を始めることができました。",
+    "focus": "「was able to」と語尾の「than usual（ダン ユージュアル）」のつながり。"
   },
   {
-    "target": "It was a very productive and enjoyable start to the weekend.",
-    "hint": "とても有意義で楽しい週末のスタートとなりました。",
-    "focus": "形容詞（productive, enjoyable）を使ったまとめの表現"
+    "target": "I plan to continue this healthy morning routine from now on.",
+    "hint": "これからこの健康的な朝の習慣を続けようと思います。",
+    "focus": "「plan to + 動詞の原形」および「from now on（今後は）」のフレーズ強調。"
   }
 ];
 // ==================== STATE ====================
